@@ -5,7 +5,7 @@ At this point just random notes and notebooks, eventually a research project
 
 ## How to generate a simulated box
 
-Ask Laura to document the steps here, and point probably upload to GitHub the config file
+Ask Laura to document the steps here, and upload to GitHub the config file
 
 The simulation output can be found at NERSC:
 
@@ -16,7 +16,7 @@ To see how to read the outputs and make some plots (like CMB lensing x QSOs), ch
 
 ## How to generate the LyaCoLoRe skewers
 
-Ask Laura to document the steps here, and point probably upload to GitHub the config file
+Ask Laura to document the steps here, and upload to GitHub the config file
 
 The Lya skewers (transmission files) can be found at NERSC:
 
@@ -25,7 +25,7 @@ The Lya skewers (transmission files) can be found at NERSC:
 
 ## How to generate the Lya raw deltas
 
-Ask Laura to document the steps here, and point probably upload to GitHub the config file
+Ask Laura to document the steps here, and upload to GitHub the config file
 
 The raw Lya deltas can be found at NERSC:
 
