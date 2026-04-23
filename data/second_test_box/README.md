@@ -1,6 +1,7 @@
 # CoLoRe simulation CMB $\kappa$ values
 
-CMB lensing convergence $\kappa$ values of the second test box from the [CoLoRe simulation](https://github.com/damonge/CoLoRe). The source plane is the standard  last scattering surface of the CMB.
+CMB lensing convergence $\kappa$ values of the second test box from the [CoLoRe simulation](https://github.com/damonge/CoLoRe). 
+The source plane is the fiducial last scattering surface of the CMB.
 
 
 ## CoLoRe simulation config file
