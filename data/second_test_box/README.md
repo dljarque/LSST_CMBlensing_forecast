@@ -26,7 +26,7 @@ global =
 
 kappa =
 {
-    z_out = z_max;
+    z_out = 1100;
     nside = 512;
 };
 
