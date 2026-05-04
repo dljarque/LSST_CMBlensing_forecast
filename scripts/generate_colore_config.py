@@ -1,11 +1,9 @@
 import argparse
 import sys
-import camb
-import numpy as np
 # add the parent directory to the path so we can import from py
 sys.path.append('.')
 
-from py.colore_param_cfg import write_colore_param_cfg, build_camb_cosmology, save_linear_pk
+from py.colore_param_cfg import *
 
 
 def main():
@@ -47,11 +45,13 @@ def main():
         w=args.w,
     )
 
+
     # Get the linear matter power spectrum and save it to a file
     pk_filename = save_linear_pk(
         pars,
         output=args.output
     )
+
 
     # Write the CoLoRe param.cfg file
     write_colore_param_cfg(
@@ -68,6 +68,20 @@ def main():
         ns=args.ns,
         As=args.As,
         w=args.w
+    )
+
+
+    # Write the cosmology.json file for record-keeping
+    write_cosmology(
+        output_file=args.output+"cosmology.json",
+        omega_M=args.omega_M,
+        omega_L=args.omega_L,
+        omega_B=args.omega_B,
+        h=args.h,
+        ns=args.ns,
+        As=args.As,
+        w=args.w,
+        z_out = z_star,
     )
 
 

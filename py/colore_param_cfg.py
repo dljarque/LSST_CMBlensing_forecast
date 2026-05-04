@@ -1,5 +1,6 @@
-import camb
 import numpy as np
+import camb
+import json
 
 
 def build_camb_cosmology(
@@ -103,7 +104,7 @@ def write_colore_param_cfg(
 ):
 
     """
-    Generate CoLoRe param.cfg file from cosmology + paths.
+    Generate CoLoRe param.cfg file from cosmological parameters and other inputs.
 
     Parameters
     ----------
@@ -186,3 +187,38 @@ srcs1 =
         f.write(content.strip())
 
     print(f"Saved config to {output_file}")
+
+
+def write_cosmology(
+    output_file,
+    omega_M,
+    omega_L,
+    omega_B,
+    h,
+    ns,
+    As,
+    w,
+    z_out,
+    z_max=3.8,
+):
+
+    """
+    Generate a JSON file with cosmological parameters and other CoLoRe params for record-keeping and reproducibility.
+    """
+
+    cosmo_par = {
+        "omega_M": omega_M,
+        "omega_L": omega_L,
+        "omega_B": omega_B,
+        "h": h,
+        "ns": ns,
+        "As": As,
+        "w": w,
+        "z_max": z_max,
+        "z_out": f"{z_out:.2f}",
+    }
+
+    with open(output_file, "w") as f:
+        json.dump(cosmo_par, f, indent=4)
+
+    print(f"Saved params to {output_file}")
