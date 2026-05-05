@@ -17,12 +17,11 @@ def main():
     parser.add_argument("--output", required=True)
     parser.add_argument("--filename", required=True)
     parser.add_argument("--prefix_out", required=True)
-    parser.add_argument("--pk_filename", 
-                        default="/global/cfs/cdirs/desicollab/users/cramirez/LyaCoLoRe_mocks_inputs/CoLoRe/PlanckDR12_kmax_matterpower_z0.dat")
+    parser.add_argument("--pk_filename", required=False)
     parser.add_argument("--nz_filename",
-                        default="/global/cfs/cdirs/desicollab/users/lauracdp/photo-z_box/input_files/Nz_qso_130618_2_colore1_hZs.txt")
+                        default="pscratch/sd/d/djarque/cmb_lensing_lya/data/Nz_qso_130618_2_colore1_hZs.txt")
     parser.add_argument("--bias_filename",
-                        default="/global/cfs/cdirs/desicollab/users/lauracdp/photo-z_box/input_files/Bz_qso_G18.txt")
+                        default="pscratch/sd/d/djarque/cmb_lensing_lya/data/Bz_qso_G18.txt")
 
     # Cosmological parameters
     parser.add_argument("--omega_M", type=float, required=True)
@@ -34,6 +33,7 @@ def main():
     parser.add_argument("--w", type=float, default=-1.0)
 
     args = parser.parse_args()
+
 
     # Build CAMB cosmology and get the matter power spectrum
     pars, z_star = build_camb_cosmology(
@@ -51,7 +51,8 @@ def main():
         pars,
         output=args.output
     )
-
+    if args.pk_filename is None:
+        args.pk_filename = f"pscratch/sd/d/djarque/cmb_lensing_lya/{pk_filename}"
 
     # Write the CoLoRe param.cfg file
     write_colore_param_cfg(
@@ -73,7 +74,7 @@ def main():
 
     # Write the cosmology.json file for record-keeping
     write_cosmology(
-        output_file=args.output+"cosmology.json",
+        output_file=args.output+"cosmo_params.json",
         omega_M=args.omega_M,
         omega_L=args.omega_L,
         omega_B=args.omega_B,

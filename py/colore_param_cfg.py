@@ -74,7 +74,7 @@ def save_linear_pk(
     data = np.column_stack([k, pk0])
 
     # Save to file
-    output_pk_file = output+'pk_linear.dat'
+    output_pk_file = f"{output}pk_linear.dat"
     np.savetxt(output_pk_file, data)
 
     print(f"Saved P(k) to {output_pk_file}")
@@ -221,4 +221,4 @@ def write_cosmology(
     with open(output_file, "w") as f:
         json.dump(cosmo_par, f, indent=4)
 
-    print(f"Saved params to {output_file}")
+    print(f"Saved cosmo params to {output_file}")

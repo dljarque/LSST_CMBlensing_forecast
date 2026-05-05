@@ -1,71 +1,16 @@
-# CoLoRe simulation CMB $\kappa$ values
+# CoLoRe simulation CMB lensing values
 
-CMB lensing convergence $\kappa$ values of the first test box from the [CoLoRe simulation](https://github.com/damonge/CoLoRe). 
-The source plane matches the maximum redshift of the simulation.
+CMB lensing convergence $\kappa$ values of the test box from the [CoLoRe simulation](https://github.com/damonge/CoLoRe). 
 
+- File [out_kappa.fits](out_kappa.fits) contains the convergence $\kappa$ values.
+- File [cl_kk.npz](cl_kk.npoz) contains the CMB lensing autospectrum $C_{\ell}^{\kappa \kappa}$
+- File [cl_kk_log.npz](cl_kk_log.npz) contains the log rebinned CMB lensing autospectrum using the [rebin_cls.py](../../scripts/rebin_cls.py) script.
 
-## CoLoRe simulation config file
+## CoLoRe config file
 
-Here you can find the input parameters config file to reproduce this first simulation test box and get the CMB lensing kappa values file.
+The file [param.cfg](param.cfg) contains the input parameters to reproduce the colore box.
 
+## Cosmological parameters
 
-```python
-global =
-{
-    prefix_out = "/global/cfs/cdirs/desicollab/users/lauracdp/cmb_lensing_box/test_box-no-LSST-0/results/out";
-    output_format = "FITS";
-    output_density = True;
-    pk_filename = "/global/cfs/cdirs/desicollab/users/cramirez/LyaCoLoRe_mocks_inputs/CoLoRe/PlanckDR12_kmax_matterpower_z0.dat";
-    z_min = 1.6;
-    z_max = 3.8;
-    write_pred = False;
-    just_write_pred = False;
-    seed = 9;
-    pred_dz = 0.1;
-};
+The file [cosmology.json](cosmology.json) contains the relevant cosmological parameters matching the box along with the box max redshift `z_max` and source plane redshift `z_out`.
 
-kappa =
-{
-    z_out = z_max;
-    nside = 512;
-};
-
-lensing =
-{
-    nside = 512;
-    n_lensing = 11;
-    spacing_type = "r";
-};
-
-field_par =
-{
-    r_smooth = 2;
-    smooth_potential = True;
-    n_grid = 4096;
-    dens_type = 0;
-    lpt_buffer_fraction = 0.6;
-    lpt_interp_type = 1;
-    output_lpt = 0;
-};
-
-cosmo_par =
-{
-    omega_M = 0.3147;
-    omega_L = 0.6853;
-    omega_B = 0.04904;
-    h = 0.6731;
-    w = -1.0;
-    ns = 0.9655;
-    sigma_8 = 0.83;
-};
-
-srcs1 =
-{
-    nz_filename = "/global/cfs/cdirs/desicollab/users/lauracdp/photo-z_box/input_files/Nz_qso_130618_2_colore1_hZs.txt";
-    bias_filename = "/global/cfs/cdirs/desicollab/users/lauracdp/photo-z_box/input_files/Bz_qso_G18.txt";
-    include_shear = False;
-    include_lensing = False;
-    store_skewers = True;
-    gaussian_skewers = True;
-};
-```

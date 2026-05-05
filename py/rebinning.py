@@ -67,16 +67,13 @@ def save_rebinned_cls(data, nbins):
     Read the kappa map from the specified CoLoRe box, compute the power spectrum, rebin it into logarithmic bins, and save the rebinned Cls and their errors to .npy files.
     '''
 
-    # Define the input parameters
-    nbins = 40
-
     # Read the kappa map and compute the power spectrum
     m_k = hp.read_map(f'{data}/out_kappa.fits', hdu=1)
 
     # Compute the power spectrum of the kappa map
     cl_kk = hp.anafast(m_k)  # get the power spectrum Cls
     ell = np.arange(len(cl_kk))  # corresponding multipole moments
-    err_tt = np.sqrt(2 / (2*ell+1)) * cl_kk  # error on the Cls, assuming Gaussianity and no CMB lensing noise
+    err_tt = np.sqrt(2*(cl_kk)**2 / (2*ell + 1))  # error on the Cls, assuming Gaussianity and no CMB lensing noise
     ell_colore_log, cl_kk_log, err_tt_log = log_bin_cls(ell, cl_kk, nbins=nbins)
 
     # Save the rebinned Cls and their errors to .npy files
