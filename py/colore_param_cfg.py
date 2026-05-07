@@ -167,8 +167,6 @@ cosmo_par =
     omega_L = {omega_L};
     omega_B = {omega_B};
     h = {h};
-    ns = {ns};
-    As = {As};
     w = {w};
 }};
 
