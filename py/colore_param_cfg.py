@@ -7,8 +7,8 @@ def build_camb_cosmology(
     omega_M,
     omega_B,
     h,
-    ns,
     As,
+    ns,
     w=-1.0,
 ):
     """
@@ -28,8 +28,8 @@ def build_camb_cosmology(
     )
 
     pars.InitPower.set_params(
-        ns=ns,
-        As=As,  # temporary initial guess
+        As=As,
+        ns=ns,  # temporary initial guess
     )
 
     pars.set_dark_energy(w=w)
@@ -96,6 +96,7 @@ def write_colore_param_cfg(
     omega_B,
     h,
     w,
+    ns,
     sigma_8,
     z_min=1.6,
     z_max=3.8,
@@ -140,7 +141,7 @@ global =
 
 kappa =
 {{
-    z_out = {z_out:.2f};
+    z_out = [{z_out:.2f}];
     nside = {nside};
 }};
 
@@ -169,7 +170,8 @@ cosmo_par =
     omega_B = {omega_B};
     h = {h};
     w = {w};
-    sigma_8 = {sigma_8:.2f};
+    ns = {ns};
+    sigma_8 = {sigma_8:.4f};
 }};
 
 srcs1 =
@@ -195,8 +197,8 @@ def write_cosmology(
     omega_L,
     omega_B,
     h,
-    ns,
     As,
+    ns,
     w,
     sigma_8,
     z_out,
