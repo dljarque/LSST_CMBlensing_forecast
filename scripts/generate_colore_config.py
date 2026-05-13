@@ -19,9 +19,9 @@ def main():
     parser.add_argument("--prefix_out", required=True)
     parser.add_argument("--pk_filename", required=False)
     parser.add_argument("--nz_filename",
-                        default="pscratch/sd/d/djarque/cmb_lensing_lya/data/Nz_qso_130618_2_colore1_hZs.txt")
+                        default="$PSCRATCH/cmb_lensing_lya/data/Nz_qso_130618_2_colore1_hZs.txt")
     parser.add_argument("--bias_filename",
-                        default="pscratch/sd/d/djarque/cmb_lensing_lya/data/Bz_qso_G18.txt")
+                        default="$PSCRATCH/cmb_lensing_lya/data/Bz_qso_G18.txt")
 
     # Cosmological parameters
     parser.add_argument("--omega_M", type=float, required=True)
@@ -36,7 +36,7 @@ def main():
 
 
     # Build CAMB cosmology and get the matter power spectrum
-    pars, z_star = build_camb_cosmology(
+    pars, z_star, sigma_8 = build_camb_cosmology(
         omega_M=args.omega_M,
         omega_B=args.omega_B,
         h=args.h,
@@ -52,13 +52,14 @@ def main():
         output=args.output
     )
     if args.pk_filename is None:
-        args.pk_filename = f"pscratch/sd/d/djarque/cmb_lensing_lya/{pk_filename}"
+        args.pk_filename = f"$PSCRATCH/cmb_lensing_lya/{pk_filename}".replace("./", "")  # Make the path relative to the scratch directory
+
 
     # Write the CoLoRe param.cfg file
     write_colore_param_cfg(
         output_file=args.output+args.filename,
         prefix_out=args.prefix_out,
-        pk_filename=pk_filename,
+        pk_filename=args.pk_filename,
         nz_filename=args.nz_filename,
         bias_filename=args.bias_filename,
         z_out = z_star,
@@ -66,9 +67,8 @@ def main():
         omega_L=args.omega_L,
         omega_B=args.omega_B,
         h=args.h,
-        ns=args.ns,
-        As=args.As,
-        w=args.w
+        w=args.w,
+        sigma_8=sigma_8,
     )
 
 
@@ -82,7 +82,8 @@ def main():
         ns=args.ns,
         As=args.As,
         w=args.w,
-        z_out = z_star,
+        sigma_8=sigma_8,
+        z_out=z_star,
     )
 
 

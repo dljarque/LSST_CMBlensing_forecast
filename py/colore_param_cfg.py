@@ -35,12 +35,14 @@ def build_camb_cosmology(
     pars.set_dark_energy(w=w)
 
     # results object
+    pars.WantTransfer = True
     results = camb.get_results(pars)
 
     # recombination redshift
     z_star = results.get_derived_params()["zstar"]
+    sigma_8 = results.get_sigma8_0()
 
-    return pars, z_star
+    return pars, z_star, sigma_8
 
 
 def save_linear_pk(
@@ -93,9 +95,8 @@ def write_colore_param_cfg(
     omega_L,
     omega_B,
     h,
-    ns,
-    As,
     w,
+    sigma_8,
     z_min=1.6,
     z_max=3.8,
     seed=9,
@@ -114,7 +115,7 @@ def write_colore_param_cfg(
         Output prefix for CoLoRe simulationproducts
     pk_filename : str
         Input matter power spectrum file
-    omega_M, omega_L, omega_B, h, ns, As : float
+    omega_M, omega_L, omega_B, h, w, sigma_8 : float
         Cosmological parameters
     nz_filename : str, optional
         Redshift distribution file (default: input/nz.txt)
@@ -168,6 +169,7 @@ cosmo_par =
     omega_B = {omega_B};
     h = {h};
     w = {w};
+    sigma_8 = {sigma_8:.2f};
 }};
 
 srcs1 =
@@ -196,6 +198,7 @@ def write_cosmology(
     ns,
     As,
     w,
+    sigma_8,
     z_out,
     z_max=3.8,
 ):
@@ -209,11 +212,12 @@ def write_cosmology(
         "omega_L": omega_L,
         "omega_B": omega_B,
         "h": h,
-        "ns": ns,
         "As": As,
+        "ns": ns,
         "w": w,
+        "sigma_8": round(float(sigma_8), 4),
         "z_max": z_max,
-        "z_out": f"{z_out:.2f}",
+        "z_out": round(float(z_out), 2),
     }
 
     with open(output_file, "w") as f:
