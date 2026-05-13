@@ -10,8 +10,8 @@ CMB lensing convergence $\kappa$ values of the test box from the [CoLoRe simulat
 
 The file [param.cfg](param.cfg) contains the input parameters to reproduce the colore box. The config file refers to three different files:
 - File [pk_linear.dat](pk_linear.dat) contains the linear matter power spectrum P(k) at z=0.
-- File [Nz_qso_130618_2_colore1_hZs.txt](../Nz_qso_130618_2_colore1_hZs.txt) contains the quasars redshift distribution n(z).
-- File [Bz_qso_G18.txt](../Bz_qso_G18.txt) contains the quasar bias parameter b_Q(z) evolution with redshift.
+- File [Nz_qso_130618_2_colore1_hZs.txt](../colore_files/Nz_qso_130618_2_colore1_hZs.txt) contains the quasars redshift distribution n(z).
+- File [Bz_qso_G18.txt](../colore_files/Bz_qso_G18.txt) contains the quasar bias parameter b_Q(z) evolution with redshift.
 
 ## Cosmological parameters
 

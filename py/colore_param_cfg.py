@@ -98,6 +98,11 @@ def write_colore_param_cfg(
     w,
     ns,
     sigma_8,
+    include_shear,
+    include_lensing,
+    store_skewers,
+    gaussian_skewers,
+    output_density,
     z_min=1.6,
     z_max=3.8,
     seed=9,
@@ -178,10 +183,11 @@ srcs1 =
 {{
     nz_filename = "{nz_filename}";
     bias_filename = "{bias_filename}";
-    include_shear = False;
-    include_lensing = False;
-    store_skewers = True;
-    gaussian_skewers = True;
+    include_shear = {include_shear};
+    include_lensing = {include_lensing};
+    store_skewers = {store_skewers};
+    gaussian_skewers = {gaussian_skewers};
+    output_density = {output_density};
 }};
 """
 

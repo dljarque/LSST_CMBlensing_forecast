@@ -62,13 +62,13 @@ def log_bin_cls(ell, cls, nls=None, nbins=20, ell_min=None, ell_max=None):
     return ell_binned, cls_binned, err_tt_binned
 
 
-def save_rebinned_cls(data, nbins):
+def save_rebinned_cls(kappa_file, nbins, out_dir):
     '''
     Read the kappa map from the specified CoLoRe box, compute the power spectrum, rebin it into logarithmic bins, and save the rebinned Cls and their errors to .npy files.
     '''
 
     # Read the kappa map and compute the power spectrum
-    m_k = hp.read_map(f'{data}/out_kappa.fits', hdu=1)
+    m_k = hp.read_map(kappa_file, hdu=1)
 
     # Compute the power spectrum of the kappa map
     cl_kk = hp.anafast(m_k)  # get the power spectrum Cls
@@ -77,5 +77,5 @@ def save_rebinned_cls(data, nbins):
     ell_colore_log, cl_kk_log, err_tt_log = log_bin_cls(ell, cl_kk, nbins=nbins)
 
     # Save the rebinned Cls and their errors to .npy files
-    np.savez(f'{data}/cl_kk', ells=ell, cls=cl_kk, err=err_tt)
-    np.savez(f'{data}/cl_kk_log', ells=ell_colore_log, cls=cl_kk_log, err=err_tt_log)
+    np.savez(f'{out_dir}/cl_kk', ells=ell, cls=cl_kk, err=err_tt)
+    np.savez(f'{out_dir}/cl_kk_log', ells=ell_colore_log, cls=cl_kk_log, err=err_tt_log)
