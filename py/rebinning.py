@@ -1,7 +1,7 @@
 import numpy as np
 import healpy as hp
 
-def log_bin_cls(ell, cls, nls=None, nbins=20, ell_min=None, ell_max=None):
+def log_bin_cls(ell, cls, nls=None, nbins=None, ell_min=None, ell_max=None):
     '''
     Rebin the Cls into logarithmic bins, weighting by 2l+1 to preserve power.
     '''
