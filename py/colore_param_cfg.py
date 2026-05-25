@@ -146,7 +146,7 @@ global =
 
 kappa =
 {{
-    z_out = [{z_out:.2f}];
+    z_out = [{z_out:.4f}];
     nside = {nside};
 }};
 
@@ -223,9 +223,9 @@ def write_cosmology(
         "As": As,
         "ns": ns,
         "w": w,
-        "sigma_8": round(float(sigma_8), 4),
+        "sigma_8": f"{sigma_8:.4f}",
         "z_max": z_max,
-        "z_out": round(float(z_out), 2),
+        "z_out": f"{z_out:.4f}",
     }
 
     with open(output_file, "w") as f:

@@ -2,6 +2,6 @@
 
 /home/dljarque/miniforge3/envs/IFAE/bin/python \
 /home/dljarque/Documents/cmb_lensing_lya/scripts/generate_rebinned_cls.py 'cmb_lensing_auto' \
---kappa_file ./data/third_test_box/out_kappa_z000.fits \
---out_dir ./data/third_test_box/cmb_lensing/ \
+--kappa_file ./data/second_test_box/cmb_lensing/out_kappa_z000.fits \
+--out_dir ./data/second_test_box/cmb_lensing/ \
 --nbins 30 \
