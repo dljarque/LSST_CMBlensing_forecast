@@ -7,6 +7,6 @@
 --sources_folder ./data/third_test_box/quasars/ \
 --nside 4096 \
 --lmin 2 \
---lmax 1500 \
+--lmax 2500 \
 --out_dir ./data/third_test_box/quasars/ \
 --nbins 30

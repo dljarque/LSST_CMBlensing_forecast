@@ -112,7 +112,6 @@ def compute_cls_kk(kappa_file):
     '''
     # Read the kappa map
     m_k = hp.read_map(kappa_file, hdu=1)
-    print(np.mean(m_k))
 
     # Compute the power spectrum of the kappa map
     print('Computing the auto-spectrum of the lensing map...')
@@ -277,7 +276,6 @@ def compute_cls_ks(kappa_file, sources_folder, nside, lmax):
     # Read the kappa map (nside=512 by colore default) and upscale it to input nside
     m_k = hp.read_map(kappa_file, hdu=1)
     m_k = hp.ud_grade(m_k, nside)
-    print(np.mean(m_k))
 
     # Merge sources catalogs
     ra, dec = merge_sources_catalogs(sources_folder)[:2]
@@ -304,10 +302,10 @@ def compute_cls_ks(kappa_file, sources_folder, nside, lmax):
     if lmax > lmax_map:
         raise ValueError('lmax is too big to compute the Cls. Maximum multipole allowed: lmax = (3 * NSIDE) - 1')
     elif lmax is None:
-        print('Computing the cross-spectrum of CMB lensing x overdensity...')
+        print('Computing the cross-spectrum of CMB lensing x sources overdensity...')
         cl = hp.anafast(m_k, delta, lmax=lmax_map)  # compute the auto power spectrum of the overdensity map
     else:
-        print('Computing the cross-spectrum of CMB lensing x overdensity...')
+        print('Computing the cross-spectrum of CMB lensing x sources overdensity...')
         cl = hp.anafast(m_k, delta, lmax=lmax)  # compute the auto power spectrum of the overdensity map
 
     return cl
