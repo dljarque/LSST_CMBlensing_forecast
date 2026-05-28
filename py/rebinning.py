@@ -5,8 +5,7 @@ from astropy.io import fits
 def hybrid_bin_cls(
     ell,
     cls,
-    nls=None,
-    fsky=1,
+    err=None,
     nbins_low=4,
     nbins=None,
     ell_switch=20,
@@ -25,13 +24,11 @@ def hybrid_bin_cls(
     if ell_max is None:
         ell_max = ell.max()
 
-    # set nls to zero if not provided
-    if nls is None:
-        nls = np.zeros_like(cls)
-    # if nls is a scalar, convert it to an array of the same size as cls
-    if np.ndim(nls) == 0:
-        nls = nls * np.ones_like(cls)
+    # set default variance to 0 if not provided
+    err = np.zeros_like(cls) if err is None else err
 
+
+    # make nbins consistent with nbins before ell_switch (nbins_low) and after ell_switch (nbins_high)
     nbins_high = nbins - nbins_low
 
     # linear bins at low ell
@@ -65,9 +62,6 @@ def hybrid_bin_cls(
     # weights for averaging, proportional to the number of modes in each ell bin
     weights = 2*ell + 1
 
-    # variance of the Cls in the bin, assuming Gaussianity and no CMB lensing noise
-    var = (2 / ((2*ell + 1) * fsky)) * (cls + nls)**2
-
     for i in range(nbins):
 
         # create a mask for the current bin
@@ -82,7 +76,7 @@ def hybrid_bin_cls(
             # compute the weighted average of the cls and ells in the bin, and the rebinned variance
             cls_binned[i] = np.sum(w * cls[mask]) / np.sum(w)  # weighted average of the cls in the bin
             ell_binned[i] = np.sum(w * ell[mask]) / np.sum(w)  # weighted average of the ells in the bin
-            var_binned = np.sum((w**2) * var[mask]) / (np.sum(w)**2)  # rebinned variance of the Cls
+            var_binned = np.sum((w**2) * err[mask]**2) / (np.sum(w)**2)  # rebinned variance of the Cls
             err_binned[i] = np.sqrt(var_binned)  # rebinned error of the Cls
 
         # if there are no ells in the bin, set the binned values to nan
@@ -112,12 +106,15 @@ def compute_cls_kk(kappa_file):
     '''
     # Read the kappa map
     m_k = hp.read_map(kappa_file, hdu=1)
+    fsky = 1  # full sky for the moment
 
     # Compute the power spectrum of the kappa map
     print('Computing the auto-spectrum of the lensing map...')
     cl_kk = hp.anafast(m_k)  # get the power spectrum Cls
+    ell = np.arange(len(cl_kk))  # corresponding multipole moments
+    var_kk = (2 / ((2*ell + 1)*fsky)) * (cl_kk)**2   # variance on the Cls, assuming Gaussianity and no CMB lensing noise
 
-    return cl_kk
+    return ell, cl_kk, np.sqrt(var_kk)
 
 
 def save_rebinned_cls_kk(kappa_file, lmin, lmax, nbins, out_dir):
@@ -126,11 +123,8 @@ def save_rebinned_cls_kk(kappa_file, lmin, lmax, nbins, out_dir):
     '''
 
     # Read the kappa map and compute the power spectrum
-    cl_kk = compute_cls_kk(kappa_file)
-    ell = np.arange(len(cl_kk))  # corresponding multipole moments
-    fsky = 1  # full sky for the moment
-    err_kk = np.sqrt((2 / ((2*ell + 1)*fsky)) * (cl_kk))**2   # error on the Cls, assuming Gaussianityand no CMB lensing noise
-    ell_log, cl_kk_log, err_kk_log = hybrid_bin_cls(ell, cl_kk, nls=0, fsky=fsky, nbins=nbins, ell_min=lmin, ell_max=lmax)
+    ell, cl_kk, err_kk = compute_cls_kk(kappa_file)
+    ell_log, cl_kk_log, err_kk_log = hybrid_bin_cls(ell, cl_kk, err_kk, nbins=nbins, ell_min=lmin, ell_max=lmax)
 
     # Save the rebinned Cls and their errors to .npy files
     np.savez(f'{out_dir}/cl_kk', ells=ell, cls=cl_kk, err=err_kk)
@@ -215,21 +209,23 @@ def compute_cls_ss(sources_folder, nside, lmax):
         raise ValueError('lmax is too big to compute the Cls. Maximum multipole allowed: lmax = (3 * NSIDE) - 1')
     elif lmax is None:
         print('Computing the auto-spectrum of the overdensity map...')
-        cl = hp.anafast(delta, lmax=lmax_map)  # compute the auto power spectrum of the overdensity map
+        cl_ss = hp.anafast(delta, lmax=lmax_map)  # compute the auto power spectrum of the overdensity map
     else:
         print('Computing the auto-spectrum of the overdensity map...')
-        cl = hp.anafast(delta, lmax=lmax)  # compute the auto power spectrum of the overdensity map
+        cl_ss = hp.anafast(delta, lmax=lmax)  # compute the auto power spectrum of the overdensity map
 
     # compute the effective sky fraction and number density for shot noise calculation
     fsky = 1.0  # full sky so far, otherwise 1.0 * np.sum(mask) / npix
     nbar_sr = np.sum(counts) / (4*np.pi*fsky)
     shot_noise = 1.0 / nbar_sr
-    shot_noise = np.ones(len(cl)) * shot_noise
+    nl_ss = np.ones(len(cl_ss)) * shot_noise
 
-    # subtract shot noise from the auto-spectrum and deconvolve the pixel window function to get an estimate of the underlying quasar clustering power spectrum
-    cl_signal = cl - shot_noise
+    # subtract shot noise from the auto-spectrum to get an estimate of the signal
+    ell = np.arange(len(cl_ss))  # corresponding multipole moments
+    cl_ss_signal = cl_ss - nl_ss
+    var_ss  = (2 / ((2*ell + 1)*fsky)) * (cl_ss_signal + nl_ss)**2   # variance on the Cls, assuming Gaussianity
 
-    return cl_signal, fsky, shot_noise
+    return ell, cl_ss_signal, np.sqrt(var_ss)
 
 
 def save_rebinned_cls_ss(sources, sources_folder, nside, lmin, lmax, nbins, out_dir):
@@ -238,10 +234,8 @@ def save_rebinned_cls_ss(sources, sources_folder, nside, lmin, lmax, nbins, out_
     '''
 
     # Read the sources power spectrum and compute the error bars assuming Gaussianity and no CMB lensing noise
-    cl_ss, fsky, shot_noise = compute_cls_ss(sources_folder, nside, lmax)
-    ell = np.arange(len(cl_ss))  # corresponding multipole moments
-    err_ss = np.sqrt((2 / ((2*ell + 1)*fsky)) * (cl_ss + shot_noise))**2   # error on the Cls, assuming Gaussianity
-    ell_log, cl_ss_log, err_ss_log = hybrid_bin_cls(ell, cl_ss, nls=shot_noise, fsky=fsky, nbins=nbins, ell_min=lmin, ell_max=lmax)
+    ell, cl_ss, err_ss = compute_cls_ss(sources_folder, nside, lmax)
+    ell_log, cl_ss_log, err_ss_log = hybrid_bin_cls(ell, cl_ss, err_ss, nbins=nbins, ell_min=lmin, ell_max=lmax)
 
     if sources == 'galaxies':
         xx = 'gg'
@@ -303,12 +297,30 @@ def compute_cls_ks(kappa_file, sources_folder, nside, lmax):
         raise ValueError('lmax is too big to compute the Cls. Maximum multipole allowed: lmax = (3 * NSIDE) - 1')
     elif lmax is None:
         print('Computing the cross-spectrum of CMB lensing x sources overdensity...')
-        cl = hp.anafast(m_k, delta, lmax=lmax_map)  # compute the auto power spectrum of the overdensity map
+        cl_ks = hp.anafast(m_k, delta, lmax=lmax_map)  # compute the cross power spectrum
+        cl_ss = hp.anafast(delta, lmax=lmax_map)  # compute the ss auto power spectrum
+        cl_kk = hp.anafast(m_k, lmax=lmax_map)  # compute the kk auto power spectrum
     else:
         print('Computing the cross-spectrum of CMB lensing x sources overdensity...')
-        cl = hp.anafast(m_k, delta, lmax=lmax)  # compute the auto power spectrum of the overdensity map
+        cl_ks = hp.anafast(m_k, delta, lmax=lmax)  # compute the auto power spectrum of the overdensity map
+        cl_ss = hp.anafast(delta, lmax=lmax)  # compute the auto power spectrum of the overdensity map
+        cl_kk = hp.anafast(m_k, lmax=lmax)  # compute the kk auto power spectrum
 
-    return cl
+
+    # compute the effective sky fraction and number density for shot noise calculation
+    fsky = 1  # full sky for the moment
+    nbar_sr = np.sum(counts) / (4*np.pi*fsky)
+    shot_noise = 1.0 / nbar_sr
+    nl_ss = np.ones(len(cl_ss)) * shot_noise
+    nl_kk = 0  # no CMB lensing reconstruction noise here
+
+
+    # subtract shot noise from the auto-spectrum to get an estimate of the signal
+    ell = np.arange(len(cl_ks))  # corresponding multipole moments
+    cl_ss_signal = cl_ss - nl_ss
+    var_ks = (2 / ((2*ell + 1)*fsky)) * ((cl_ks)**2 + (cl_kk + nl_kk)*(cl_ss_signal + nl_ss))
+
+    return ell, cl_ks, np.sqrt(var_ks)
 
 
 def save_rebinned_cls_ks(kappa_file, sources, sources_folder, nside, lmin, lmax, nbins, out_dir):
@@ -317,11 +329,8 @@ def save_rebinned_cls_ks(kappa_file, sources, sources_folder, nside, lmin, lmax,
     '''
 
     # Read the sources power spectrum and compute the error bars assuming Gaussianity and no CMB lensing noise
-    cl_ks = compute_cls_ks(kappa_file, sources_folder, nside, lmax)
-    fsky = 1  # full sky for the moment
-    ell = np.arange(len(cl_ks))  # corresponding multipole moments
-    err_ks = np.sqrt((2 / ((2*ell + 1)*fsky)) * (cl_ks)**2)   # error on the Cls, assuming Gaussianity
-    ell_log, cl_ks_log, err_ks_log = hybrid_bin_cls(ell, cl_ks, nls=0, fsky=fsky, nbins=nbins, ell_min=lmin, ell_max=lmax)
+    ell, cl_ks, err_ks = compute_cls_ks(kappa_file, sources_folder, nside, lmax)
+    ell_log, cl_ks_log, err_ks_log = hybrid_bin_cls(ell, cl_ks, err_ks, nbins=nbins, ell_min=lmin, ell_max=lmax)
 
     if sources == 'galaxies':
         xx = 'kg'
