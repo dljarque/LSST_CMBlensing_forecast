@@ -11,11 +11,11 @@ def cmb_lensing_auto(args):
 
 def sources_auto(args):
     '''Saves rebinned Cls for Sources.'''
-    save_rebinned_cls_ss(args.sources, args.sources_folder, args.nside, args.lmin, args.lmax, args.nbins, args.out_dir)
+    save_rebinned_cls_ss(args.sources, args.sources_folder, args.nside, args.lmin, args.lmax, args.zmin_bin, args.zmax_bin, args.nbins, args.out_dir)
 
 def cmblensing_x_sources(args):
     '''Saves rebinned Cls for CMB lensing x Sources.'''
-    save_rebinned_cls_ks(args.kappa_file, args.sources, args.sources_folder, args.nside, args.lmin, args.lmax, args.nbins, args.out_dir)
+    save_rebinned_cls_ks(args.kappa_file, args.sources, args.sources_folder, args.nside, args.lmin, args.lmax, args.zmin_bin, args.zmax_bin, args.nbins, args.out_dir)
 
 
 if __name__ == "__main__":
@@ -39,6 +39,8 @@ if __name__ == "__main__":
     parser_source.add_argument("--nside", type=int, required=True, help="Healpix resolution for the delta_g map (must be a power of 2)")
     parser_source.add_argument("--lmin", type=int, default=None, help="Minimum multipole moment to include")
     parser_source.add_argument("--lmax", type=int, default=None, help="Maximum multipole moment to include")
+    parser_source.add_argument("--zmin_bin", type=float, default=None, help="Lower limit of the tomographic bin")
+    parser_source.add_argument("--zmax_bin", type=float, default=None, help="Upper limit of the tomographic bin")
     parser_source.add_argument("--out_dir", required=True, help="Output directory")
     parser_source.add_argument("--nbins", type=int, default=30, help="Number of bins")
     parser_source.set_defaults(func=sources_auto) # Link to the function
@@ -51,6 +53,8 @@ if __name__ == "__main__":
     parser_cmbxsource.add_argument("--sources_folder", required=True, help="Input folder with sources data")
     parser_cmbxsource.add_argument("--lmin", type=int, default=None, help="Minimum multipole moment to include")
     parser_cmbxsource.add_argument("--lmax", type=int, default=None, help="Maximum multipole moment to include")
+    parser_cmbxsource.add_argument("--zmin_bin", type=float, default=None, help="Lower limit of the tomographic bin")
+    parser_cmbxsource.add_argument("--zmax_bin", type=float, default=None, help="Upper limit of the tomographic bin")
     parser_cmbxsource.add_argument("--out_dir", required=True, help="Output directory")
     parser_cmbxsource.add_argument("--nbins", type=int, default=30, help="Number of bins")
     parser_cmbxsource.set_defaults(func=cmblensing_x_sources) # Link to the function

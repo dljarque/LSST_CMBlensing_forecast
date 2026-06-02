@@ -175,13 +175,19 @@ def merge_sources_catalogs(sources_folder):
     return RA, DEC, Z
 
 
-def compute_cls_ss(sources_folder, nside, lmax):
+def compute_cls_ss(sources_folder, nside, lmax, zmin_bin, zmax_bin):
     '''
     Computes the sources clustering auto-spectrum, substracting shot noise
     '''
 
     # Merge sources catalogs
-    ra, dec = merge_sources_catalogs(sources_folder)[:2]
+    ra, dec, z = merge_sources_catalogs(sources_folder)
+
+    # Create a bin mask to filter out sources outside the bin
+    mask = (z > zmin_bin) & (z <= zmax_bin)
+    ra = ra[mask]
+    dec = dec[mask]
+    z = z[mask]
 
     # Choose resolution
     nside = nside  # resolution parameter for HEALPix map, nside=4096 corresponds to ~1 arcmin pixels
@@ -228,13 +234,13 @@ def compute_cls_ss(sources_folder, nside, lmax):
     return ell, cl_ss_signal, np.sqrt(var_ss)
 
 
-def save_rebinned_cls_ss(sources, sources_folder, nside, lmin, lmax, nbins, out_dir):
+def save_rebinned_cls_ss(sources, sources_folder, nside, lmin, lmax, zmin_bin, zmax_bin, nbins, out_dir):
     '''
     Read the sources catalogs from the specified folder, compute the power spectrum, rebin it into logarithmic bins, and save the rebinned Cls and their errors to .npy files.
     '''
 
     # Read the sources power spectrum and compute the error bars assuming Gaussianity and no CMB lensing noise
-    ell, cl_ss, err_ss = compute_cls_ss(sources_folder, nside, lmax)
+    ell, cl_ss, err_ss = compute_cls_ss(sources_folder, nside, lmax, zmin_bin, zmax_bin)
     ell_log, cl_ss_log, err_ss_log = hybrid_bin_cls(ell, cl_ss, err_ss, nbins=nbins, ell_min=lmin, ell_max=lmax)
 
     if sources == 'galaxies':
@@ -262,7 +268,7 @@ def save_rebinned_cls_ss(sources, sources_folder, nside, lmin, lmax, nbins, out_
 
 
 
-def compute_cls_ks(kappa_file, sources_folder, nside, lmax):
+def compute_cls_ks(kappa_file, sources_folder, nside, lmax, zmin_bin, zmax_bin):
     '''
     Computes the cmb lensing x sources cross-spectrum, substracting shot noise
     '''
@@ -272,7 +278,13 @@ def compute_cls_ks(kappa_file, sources_folder, nside, lmax):
     m_k = hp.ud_grade(m_k, nside)
 
     # Merge sources catalogs
-    ra, dec = merge_sources_catalogs(sources_folder)[:2]
+    ra, dec, z = merge_sources_catalogs(sources_folder)
+
+    # Create a bin mask to filter out sources outside the bin
+    mask = (z > zmin_bin) & (z <= zmax_bin)
+    ra = ra[mask]
+    dec = dec[mask]
+    z = z[mask]
 
     # Convert coordinates
     theta = np.radians(90.0 - dec)   # colatitude
@@ -323,13 +335,13 @@ def compute_cls_ks(kappa_file, sources_folder, nside, lmax):
     return ell, cl_ks, np.sqrt(var_ks)
 
 
-def save_rebinned_cls_ks(kappa_file, sources, sources_folder, nside, lmin, lmax, nbins, out_dir):
+def save_rebinned_cls_ks(kappa_file, sources, sources_folder, nside, lmin, lmax, zmin_bin, zmax_bin, nbins, out_dir):
     '''
     Read the sources catalogs from the specified folder, compute the power spectrum, rebin it into logarithmic bins, and save the rebinned Cls and their errors to .npy files.
     '''
 
     # Read the sources power spectrum and compute the error bars assuming Gaussianity and no CMB lensing noise
-    ell, cl_ks, err_ks = compute_cls_ks(kappa_file, sources_folder, nside, lmax)
+    ell, cl_ks, err_ks = compute_cls_ks(kappa_file, sources_folder, nside, lmax, zmin_bin, zmax_bin)
     ell_log, cl_ks_log, err_ks_log = hybrid_bin_cls(ell, cl_ks, err_ks, nbins=nbins, ell_min=lmin, ell_max=lmax)
 
     if sources == 'galaxies':
