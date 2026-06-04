@@ -1,5 +1,6 @@
 ==================================================
 CMB LENSING AUTO-SPECTRUM
+(full sample)
 ==================================================
 
 lmin_fit = 20
@@ -10,7 +11,8 @@ Reduced chi-squared         : 1.418
 
 
 ==================================================
-QSO AUTO-SPECTRUM
+QSO AUTO-SPECTRUM 
+(full sample)
 ==================================================
 
 lmin_fit = 20
@@ -22,7 +24,8 @@ Reduced chi-squared         : 0.707
 
 
 ==================================================
-CMB LENSING x QSO CROSS-SPECTRUM
+CMB LENSING x QSO CROSS-SPECTRUM 
+(full sample)
 ==================================================
 
 lmin_fit = 20
@@ -31,3 +34,55 @@ lmax_fit = 1000
 Best-fit k_p                : 0.246 +/- 0.022 1/Mpc
 Best-fit A_bias             : 0.688 +/- 0.049
 Reduced chi-squared         : 0.687
+
+
+==================================================
+QSO AUTO-SPECTRUM 
+(bin0: 0 < z <= 1.5)
+==================================================
+
+lmin_fit = 20
+lmax_fit = 1000
+
+Best-fit k_p                : 0.265 +/- 0.082 1/Mpc
+Best-fit A_bias             : 1.562 +/- 0.049
+Reduced chi-squared         : 1.913
+
+
+==================================================
+CMB LENSING x QSO CROSS-SPECTRUM 
+(bin0: 0 < z <= 1.5)
+==================================================
+
+lmin_fit = 20
+lmax_fit = 1000
+
+Best-fit k_p                : 0.181 +/- 0.022 1/Mpc
+Best-fit A_bias             : 0.746 +/- 0.062
+Reduced chi-squared         : 1.029
+
+
+==================================================
+QSO AUTO-SPECTRUM 
+(bin1: 1.5 < z <= 3.8)
+==================================================
+
+lmin_fit = 20
+lmax_fit = 1000
+
+Best-fit k_p                : 0.479 +/- 0.739 1/Mpc
+Best-fit A_bias             : 0.792 +/- 0.590
+Reduced chi-squared         : 0.586
+
+
+==================================================
+CMB LENSING x QSO CROSS-SPECTRUM 
+(bin1: 1.5 < z <= 3.8)
+==================================================
+
+lmin_fit = 20
+lmax_fit = 1000
+
+Best-fit k_p                : 0.266 +/- 0.056 1/Mpc
+Best-fit A_bias             : 0.680 +/- 0.027
+Reduced chi-squared         : 0.782
