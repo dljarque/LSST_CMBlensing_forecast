@@ -7,7 +7,7 @@
 --nside 4096 \
 --lmin 2 \
 --lmax 2500 \
---zmin_bin 0 \
---zmax_bin 1.5 \
---out_dir ./data/third_test_box/quasars/bin0 \
+--zmin_bin 1.5 \
+--zmax_bin 3.8 \
+--out_dir ./data/third_test_box/quasars/bin1 \
 --nbins 30

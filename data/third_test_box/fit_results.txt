@@ -70,9 +70,9 @@ QSO AUTO-SPECTRUM
 lmin_fit = 20
 lmax_fit = 1000
 
-Best-fit k_p                : 0.479 +/- 0.739 1/Mpc
-Best-fit A_bias             : 0.792 +/- 0.590
-Reduced chi-squared         : 0.586
+Best-fit k_p                : 0.413 +/- 0.232 1/Mpc
+Best-fit A_bias             : 0.693 +/- 0.020
+Reduced chi-squared         : 0.770
 
 
 ==================================================
@@ -83,6 +83,6 @@ CMB LENSING x QSO CROSS-SPECTRUM
 lmin_fit = 20
 lmax_fit = 1000
 
-Best-fit k_p                : 0.266 +/- 0.056 1/Mpc
-Best-fit A_bias             : 0.680 +/- 0.027
-Reduced chi-squared         : 0.782
+Best-fit k_p                : 0.256 +/- 0.030 1/Mpc
+Best-fit A_bias             : 0.661 +/- 0.037
+Reduced chi-squared         : 0.537

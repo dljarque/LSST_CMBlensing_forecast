@@ -1,6 +1,7 @@
 import numpy as np
 import healpy as hp
 from astropy.io import fits
+import warnings
 
 def hybrid_bin_cls(
     ell,
@@ -24,48 +25,84 @@ def hybrid_bin_cls(
     if ell_max is None:
         ell_max = ell.max()
 
-    # set default variance to 0 if not provided
+    # check that nbins is provided
+    if nbins is None:
+            raise ValueError("nbins must be specified")
+
+    # set default errors to zero if not provided
     err = np.zeros_like(cls) if err is None else err
 
 
-    # make nbins consistent with nbins before ell_switch (nbins_low) and after ell_switch (nbins_high)
-    nbins_high = nbins - nbins_low
+    # if ell_min is above ell_switch, skip the linear part entirely
+    if ell_min >= ell_switch:
 
-    # linear bins at low ell
-    bins_low = np.linspace(
-        ell_min,
-        ell_switch,
-        nbins_low + 1
-    )
+        warnings.warn(
+            f"ell_min ({ell_min}) >= ell_switch ({ell_switch}). "
+            "Skipping linear binning and using logarithmic bins only."
+        )
 
-    # logarithmic bins at high ell
-    bins_high = np.logspace(
-        np.log10(ell_switch),
-        np.log10(ell_max),
-        nbins_high + 1
-    )
+        bins = np.logspace(
+            np.log10(ell_min),
+            np.log10(ell_max),
+            nbins + 1
+        )
 
-    # merge low and high ell bins, avoiding duplicate ell_switch edge
-    bins = np.concatenate([
-        bins_low[:-1],
-        bins_high
-    ])
+    # if ell_max is below ell_switch, skip the logarithmic part entirely
+    elif ell_max <= ell_switch:
 
-    # total number of bins
-    nbins = len(bins) - 1
+        warnings.warn(
+            f"ell_max ({ell_max}) <= ell_switch ({ell_switch}). "
+            "Skipping logarithmic binning and using linear bins only."
+        )
+
+        bins = np.linspace(
+            ell_min,
+            ell_max,
+            nbins + 1
+        )
+
+    # otherwise use the standard hybrid binning
+    else:
+
+        # make nbins consistent with nbins before ell_switch (nbins_low) and after ell_switch (nbins_high)
+        nbins_high = nbins - nbins_low
+
+        # linear bins at low ell
+        bins_low = np.linspace(
+            ell_min,
+            ell_switch,
+            nbins_low + 1
+        )
+
+        # logarithmic bins at high ell
+        bins_high = np.logspace(
+            np.log10(ell_switch),
+            np.log10(ell_max),
+            nbins_high + 1
+        )
+
+        # merge low and high ell bins, avoiding duplicate ell_switch edge
+        bins = np.concatenate([
+            bins_low[:-1],
+            bins_high
+        ])
 
     # arrays to hold the binned values
-    ell_binned = np.zeros(nbins)
-    cls_binned = np.zeros(nbins)
-    err_binned = np.zeros(nbins)
+    ell_binned = np.full(nbins, np.nan)
+    cls_binned = np.full(nbins, np.nan)
+    err_binned = np.full(nbins, np.nan)
 
     # weights for averaging, proportional to the number of modes in each ell bin
     weights = 2*ell + 1
 
     for i in range(nbins):
 
-        # create a mask for the current bin
-        mask = (ell >= bins[i]) & (ell < bins[i+1])
+        # define the mask for the ells in the current bin, 
+        # including the upper edge for the last bin to ensure we include all ells up to ell_max
+        if i == nbins - 1:
+            mask = (ell >= bins[i]) & (ell <= bins[i+1])
+        else:
+            mask = (ell >= bins[i]) & (ell < bins[i+1])
 
         # if there are any ells in the bin, compute the weighted average and error
         if np.any(mask):
@@ -78,12 +115,6 @@ def hybrid_bin_cls(
             ell_binned[i] = np.sum(w * ell[mask]) / np.sum(w)  # weighted average of the ells in the bin
             var_binned = np.sum((w**2) * err[mask]**2) / (np.sum(w)**2)  # rebinned variance of the Cls
             err_binned[i] = np.sqrt(var_binned)  # rebinned error of the Cls
-
-        # if there are no ells in the bin, set the binned values to nan
-        else:
-            cls_binned[i] = np.nan
-            ell_binned[i] = np.nan
-            err_binned[i] = np.nan
 
     # return the binned ells, Cls, and errors
     return ell_binned, cls_binned, err_binned
