@@ -3,7 +3,7 @@ import sys
 # add the parent directory to the path so we can import from py
 sys.path.append('.')
 
-from py.rebinning import save_rebinned_cls_kk, save_rebinned_cls_ss, save_rebinned_cls_ks
+from utils.rebinning import save_rebinned_cls_kk, save_rebinned_cls_ss, save_rebinned_cls_ks
 
 def cmb_lensing_auto(args):
     '''Saves rebinned Cls for CMB lensing.'''

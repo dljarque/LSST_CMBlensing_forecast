@@ -38,9 +38,9 @@ def build_camb_cosmology(
     pars.WantTransfer = True
     results = camb.get_results(pars)
 
-    # recombination redshift
-    z_star = results.get_derived_params()["zstar"]
-    sigma_8 = results.get_sigma8_0()
+    # recombination redshift z_star and sigma_8
+    z_star = round(results.get_derived_params()["zstar"], 4)
+    sigma_8 = round(results.get_sigma8_0(), 4)
 
     return pars, z_star, sigma_8
 
@@ -146,7 +146,7 @@ global =
 
 kappa =
 {{
-    z_out = [{z_out:.4f}];
+    z_out = [{z_out}];
     nside = {nside};
 }};
 
@@ -176,7 +176,7 @@ cosmo_par =
     h = {h};
     w = {w};
     ns = {ns};
-    sigma_8 = {sigma_8:.4f};
+    sigma_8 = {sigma_8};
 }};
 
 srcs1 =
@@ -223,9 +223,9 @@ def write_cosmology(
         "As": As,
         "ns": ns,
         "w": w,
-        "sigma_8": f"{sigma_8:.4f}",
+        "sigma_8": sigma_8,
         "z_max": z_max,
-        "z_out": f"{z_out:.4f}",
+        "z_out": z_out,
     }
 
     with open(output_file, "w") as f:

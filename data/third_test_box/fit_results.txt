@@ -7,7 +7,7 @@ lmin_fit = 20
 lmax_fit = 1000
 
 Best-fit k_p                : 0.312 1/Mpc
-Reduced chi-squared         : 1.418
+Reduced chi-squared         : 1.430
 
 
 ==================================================

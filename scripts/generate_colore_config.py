@@ -3,7 +3,7 @@ import sys
 # add the parent directory to the path so we can import from py
 sys.path.append('.')
 
-from py.colore_param_cfg import *
+from utils.colore_param_cfg import *
 
 
 def main():
