@@ -131,7 +131,7 @@ def hybrid_bin_cls(
 ################################################################################
 
 
-def compute_cls_kk(kappa_file):
+def compute_cls_kk(kappa_file, nl_kk=0):
     '''
     Compute the CMB lensing auto-spectrum
     '''
@@ -143,7 +143,7 @@ def compute_cls_kk(kappa_file):
     print('Computing the auto-spectrum of the lensing map...')
     cl_kk = hp.anafast(m_k)  # get the power spectrum Cls
     ell = np.arange(len(cl_kk))  # corresponding multipole moments
-    var_kk = (2 / ((2*ell + 1)*fsky)) * (cl_kk)**2   # variance on the Cls, assuming Gaussianity and no CMB lensing noise
+    var_kk = (2 / ((2*ell + 1)*fsky)) * (cl_kk + nl_kk)**2   # variance on the Cls, assuming Gaussianity and no CMB lensing noise
 
     return ell, cl_kk, np.sqrt(var_kk)
 
