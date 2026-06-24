@@ -131,21 +131,47 @@ def hybrid_bin_cls(
 ################################################################################
 
 
-def compute_cls_kk(kappa_file, nl_kk=0):
+def compute_cls_kk(kappa_map_file, noise_spectrum_file=None):
     '''
     Compute the CMB lensing auto-spectrum
     '''
     # Read the kappa map
-    m_k = hp.read_map(kappa_file, hdu=1)
+    m_k = hp.read_map(kappa_map_file, hdu=1)
     fsky = 1  # full sky for the moment
+
+    # Get the map resolution
+    nside = hp.get_nside(m_k)
+    lmax_map = 3 * nside - 1
+
+    # Add a realization of the reconstruction noise if provided
+    if noise_spectrum_file is not None:
+
+        _, nl_kk = np.loadtxt(noise_spectrum_file, unpack=True)
+
+        # Match the spectrum length to the map resolution
+        if len(nl_kk) < lmax_map + 1:
+            nl_kk_match = np.zeros(lmax_map + 1)
+            nl_kk_match[:len(nl_kk)] = nl_kk
+        else:
+            nl_kk_match = nl_kk[:lmax_map + 1]
+
+        # Generate a Gaussian noise realization and add it to the map
+        noise_map = hp.synfast(nl_kk_match, nside=nside, lmax=lmax_map)
+        m_k = m_k + noise_map
+
+    else:
+
+        nl_kk_match = np.zeros(lmax_map + 1)
 
     # Compute the power spectrum of the kappa map
     print('Computing the auto-spectrum of the lensing map...')
-    cl_kk = hp.anafast(m_k)  # get the power spectrum Cls
+    cl_kk = hp.anafast(m_k, lmax=lmax_map)  # get the power spectrum Cls
+    cl_kk_signal = cl_kk - nl_kk_match
     ell = np.arange(len(cl_kk))  # corresponding multipole moments
-    var_kk = (2 / ((2*ell + 1)*fsky)) * (cl_kk + nl_kk)**2   # variance on the Cls, assuming Gaussianity and no CMB lensing noise
+    var_kk = (2 / ((2*ell + 1)*fsky)) * (cl_kk_signal + nl_kk_match)**2   # variance on the Cls, assuming Gaussianity and no CMB lensing noise
 
-    return ell, cl_kk, np.sqrt(var_kk)
+    return ell, cl_kk_signal, np.sqrt(var_kk)
+
 
 
 def save_rebinned_cls_kk(kappa_file, lmin, lmax, nbins, out_dir):
