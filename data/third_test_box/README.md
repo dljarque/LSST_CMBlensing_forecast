@@ -6,7 +6,7 @@ CMB lensing convergence $\kappa$ values, and QSO catalogs of the test box from t
 - File [cl_kk.npz](cmb_lensing/cl_kk.npz) contains the CMB lensing autospectrum $C_{\ell}^{\kappa \kappa}$
 - File [cl_kk_log.npz](cmb_lensing/cl_kk_log.npz) contains the log-rebinned CMB lensing autospectrum using the [rebin_cls.py](../../scripts/rebin_cls.py) script.
 
-- Files [out_srcs_s1_i.fits](/quasars) contains the ra, dec coordinates and redshift of the quasars.
+- Files [out_srcs_s1_i.fits](quasars/out_srcs_s1_0.fits) contains the ra, dec coordinates and redshift of the quasars.
 - File [cl_qq.npz](quasars/cl_qq.npz) contains the QSO clustering autospectrum $C_{\ell}^{qq}$
 - File [cl_qq_log.npz](quasars/cl_qq_log.npz) contains the log-rebinned QSO clustering autospectrum using the [rebin_cls.py](../../scripts/rebin_cls.py) script.
 
@@ -17,8 +17,8 @@ CMB lensing convergence $\kappa$ values, and QSO catalogs of the test box from t
 
 The file [param.cfg](param.cfg) contains the input parameters to reproduce the colore box. The config file refers to three different files:
 - File [pk_linear.dat](pk_linear.dat) contains the linear matter power spectrum P(k) at z=0.
-- File [Nz_qso_130618_2_colore1_hZs.txt](../colore_files/Nz_qso_130618_2_colore1_hZs.txt) contains the quasars redshift distribution n(z).
-- File [Bz_qso_G18.txt](../colore_files/Bz_qso_G18.txt) contains the quasar bias parameter b_Q(z) evolution with redshift.
+- File [Nz_qso_130618_2_colore1_hZs.txt](../colore_files/nz/nz_QSO_DESI.txt) contains the quasars redshift distribution n(z).
+- File [Bz_qso_G18.txt](../colore_files/bz/bz_QSO_DESI_G18.txt) contains the quasar bias parameter b_Q(z) evolution with redshift.
 
 ## Cosmological parameters
 
