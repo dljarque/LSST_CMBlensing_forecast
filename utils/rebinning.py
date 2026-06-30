@@ -326,7 +326,6 @@ def save_rebinned_cls_ss(sources, sources_folder, nside, lmin, lmax, zmin_bin, z
 ################################################################################
 
 
-
 def compute_cls_ks(kappa_file, sources_folder, nside, lmax, zmin_bin, zmax_bin):
     '''
     Computes the cmb lensing x sources cross-spectrum, substracting shot noise

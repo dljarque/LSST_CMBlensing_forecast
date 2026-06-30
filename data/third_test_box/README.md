@@ -2,16 +2,16 @@
 
 CMB lensing convergence $\kappa$ values, and QSO catalogs of the test box from the [CoLoRe simulation](https://github.com/damonge/CoLoRe). 
 
-- File [out_kappa.fits](cmb_lensing/out_kappa.fits) contains the convergence $\kappa$ values.
-- File [cl_kk.npz](cmb_lensing/cl_kk.npz) contains the CMB lensing autospectrum $C_{\ell}^{\kappa \kappa}$
-- File [cl_kk_log.npz](cmb_lensing/cl_kk_log.npz) contains the log-rebinned CMB lensing autospectrum using the [rebin_cls.py](../../scripts/rebin_cls.py) script.
+- File [out_kappa.fits](CMB_lensing/out_kappa.fits) contains the convergence $\kappa$ values.
+- File [cl_kk.npz](CMB_lensing/cl_kk.npz) contains the CMB lensing autospectrum $C_{\ell}^{\kappa \kappa}$
+- File [cl_kk_log.npz](CMB_lensing/cl_kk_log.npz) contains the log-rebinned CMB lensing autospectrum using the [rebin_cls.py](../../scripts/rebin_cls.py) script.
 
-- Files [out_srcs_s1_i.fits](quasars/out_srcs_s1_0.fits) contains the ra, dec coordinates and redshift of the quasars.
-- File [cl_qq.npz](quasars/cl_qq.npz) contains the QSO clustering autospectrum $C_{\ell}^{qq}$
-- File [cl_qq_log.npz](quasars/cl_qq_log.npz) contains the log-rebinned QSO clustering autospectrum using the [rebin_cls.py](../../scripts/rebin_cls.py) script.
+- Files [out_srcs_s1_i.fits](DESI_QSO/out_srcs_s1_0.fits) contains the ra, dec coordinates and redshift of the quasars.
+- File [cl_qq.npz](DESI_QSO/cl_qq.npz) contains the QSO clustering autospectrum $C_{\ell}^{qq}$
+- File [cl_qq_log.npz](DESI_QSO/cl_qq_log.npz) contains the log-rebinned QSO clustering autospectrum using the [rebin_cls.py](../../scripts/rebin_cls.py) script.
 
-- File [cl_kq.npz](quasars/cl_kq.npz) contains the CMB lensing x QSO cross-spectrum $C_{\ell}^{kq}$.
-- File [cl_kq_log.npz](quasars/cl_kq_log.npz) contains the log-rebinned CMB lensing x QSO cross-spectrum using the [rebin_cls.py](../../scripts/rebin_cls.py) script.
+- File [cl_kq.npz](DESI_QSO/cl_kq.npz) contains the CMB lensing x QSO cross-spectrum $C_{\ell}^{kq}$.
+- File [cl_kq_log.npz](DESI_QSO/cl_kq_log.npz) contains the log-rebinned CMB lensing x QSO cross-spectrum using the [rebin_cls.py](../../scripts/rebin_cls.py) script.
 
 ## CoLoRe config file
 
