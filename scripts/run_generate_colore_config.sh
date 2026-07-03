@@ -1,7 +1,7 @@
 #!/bin/bash
 
 /home/dljarque/miniforge3/envs/IFAE/bin/python \
-'/home/dljarque/Documents/cmb_lensing_lya/scripts/generate_colore_config.py' \
+./scripts/generate_colore_config.py \
 --output ./data/third_test_box/ \
 --filename param.cfg \
 --prefix_out '/pscratch/sd/d/djarque/cmb_lensing_lya/data/third_test_box/results/out' \

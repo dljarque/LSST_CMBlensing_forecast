@@ -1,3 +1,6 @@
+from glob import glob
+import os
+
 import numpy as np
 import healpy as hp
 from astropy.io import fits
@@ -131,12 +134,12 @@ def hybrid_bin_cls(
 ################################################################################
 
 
-def compute_cls_kk(kappa_map_file, noise_spectrum_file=None, return_raw_cls=False):
+def compute_cls_kk(kappa_map, noise_spectrum_file=None, return_raw_cls=False):
     '''
     Compute the CMB lensing auto-spectrum
     '''
     # Read the kappa map
-    m_k = hp.read_map(kappa_map_file, hdu=1)
+    m_k = hp.read_map(kappa_map, hdu=1)
     fsky = 1  # full sky for the moment
 
     # Get the map resolution
@@ -176,14 +179,17 @@ def compute_cls_kk(kappa_map_file, noise_spectrum_file=None, return_raw_cls=Fals
         return ell, cl_kk_signal, np.sqrt(var_kk)
 
 
-def save_rebinned_cls_kk(kappa_file, lmin, lmax, nbins, out_dir):
+def save_rebinned_cls_kk(kappa_map, lmin, lmax, nbins, out_dir):
     '''
     Read the kappa map from the specified CoLoRe box, compute the power spectrum, rebin it into logarithmic bins, and save the rebinned Cls and their errors to .npy files.
     '''
 
     # Read the kappa map and compute the power spectrum
-    ell, cl_kk, err_kk = compute_cls_kk(kappa_file)
+    ell, cl_kk, err_kk = compute_cls_kk(kappa_map)
     ell_log, cl_kk_log, err_kk_log = hybrid_bin_cls(ell, cl_kk, err_kk, nbins=nbins, ell_min=lmin, ell_max=lmax)
+
+    # Create the output directory if it doesn't exist
+    os.makedirs(out_dir, exist_ok=True)
 
     # Save the rebinned Cls and their errors to .npy files
     np.savez(f'{out_dir}/cl_kk', ells=ell, cls=cl_kk, err=err_kk)
@@ -203,47 +209,62 @@ def save_rebinned_cls_kk(kappa_file, lmin, lmax, nbins, out_dir):
 ################################################################################
 
 
-def merge_sources_catalogs(sources_folder):
+def merge_sources_catalogs(sources_prefix, out_dir, filename):
     '''
-    Merge the sources catalogs from different files into a single catalog of RA, DEC and Z.
-    The catalogs are assumed to be named out_srcs_s1_i.fits, where i is the tile number.
+    Merge and store all CoLoRe source catalogs sharing the same prefix into a single
+    catalog of RA, DEC and Z.
+
+    Example
+    -------
+    sources_prefix = 'sources_folder/out_srcs_s1'
+
+    matches:
+        out_srcs_s1_0.fits
+        out_srcs_s1_1.fits
+        ...
     '''
 
-    ra_list = []
-    dec_list = []
-    z_list = []
-    
-    i = 0
-    # Loop over the HEALPix tiles until we run out of files
-    while True:
-        try:
-            cat = fits.getdata(f'{sources_folder}out_srcs_s1_{i}.fits', ext=1)
-        except FileNotFoundError:
-            break
+    # Get all source catalogs matching the prefix
+    files = sorted(glob(f'{sources_prefix}_*.fits'))
+
+    if not files:
+        raise FileNotFoundError(f'No source catalogs found matching {sources_prefix}_*.fits')
+
+    ra_list, dec_list, z_list = [], [], []
+
+    # Loop over the files and read the RA, DEC, and Z_COSMO columns
+    for file in files:
+        cat = fits.getdata(file, ext=1)
         ra_list.append(cat['RA'])
         dec_list.append(cat['DEC'])
         z_list.append(cat['Z_COSMO'])
-        i += 1
 
     RA = np.concatenate(ra_list)
     DEC = np.concatenate(dec_list)
     Z = np.concatenate(z_list)
 
-    print(f'Merged {i} catalogs from {sources_folder} into a single catalog with {len(RA)} quasars.')
+    print(f'Merged {len(files)} catalogs into a single catalog with {len(RA)} sources.')
+
+    # Store sources catalog and bins count
+    os.makedirs(out_dir, exist_ok=True)  # Create the output directory if it doesn't exist
+    nz, z_edges = np.histogram(Z, bins=400)  # Binning the redshift distribution into 400 bins
+    np.savez_compressed(f'{sources_prefix}_full.npz', RA=RA, DEC=DEC, Z_COSMO=Z)
+    np.savez_compressed(f'{out_dir}/nz_hist_{filename}.npz', z_edges=z_edges, nz=nz)
+
 
     return RA, DEC, Z
 
 
-def compute_cls_ss(sources_folder, nside, lmax, zmin_bin, zmax_bin):
+def compute_cls_ss(sources_prefix, nside, lmax, zmin_bin, zmax_bin, out_dir, filename):
     '''
     Computes the sources clustering auto-spectrum, substracting shot noise
     '''
 
     # Merge sources catalogs
-    ra, dec, z = merge_sources_catalogs(sources_folder)
+    ra, dec, z = merge_sources_catalogs(sources_prefix, out_dir, filename)
 
     # Create a bin mask to filter out sources outside the bin
-    mask = (z > zmin_bin) & (z <= zmax_bin)
+    mask = (z > zmin_bin) & (z < zmax_bin)
     ra = ra[mask]
     dec = dec[mask]
     z = z[mask]
@@ -293,26 +314,19 @@ def compute_cls_ss(sources_folder, nside, lmax, zmin_bin, zmax_bin):
     return ell, cl_ss_signal, np.sqrt(var_ss)
 
 
-def save_rebinned_cls_ss(sources, sources_folder, nside, lmin, lmax, zmin_bin, zmax_bin, nbins, out_dir):
+def save_rebinned_cls_ss(sources_prefix, nside, lmin, lmax, zmin_bin, zmax_bin, nbins, out_dir, filename):
     '''
     Read the sources catalogs from the specified folder, compute the power spectrum, rebin it into logarithmic bins, and save the rebinned Cls and their errors to .npy files.
     '''
 
     # Read the sources power spectrum and compute the error bars assuming Gaussianity and no CMB lensing noise
-    ell, cl_ss, err_ss = compute_cls_ss(sources_folder, nside, lmax, zmin_bin, zmax_bin)
+    ell, cl_ss, err_ss = compute_cls_ss(sources_prefix, nside, lmax, zmin_bin, zmax_bin, out_dir, filename)
     ell_log, cl_ss_log, err_ss_log = hybrid_bin_cls(ell, cl_ss, err_ss, nbins=nbins, ell_min=lmin, ell_max=lmax)
 
-    if sources == 'galaxies':
-        xx = 'gg'
-    elif sources == 'quasars':
-        xx = 'qq'
-    else:
-        xx = 'xx'
-
     # Save the rebinned Cls and their errors to .npy files
-    np.savez(f'{out_dir}/cl_{xx}', ells=ell, cls=cl_ss, err=err_ss)
-    np.savez(f'{out_dir}/cl_{xx}_log', ells=ell_log, cls=cl_ss_log, err=err_ss_log)
-    print(f'Saved cl_{xx}.npz and cl_{xx}_log.npz arrays in {out_dir} succesfully.')
+    np.savez(f'{out_dir}/cl_gg_{filename}', ells=ell, cls=cl_ss, err=err_ss)
+    np.savez(f'{out_dir}/cl_gg_{filename}_log', ells=ell_log, cls=cl_ss_log, err=err_ss_log)
+    print(f'Saved cl_gg_{filename}.npz and cl_gg_{filename}_log.npz arrays in {out_dir} succesfully.')
     
 
 ################################################################################
@@ -326,17 +340,17 @@ def save_rebinned_cls_ss(sources, sources_folder, nside, lmin, lmax, zmin_bin, z
 ################################################################################
 
 
-def compute_cls_ks(kappa_file, sources_folder, nside, lmax, zmin_bin, zmax_bin):
+def compute_cls_ks(kappa_map, sources_prefix, nside, lmax, zmin_bin, zmax_bin, out_dir, filename):
     '''
     Computes the cmb lensing x sources cross-spectrum, substracting shot noise
     '''
 
     # Read the kappa map (nside=512 by colore default) and upscale it to input nside
-    m_k = hp.read_map(kappa_file, hdu=1)
+    m_k = hp.read_map(kappa_map, hdu=1)
     m_k = hp.ud_grade(m_k, nside)
 
     # Merge sources catalogs
-    ra, dec, z = merge_sources_catalogs(sources_folder)
+    ra, dec, z = merge_sources_catalogs(sources_prefix, out_dir, filename)
 
     # Create a bin mask to filter out sources outside the bin
     mask = (z > zmin_bin) & (z <= zmax_bin)
@@ -393,23 +407,16 @@ def compute_cls_ks(kappa_file, sources_folder, nside, lmax, zmin_bin, zmax_bin):
     return ell, cl_ks, np.sqrt(var_ks)
 
 
-def save_rebinned_cls_ks(kappa_file, sources, sources_folder, nside, lmin, lmax, zmin_bin, zmax_bin, nbins, out_dir):
+def save_rebinned_cls_ks(kappa_map, sources_prefix, nside, lmin, lmax, zmin_bin, zmax_bin, nbins, out_dir, filename):
     '''
     Read the sources catalogs from the specified folder, compute the power spectrum, rebin it into logarithmic bins, and save the rebinned Cls and their errors to .npy files.
     '''
 
     # Read the sources power spectrum and compute the error bars assuming Gaussianity and no CMB lensing noise
-    ell, cl_ks, err_ks = compute_cls_ks(kappa_file, sources_folder, nside, lmax, zmin_bin, zmax_bin)
+    ell, cl_ks, err_ks = compute_cls_ks(kappa_map, sources_prefix, nside, lmax, zmin_bin, zmax_bin, out_dir, filename)
     ell_log, cl_ks_log, err_ks_log = hybrid_bin_cls(ell, cl_ks, err_ks, nbins=nbins, ell_min=lmin, ell_max=lmax)
 
-    if sources == 'galaxies':
-        xx = 'kg'
-    elif sources == 'quasars':
-        xx = 'kq'
-    else:
-        xx = 'kx'
-
     # Save the rebinned Cls and their errors to .npy files
-    np.savez(f'{out_dir}/cl_{xx}', ells=ell, cls=cl_ks, err=err_ks)
-    np.savez(f'{out_dir}/cl_{xx}_log', ells=ell_log, cls=cl_ks_log, err=err_ks_log)
-    print(f'Saved cl_{xx}.npz and cl_{xx}_log.npz arrays in {out_dir} succesfully.')
+    np.savez(f'{out_dir}/cl_kg_{filename}', ells=ell, cls=cl_ks, err=err_ks)
+    np.savez(f'{out_dir}/cl_kg_{filename}_log', ells=ell_log, cls=cl_ks_log, err=err_ks_log)
+    print(f'Saved cl_kg_{filename}.npz and cl_kg_{filename}_log.npz arrays in {out_dir} succesfully.')
