@@ -18,6 +18,8 @@ def main():
     parser.add_argument("--filename", required=True)
     parser.add_argument("--prefix_out", required=True)
     parser.add_argument("--pk_filename", required=False)
+    parser.add_argument("--z_min", type=float, default=1.6)
+    parser.add_argument("--z_max", type=float, default=3.8)
 
 
     # Cosmological parameters
@@ -29,11 +31,10 @@ def main():
     parser.add_argument("--As", type=float, default=2e-9)
     parser.add_argument("--w", type=float, default=-1.0)
 
-    # Sources_1 arguments (quasars)
-    parser.add_argument("--nz_filename",
-                        default="/pscratch/sd/d/djarque/cmb_lensing_lya/data/Nz_qso_130618_2_colore1_hZs.txt")
-    parser.add_argument("--bias_filename",
-                        default="/pscratch/sd/d/djarque/cmb_lensing_lya/data/Bz_qso_G18.txt")
+    # Sources
+    parser.add_argument("--nz_filenames", nargs='+',  type=str, required=False, default=[], help="List of redshift distribution files.")
+    parser.add_argument("--bz_filenames", nargs='+', type=str, required=False, default=[], help="List of bias files.")
+    parser.add_argument("--Tz_filenames", nargs='+', type=str, required=False, default=[], help="List of threshold files.")
     parser.add_argument("--include_shear", action='store_true')
     parser.add_argument("--include_lensing", action='store_true')
     parser.add_argument("--store_skewers", action='store_true')
@@ -73,7 +74,7 @@ def main():
         output=args.output
     )
     if args.pk_filename is None:
-        args.pk_filename = f"/pscratch/sd/d/djarque/cmb_lensing_lya/{pk_filename}".replace("./", "")  # Make the path relative to the scratch directory
+        args.pk_filename = f"/pscratch/sd/d/djarque/cmb_lensing_lya/{pk_filename}".replace("//", "/")  # Ensure no double slashes in the path
 
 
     # Write the CoLoRe param.cfg file
@@ -81,9 +82,12 @@ def main():
         output_file=args.output+args.filename,
         prefix_out=args.prefix_out,
         pk_filename=args.pk_filename,
-        nz_filename=args.nz_filename,
-        bias_filename=args.bias_filename,
-        z_out = z_star,
+        nz_filenames=args.nz_filenames,
+        bz_filenames=args.bz_filenames,
+        Tz_filenames=args.Tz_filenames,
+        z_min=args.z_min,
+        z_max=args.z_max,
+        z_out=z_star,
         omega_M=args.omega_M,
         omega_L=args.omega_L,
         omega_B=args.omega_B,
