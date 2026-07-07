@@ -6,8 +6,8 @@
 --nside 4096 \
 --lmin 2 \
 --lmax 2500 \
---zmin_bin 0 \
+--zmin_bin 0.0 \
 --zmax_bin 3.8 \
 --nbins 30 \
---out_dir ./data/fourth_test_box/cls \
+--out_dir ./data/fourth_test_box/cls/ \
 --filename 'desi_qso'

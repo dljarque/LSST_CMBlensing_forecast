@@ -247,7 +247,7 @@ def merge_sources_catalogs(sources_prefix, out_dir, filename):
 
     # Store sources catalog and bins count
     os.makedirs(out_dir, exist_ok=True)  # Create the output directory if it doesn't exist
-    nz, z_edges = np.histogram(Z, bins=400)  # Binning the redshift distribution into 400 bins
+    nz, z_edges = np.histogram(Z, bins=200)  # Binning the redshift distribution into 200 bins
     np.savez_compressed(f'{sources_prefix}_full.npz', RA=RA, DEC=DEC, Z_COSMO=Z)
     np.savez_compressed(f'{out_dir}/nz_hist_{filename}.npz', z_edges=z_edges, nz=nz)
 
