@@ -2,23 +2,25 @@
 
 CMB lensing convergence $\kappa$ values, and QSO catalogs of the test box from the [CoLoRe simulation](https://github.com/damonge/CoLoRe). 
 
-- File [out_kappa.fits](CMB_lensing/out_kappa.fits) contains the convergence $\kappa$ values.
-- File [cl_kk.npz](CMB_lensing/cl_kk.npz) contains the CMB lensing autospectrum $C_{\ell}^{\kappa \kappa}$
-- File [cl_kk_log.npz](CMB_lensing/cl_kk_log.npz) contains the log-rebinned CMB lensing autospectrum using the [rebin_cls.py](../../scripts/rebin_cls.py) script.
+- File [out_kappa.fits](cmb_lensing/out_kappa_z000.fits) contains the convergence $\kappa$ values.
+- File [cl_kk.npz](cmb_lensing/cl_kk.npz) contains the CMB lensing autospectrum $C_{\ell}^{\kappa \kappa}$
+- File [cl_kk_log.npz](cmb_lensing/cl_kk_log.npz) contains the log-rebinned CMB lensing autospectrum using the [rebin_cls.py](../../scripts/rebin_cls.py) script.
 
-- Files [out_srcs_s1_i.fits](DESI_QSO/out_srcs_s1_0.fits) contains the ra, dec coordinates and redshift of the quasars.
-- File [cl_qq.npz](DESI_QSO/cl_qq.npz) contains the QSO clustering autospectrum $C_{\ell}^{qq}$
-- File [cl_qq_log.npz](DESI_QSO/cl_qq_log.npz) contains the log-rebinned QSO clustering autospectrum using the [rebin_cls.py](../../scripts/rebin_cls.py) script.
+- Files [out_srcs_s1_i.fits](desi_qso/out_srcs_s1_0.fits) contains the ra, dec coordinates and redshift of the quasars.
+- File [cl_qq.npz](desi_qso/cl_qq.npz) contains the QSO clustering autospectrum $C_{\ell}^{qq}$
+- File [cl_qq_log.npz](desi_qso/cl_qq_log.npz) contains the log-rebinned QSO clustering autospectrum using the [rebin_cls.py](../../scripts/rebin_cls.py) script.
 
-- File [cl_kq.npz](DESI_QSO/cl_kq.npz) contains the CMB lensing x QSO cross-spectrum $C_{\ell}^{kq}$.
-- File [cl_kq_log.npz](DESI_QSO/cl_kq_log.npz) contains the log-rebinned CMB lensing x QSO cross-spectrum using the [rebin_cls.py](../../scripts/rebin_cls.py) script.
+- File [cl_kq.npz](desi_qso/cl_kq.npz) contains the CMB lensing x QSO cross-spectrum $C_{\ell}^{kq}$.
+- File [cl_kq_log.npz](desi_qso/cl_kq_log.npz) contains the log-rebinned CMB lensing x QSO cross-spectrum using the [rebin_cls.py](../../scripts/rebin_cls.py) script.
 
 ## CoLoRe config file
 
+**This box was run using the NORMALIZED bias model of CoLoRe.**
+
 The file [param.cfg](param.cfg) contains the input parameters to reproduce the colore box. The config file refers to three different files:
-- File [pk_linear.dat](pk_linear.dat) contains the linear matter power spectrum P(k) at z=0.
-- File [Nz_qso_130618_2_colore1_hZs.txt](../colore_files/nz/nz_QSO_DESI.txt) contains the quasars redshift distribution n(z).
-- File [Bz_qso_G18.txt](../colore_files/bz/bz_QSO_DESI_G18.txt) contains the quasar bias parameter b_Q(z) evolution with redshift.
+- File [pk_linear.dat](pk_linear.dat) contains the linear matter power spectrum $P(k)$ at $z=0$.
+- File [nz_desi_qso.txt](../colore_files/nz/nz_desi_qso.txt) contains the quasars redshift distribution $n(z)$.
+- File [bz_desi_qso.txt](../colore_files/bz/bz_desi_qso.txt) contains the quasar bias parameter $b_Q(z)$ evolution with redshift.
 
 ## Cosmological parameters
 
