@@ -114,8 +114,8 @@ def hybrid_bin_cls(
             w = weights[mask]
 
             # compute the weighted average of the cls and ells in the bin, and the rebinned variance
-            cls_binned[i] = np.sum(w * cls[mask]) / np.sum(w)  # weighted average of the cls in the bin
             ell_binned[i] = np.sum(w * ell[mask]) / np.sum(w)  # weighted average of the ells in the bin
+            cls_binned[i] = np.sum(w * cls[mask]) / np.sum(w)  # weighted average of the cls in the bin
             var_binned = np.sum((w**2) * err[mask]**2) / (np.sum(w)**2)  # rebinned variance of the Cls
             err_binned[i] = np.sqrt(var_binned)  # rebinned error of the Cls
 
@@ -387,7 +387,6 @@ def compute_cls_ks(kappa_map, sources_prefix, nside, lmax, zmin_bin, zmax_bin, o
         cl_ks = hp.anafast(m_k, delta, lmax=lmax)  # compute the auto power spectrum of the overdensity map
         cl_ss = hp.anafast(delta, lmax=lmax)  # compute the auto power spectrum of the overdensity map
         cl_kk = hp.anafast(m_k, lmax=lmax)  # compute the kk auto power spectrum
-
 
     # compute the effective sky fraction and number density for shot noise calculation
     fsky = 1  # full sky for the moment
