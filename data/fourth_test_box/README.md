@@ -1,5 +1,11 @@
 # CoLoRe simulation boxes
 
+## Description
+
+Fourth CoLoRe box, with CMB lensing, DESI galaxies and LSST galaxies output, run by Dani.
+
+## Products
+
 CMB lensing convergence $\kappa$ values, Galaxy auto-spectrum, and CMB x Galaxy cross-spectrum of the test box from the [CoLoRe simulation](https://github.com/damonge/CoLoRe). 
 
 - File [out_kappa.fits](cls/out_kappa_z000.fits) contains the convergence $\kappa$ values.

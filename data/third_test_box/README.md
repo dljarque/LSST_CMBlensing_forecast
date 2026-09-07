@@ -1,5 +1,11 @@
 # CoLoRe simulation boxes
 
+## Description
+
+Third CoLoRe box, with CMB lensing and QSO output, run by Dani.
+
+## Products
+
 CMB lensing convergence $\kappa$ values, and QSO catalogs of the test box from the [CoLoRe simulation](https://github.com/damonge/CoLoRe). 
 
 - File [out_kappa.fits](cmb_lensing/out_kappa_z000.fits) contains the convergence $\kappa$ values.
