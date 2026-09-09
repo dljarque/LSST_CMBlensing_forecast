@@ -22,7 +22,7 @@ CMB lensing convergence $\kappa$ values, Galaxy auto-spectrum, and CMB x Galaxy 
 
 ## CoLoRe config file
 
-**This box was run using the NORMALIZED bias model of CoLoRe.**
+**This box was run using the LINEAR bias model of CoLoRe.**
 
 The file [param.cfg](param.cfg) contains the input parameters to reproduce the colore box. The config file refers to three different files:
 - File [pk_linear.dat](pk_linear.dat) contains the linear matter power spectrum $P(k)$ at $z=0$.
