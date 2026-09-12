@@ -6,6 +6,17 @@ import healpy as hp
 from astropy.io import fits
 import warnings
 
+
+################################################################################
+#                                                                              #
+#   COMMON FUNCTIONS SECTION                                                   #
+#   ------------------------------------------------------------------------   #
+#   The functions below handle common tasks such as merging source catalogs,   #
+#   rebinning power spectra, and saving results.                               #
+#                                                                              #
+################################################################################
+
+
 def hybrid_bin_cls(
     ell,
     cls,
@@ -123,6 +134,50 @@ def hybrid_bin_cls(
     return ell_binned, cls_binned, err_binned
 
 
+def merge_sources_catalogs(sources_prefix, out_dir, filename):
+    '''
+    Merge and store all CoLoRe source catalogs sharing the same prefix into a single
+    catalog of RA, DEC and Z.
+
+    Example
+    -------
+    sources_prefix = 'sources_folder/out_srcs_s1'
+
+    matches:
+        out_srcs_s1_0.fits
+        out_srcs_s1_1.fits
+        ...
+    '''
+
+    # Get all source catalogs matching the prefix
+    files = sorted(glob(f'{sources_prefix}_*.fits'))
+
+    if not files:
+        raise FileNotFoundError(f'No source catalogs found matching {sources_prefix}_*.fits')
+
+    ra_list, dec_list, z_list = [], [], []
+
+    # Loop over the files and read the RA, DEC, and Z_COSMO columns
+    for file in files:
+        cat = fits.getdata(file, ext=1)
+        ra_list.append(cat['RA'])
+        dec_list.append(cat['DEC'])
+        z_list.append(cat['Z_COSMO'])
+
+    RA = np.concatenate(ra_list)
+    DEC = np.concatenate(dec_list)
+    Z = np.concatenate(z_list)
+
+    print(f'Merged {len(files)} catalogs into a single catalog with {len(RA)} sources.')
+
+    # Store sources catalog and bins count
+    os.makedirs(out_dir, exist_ok=True)  # Create the output directory if it doesn't exist
+    nz, z_edges = np.histogram(Z, bins=200)  # Binning the redshift distribution into 200 bins
+    np.savez_compressed(f'{out_dir}/nz_hist_{filename}.npz', z_edges=z_edges, nz=nz)
+
+    return RA, DEC, Z
+
+
 ################################################################################
 #                                                                              #
 #   CMB LENSING AUTO-SPECTRUM SECTION                                          #
@@ -174,9 +229,9 @@ def compute_cls_kk(kappa_map, noise_spectrum_file=None, return_raw_cls=False):
     var_kk = (2 / ((2*ell + 1)*fsky)) * (cl_kk_signal + nl_kk_match)**2   # variance on the Cls, assuming Gaussianity and no CMB lensing noise
 
     if return_raw_cls:
-        return ell, cl_kk_signal, np.sqrt(var_kk), cl_kk
+        return ell, cl_kk_signal, np.sqrt(var_kk), cl_kk, nside
     else:
-        return ell, cl_kk_signal, np.sqrt(var_kk)
+        return ell, cl_kk_signal, np.sqrt(var_kk), nside
 
 
 def save_rebinned_cls_kk(kappa_map, lmin, lmax, nbins, out_dir):
@@ -185,15 +240,17 @@ def save_rebinned_cls_kk(kappa_map, lmin, lmax, nbins, out_dir):
     '''
 
     # Read the kappa map and compute the power spectrum
-    ell, cl_kk, err_kk = compute_cls_kk(kappa_map)
+    ell, cl_kk, err_kk, nside = compute_cls_kk(kappa_map)
+    if lmax is None:
+        lmax = 3 * nside - 1  # maximum multipole for the map, set by the HEALPix resolution
     ell_log, cl_kk_log, err_kk_log = hybrid_bin_cls(ell, cl_kk, err_kk, nbins=nbins, ell_min=lmin, ell_max=lmax)
 
     # Create the output directory if it doesn't exist
     os.makedirs(out_dir, exist_ok=True)
 
     # Save the rebinned Cls and their errors to .npy files
-    np.savez(f'{out_dir}/cl_kk', ells=ell, cls=cl_kk, err=err_kk)
-    np.savez(f'{out_dir}/cl_kk_log', ells=ell_log, cls=cl_kk_log, err=err_kk_log)
+    np.savez(f'{out_dir}/cl_kk', ells=ell, cls=cl_kk, err=err_kk, nside=nside)
+    np.savez(f'{out_dir}/cl_kk_log', ells=ell_log, cls=cl_kk_log, err=err_kk_log, nside=nside)
 
     print(f'Saved cl_kk.npz and cl_kk_log.npz arrays in {out_dir} succesfully.')
 
@@ -208,49 +265,6 @@ def save_rebinned_cls_kk(kappa_map, lmin, lmax, nbins, out_dir):
 #                                                                              #
 ################################################################################
 
-
-def merge_sources_catalogs(sources_prefix, out_dir, filename):
-    '''
-    Merge and store all CoLoRe source catalogs sharing the same prefix into a single
-    catalog of RA, DEC and Z.
-
-    Example
-    -------
-    sources_prefix = 'sources_folder/out_srcs_s1'
-
-    matches:
-        out_srcs_s1_0.fits
-        out_srcs_s1_1.fits
-        ...
-    '''
-
-    # Get all source catalogs matching the prefix
-    files = sorted(glob(f'{sources_prefix}_*.fits'))
-
-    if not files:
-        raise FileNotFoundError(f'No source catalogs found matching {sources_prefix}_*.fits')
-
-    ra_list, dec_list, z_list = [], [], []
-
-    # Loop over the files and read the RA, DEC, and Z_COSMO columns
-    for file in files:
-        cat = fits.getdata(file, ext=1)
-        ra_list.append(cat['RA'])
-        dec_list.append(cat['DEC'])
-        z_list.append(cat['Z_COSMO'])
-
-    RA = np.concatenate(ra_list)
-    DEC = np.concatenate(dec_list)
-    Z = np.concatenate(z_list)
-
-    print(f'Merged {len(files)} catalogs into a single catalog with {len(RA)} sources.')
-
-    # Store sources catalog and bins count
-    os.makedirs(out_dir, exist_ok=True)  # Create the output directory if it doesn't exist
-    nz, z_edges = np.histogram(Z, bins=200)  # Binning the redshift distribution into 200 bins
-    np.savez_compressed(f'{out_dir}/nz_hist_{filename}.npz', z_edges=z_edges, nz=nz)
-
-    return RA, DEC, Z
 
 
 def compute_cls_ss(sources_prefix, nside, lmax, zmin_bin, zmax_bin, out_dir, filename):
@@ -309,7 +323,7 @@ def compute_cls_ss(sources_prefix, nside, lmax, zmin_bin, zmax_bin, out_dir, fil
     cl_ss_signal = cl_ss - nl_ss
     var_ss  = (2 / ((2*ell + 1)*fsky)) * (cl_ss_signal + nl_ss)**2   # variance on the Cls, assuming Gaussianity
 
-    return ell, cl_ss_signal, np.sqrt(var_ss)
+    return ell, cl_ss_signal, np.sqrt(var_ss), shot_noise
 
 
 def save_rebinned_cls_ss(sources_prefix, nside, lmin, lmax, zmin_bin, zmax_bin, nbins, out_dir, filename):
@@ -318,12 +332,12 @@ def save_rebinned_cls_ss(sources_prefix, nside, lmin, lmax, zmin_bin, zmax_bin, 
     '''
 
     # Read the sources power spectrum and compute the error bars assuming Gaussianity and no CMB lensing noise
-    ell, cl_ss, err_ss = compute_cls_ss(sources_prefix, nside, lmax, zmin_bin, zmax_bin, out_dir, filename)
+    ell, cl_ss, err_ss, shot_noise = compute_cls_ss(sources_prefix, nside, lmax, zmin_bin, zmax_bin, out_dir, filename)
     ell_log, cl_ss_log, err_ss_log = hybrid_bin_cls(ell, cl_ss, err_ss, nbins=nbins, ell_min=lmin, ell_max=lmax)
 
     # Save the rebinned Cls and their errors to .npy files
-    np.savez(f'{out_dir}/cl_gg_{filename}', ells=ell, cls=cl_ss, err=err_ss)
-    np.savez(f'{out_dir}/cl_gg_{filename}_log', ells=ell_log, cls=cl_ss_log, err=err_ss_log)
+    np.savez(f'{out_dir}/cl_gg_{filename}', ells=ell, cls=cl_ss, err=err_ss, nside=nside, zmin=zmin_bin, zmax=zmax_bin, shot_noise=shot_noise)
+    np.savez(f'{out_dir}/cl_gg_{filename}_log', ells=ell_log, cls=cl_ss_log, err=err_ss_log, nside=nside, zmin=zmin_bin, zmax=zmax_bin, shot_noise=shot_noise)
     print(f'Saved cl_gg_{filename}.npz and cl_gg_{filename}_log.npz arrays in {out_dir} succesfully.')
     
 
@@ -338,14 +352,17 @@ def save_rebinned_cls_ss(sources_prefix, nside, lmin, lmax, zmin_bin, zmax_bin, 
 ################################################################################
 
 
-def compute_cls_ks(kappa_map, sources_prefix, nside, lmax, zmin_bin, zmax_bin, out_dir, filename):
+def compute_cls_ks(kappa_map, sources_prefix, lmax, zmin_bin, zmax_bin, out_dir, filename):
     '''
     Computes the cmb lensing x sources cross-spectrum, substracting shot noise
     '''
 
     # Read the kappa map (nside=512 by colore default) and upscale it to input nside
     m_k = hp.read_map(kappa_map, hdu=1)
-    m_k = hp.ud_grade(m_k, nside)
+
+    # Get the map resolution
+    nside = hp.get_nside(m_k)
+    lmax_map = 3 * nside - 1  # maximum multipole for the map, set by the HEALPix resolution
 
     # Merge sources catalogs
     ra, dec, z = merge_sources_catalogs(sources_prefix, out_dir, filename)
@@ -374,19 +391,19 @@ def compute_cls_ks(kappa_map, sources_prefix, nside, lmax, zmin_bin, zmax_bin, o
     # Compute the overdensity map (delta) for pixels with counts > 0, and set delta=0 for empty pixels to avoid division by zero
     delta = (counts - mean_counts) / mean_counts
 
-    lmax_map = nside * 3 - 1  # maximum multipole for the map, set by the HEALPix resolution
-    if lmax > lmax_map:
-        raise ValueError('lmax is too big to compute the Cls. Maximum multipole allowed: lmax = (3 * NSIDE) - 1')
-    elif lmax is None:
+    if lmax is None:
         print('Computing the cross-spectrum of CMB lensing x sources overdensity...')
         cl_ks = hp.anafast(m_k, delta, lmax=lmax_map)  # compute the cross power spectrum
         cl_ss = hp.anafast(delta, lmax=lmax_map)  # compute the ss auto power spectrum
         cl_kk = hp.anafast(m_k, lmax=lmax_map)  # compute the kk auto power spectrum
     else:
-        print('Computing the cross-spectrum of CMB lensing x sources overdensity...')
-        cl_ks = hp.anafast(m_k, delta, lmax=lmax)  # compute the auto power spectrum of the overdensity map
-        cl_ss = hp.anafast(delta, lmax=lmax)  # compute the auto power spectrum of the overdensity map
-        cl_kk = hp.anafast(m_k, lmax=lmax)  # compute the kk auto power spectrum
+        if lmax > lmax_map:
+            raise ValueError('lmax is too big to compute the Cls. Maximum multipole allowed: lmax = (3 * NSIDE) - 1')
+        else:
+            print('Computing the cross-spectrum of CMB lensing x sources overdensity...')
+            cl_ks = hp.anafast(m_k, delta, lmax=lmax)  # compute the auto power spectrum of the overdensity map
+            cl_ss = hp.anafast(delta, lmax=lmax)  # compute the auto power spectrum of the overdensity map
+            cl_kk = hp.anafast(m_k, lmax=lmax)  # compute the kk auto power spectrum
 
     # compute the effective sky fraction and number density for shot noise calculation
     fsky = 1  # full sky for the moment
@@ -401,19 +418,19 @@ def compute_cls_ks(kappa_map, sources_prefix, nside, lmax, zmin_bin, zmax_bin, o
     cl_ss_signal = cl_ss - nl_ss
     var_ks = (2 / ((2*ell + 1)*fsky)) * ((cl_ks)**2 + (cl_kk + nl_kk)*(cl_ss_signal + nl_ss))
 
-    return ell, cl_ks, np.sqrt(var_ks)
+    return ell, cl_ks, np.sqrt(var_ks), nside, shot_noise
 
 
-def save_rebinned_cls_ks(kappa_map, sources_prefix, nside, lmin, lmax, zmin_bin, zmax_bin, nbins, out_dir, filename):
+def save_rebinned_cls_ks(kappa_map, sources_prefix, lmin, lmax, zmin_bin, zmax_bin, nbins, out_dir, filename):
     '''
     Read the sources catalogs from the specified folder, compute the power spectrum, rebin it into logarithmic bins, and save the rebinned Cls and their errors to .npy files.
     '''
 
     # Read the sources power spectrum and compute the error bars assuming Gaussianity and no CMB lensing noise
-    ell, cl_ks, err_ks = compute_cls_ks(kappa_map, sources_prefix, nside, lmax, zmin_bin, zmax_bin, out_dir, filename)
+    ell, cl_ks, err_ks, nside, shot_noise = compute_cls_ks(kappa_map, sources_prefix, lmax, zmin_bin, zmax_bin, out_dir, filename)
     ell_log, cl_ks_log, err_ks_log = hybrid_bin_cls(ell, cl_ks, err_ks, nbins=nbins, ell_min=lmin, ell_max=lmax)
 
     # Save the rebinned Cls and their errors to .npy files
-    np.savez(f'{out_dir}/cl_kg_{filename}', ells=ell, cls=cl_ks, err=err_ks)
-    np.savez(f'{out_dir}/cl_kg_{filename}_log', ells=ell_log, cls=cl_ks_log, err=err_ks_log)
+    np.savez(f'{out_dir}/cl_kg_{filename}', ells=ell, cls=cl_ks, err=err_ks, nside=nside, zmin=zmin_bin, zmax=zmax_bin, shot_noise=shot_noise)
+    np.savez(f'{out_dir}/cl_kg_{filename}_log', ells=ell_log, cls=cl_ks_log, err=err_ks_log, nside=nside, zmin=zmin_bin, zmax=zmax_bin, shot_noise=shot_noise)
     print(f'Saved cl_kg_{filename}.npz and cl_kg_{filename}_log.npz arrays in {out_dir} succesfully.')

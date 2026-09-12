@@ -74,7 +74,7 @@ def main():
         output=args.output
     )
     if args.pk_filename is None:
-        args.pk_filename = f"/pscratch/sd/d/djarque/cmb_lensing_lya/{pk_filename}".replace("//", "/")  # Ensure no double slashes in the path
+        args.pk_filename = f"/pscratch/sd/d/djarque/cmb_lensing_lya/{pk_filename}".replace("/./", "/")  # Ensure no double slashes in the path
 
 
     # Write the CoLoRe param.cfg file

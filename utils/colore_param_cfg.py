@@ -107,7 +107,7 @@ def write_colore_param_cfg(
     gaussian_skewers,
     output_density,
     seed=9,
-    nside=512,
+    nside=1024,
 
 ):
 

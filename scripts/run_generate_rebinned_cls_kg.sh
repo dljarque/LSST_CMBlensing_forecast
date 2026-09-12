@@ -2,12 +2,11 @@
 
 /home/dljarque/miniforge3/envs/IFAE/bin/python \
 ./scripts/generate_rebinned_cls.py 'cmblensing_x_sources' \
---kappa_map ./data/fourth_test_box/results/out_kappa_z000.fits \
---sources_prefix ./data/fourth_test_box/results/out_srcs_s5 \
---nside 512 \
+--kappa_map ./data/test_box_3/results/out_kappa_z000.fits \
+--sources_prefix ./data/test_box_3/results/out_srcs_s1 \
 --lmin 2 \
---zmin_bin 2.0 \
+--zmin_bin 0.0 \
 --zmax_bin 3.8 \
 --nbins 30 \
---out_dir ./data/fourth_test_box/cls \
---filename 'desi_qso_bin1'
+--out_dir ./data/test_box_3/cls \
+--filename 'desi_qso'
