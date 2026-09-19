@@ -1,7 +1,7 @@
 import argparse
 import sys
 sys.path.append('.')  # add the parent directory to the path so we can import from utils
-from utils.rebinning import save_rebinned_cls_kk, save_rebinned_cls_ss, save_rebinned_cls_ks
+from utils.colore_cls import save_rebinned_cls_kk, save_rebinned_cls_ss, save_rebinned_cls_ks
 
 
 def cmb_lensing_auto(args):
@@ -13,16 +13,13 @@ def cmb_lensing_auto(args):
 def sources_auto(args):
     '''Saves rebinned Cls for Sources.'''
 
-    if args.lmax is None:
-        args.lmax = args.nside * 3 - 1
-
-    save_rebinned_cls_ss(args.sources_prefix, args.nside, args.lmin, args.lmax, args.zmin_bin, args.zmax_bin, args.nbins, args.out_dir, args.filename)
+    save_rebinned_cls_ss(args.sources_prefix, args.nside, args.lmin, args.lmax, args.zmean, args.dz, args.sigma_z, args.nbins, args.out_dir, args.filename)
 
 
 def cmblensing_x_sources(args):
     '''Saves rebinned Cls for CMB lensing x Sources.'''
 
-    save_rebinned_cls_ks(args.kappa_map, args.sources_prefix, args.lmin, args.lmax, args.zmin_bin, args.zmax_bin, args.nbins, args.out_dir, args.filename)
+    save_rebinned_cls_ks(args.kappa_map, args.sources_prefix, args.lmin, args.lmax, args.zmean, args.dz, args.sigma_z, args.nbins, args.out_dir, args.filename)
 
 
 if __name__ == "__main__":
@@ -45,8 +42,9 @@ if __name__ == "__main__":
     parser_source.add_argument("--nside", type=int, required=True, help="Healpix resolution for the delta_g map (must be a power of 2)")
     parser_source.add_argument("--lmin", type=int, default=2, help="Minimum multipole moment to include")
     parser_source.add_argument("--lmax", type=int, default=None, help="Maximum multipole moment to include")
-    parser_source.add_argument("--zmin_bin", type=float, default=None, help="Lower limit of the tomographic bin")
-    parser_source.add_argument("--zmax_bin", type=float, default=None, help="Upper limit of the tomographic bin")
+    parser_source.add_argument("--zmean", type=float, default=None, help="Mean redshift of the tomographic bin")
+    parser_source.add_argument("--dz", type=float, default=None, help="Width of the tomographic bin")
+    parser_source.add_argument("--sigma_z", type=float, default=None, help="Standard deviation of the photo-z noise added to true redshifts")
     parser_source.add_argument("--nbins", type=int, default=30, help="Number of bins")
     parser_source.add_argument("--out_dir", required=True, help="Output directory")
     parser_source.add_argument("--filename", required=True, help="Output cls filename")
@@ -58,8 +56,9 @@ if __name__ == "__main__":
     parser_cmbxsource.add_argument("--sources_prefix", required=True, help="Input folder with sources data")
     parser_cmbxsource.add_argument("--lmin", type=int, default=2, help="Minimum multipole moment to include")
     parser_cmbxsource.add_argument("--lmax", type=int, default=None, help="Maximum multipole moment to include")
-    parser_cmbxsource.add_argument("--zmin_bin", type=float, default=None, help="Lower limit of the tomographic bin")
-    parser_cmbxsource.add_argument("--zmax_bin", type=float, default=None, help="Upper limit of the tomographic bin")
+    parser_cmbxsource.add_argument("--zmean", type=float, default=None, help="Mean redshift of the tomographic bin")
+    parser_cmbxsource.add_argument("--dz", type=float, default=None, help="Width of the tomographic bin")
+    parser_cmbxsource.add_argument("--sigma_z", type=float, default=None, help="Standard deviation of the photo-z noise added to true redshifts")
     parser_cmbxsource.add_argument("--nbins", type=int, default=30, help="Number of bins")
     parser_cmbxsource.add_argument("--out_dir", required=True, help="Output directory")
     parser_cmbxsource.add_argument("--filename", required=True, help="Output cls filename")
