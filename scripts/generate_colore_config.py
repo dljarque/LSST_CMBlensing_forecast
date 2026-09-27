@@ -18,6 +18,8 @@ def main():
     parser.add_argument("--filename", required=True)
     parser.add_argument("--prefix_out", required=True)
     parser.add_argument("--pk_filename", required=False)
+    parser.add_argument("--seed", type=int, required=False)
+    parser.add_argument("--lensing_nside", type=int, required=False)
     parser.add_argument("--z_min", type=float, default=1.6)
     parser.add_argument("--z_max", type=float, default=3.8)
 
@@ -85,6 +87,8 @@ def main():
         nz_filenames=args.nz_filenames,
         bz_filenames=args.bz_filenames,
         Tz_filenames=args.Tz_filenames,
+        seed=args.seed,
+        nside=args.lensing_nside,
         z_min=args.z_min,
         z_max=args.z_max,
         z_out=z_star,

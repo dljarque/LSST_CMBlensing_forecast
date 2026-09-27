@@ -28,7 +28,7 @@ def hybrid_bin_cls(
 
     # set default values for ell_min and ell_max if not provided
     if ell_min is None:
-        ell_min = ell[2]   # mask out the monopole and dipole
+        ell_min = 2   # mask out the monopole and dipole
 
     if ell_max is None:
         ell_max = ell.max()
@@ -145,7 +145,7 @@ def make_hybrid_bin_matrix(
     """
 
     if ell_min is None:
-        ell_min = ell[2]
+        ell_min = 2
 
     if ell_max is None:
         ell_max = ell.max()

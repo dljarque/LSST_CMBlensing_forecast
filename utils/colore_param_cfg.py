@@ -29,7 +29,7 @@ def build_camb_cosmology(
 
     pars.InitPower.set_params(
         As=As,
-        ns=ns,  # temporary initial guess
+        ns=ns,
     )
 
     pars.set_dark_energy(w=w)
@@ -91,6 +91,8 @@ def write_colore_param_cfg(
     nz_filenames,
     bz_filenames,
     Tz_filenames,
+    seed,
+    nside,
     z_min,
     z_max,
     z_out,
@@ -106,9 +108,6 @@ def write_colore_param_cfg(
     store_skewers,
     gaussian_skewers,
     output_density,
-    seed=9,
-    nside=1024,
-
 ):
 
     """
@@ -119,7 +118,7 @@ def write_colore_param_cfg(
     output_file : str
         Path where param.cfg will be written
     prefix_out : str
-        Output prefix for CoLoRe simulationproducts
+        Output prefix for CoLoRe simulation products
     pk_filename : str
         Input matter power spectrum file
     omega_M, omega_L, omega_B, h, w, sigma_8 : float
