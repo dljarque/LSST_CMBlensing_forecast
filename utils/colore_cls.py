@@ -45,7 +45,7 @@ def print_output(filename):
 #   COMMON FUNCTIONS SECTION                                                   #
 #   ------------------------------------------------------------------------   #
 #   The functions below handle common tasks such as merging source catalogs,   #
-#   and saving results.                                           #
+#   and saving results.                                                        #
 #                                                                              #
 ################################################################################
 

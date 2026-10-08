@@ -3,11 +3,11 @@
 /home/dljarque/miniforge3/envs/IFAE/bin/python \
 ./scripts/generate_colore_config.py \
 \
---output ./data/test_box_4/ \
+--output ./data/test_box_6/ \
 --filename param.cfg \
---prefix_out /pscratch/sd/d/djarque/cmb_lensing_lya/data/test_box_4/results/out \
+--prefix_out /pscratch/sd/d/djarque/cmb_lensing_lya/data/test_box_6/results/out \
 \
---seed 9 \
+--seed 66 \
 --lensing_nside 1024 \
 --z_min 0 \
 --z_max 3.8 \
@@ -20,18 +20,21 @@
 --As 2.1e-9 \
 --w -1.0 \
 \
---nz_filenames /pscratch/sd/d/djarque/cmb_lensing_lya/data/colore_files/nz/nz_lsst_gal.txt \
+--nz_filenames \
+ /pscratch/sd/d/djarque/cmb_lensing_lya/data/colore_files/nz/nz_lsst_gal.txt \
  /pscratch/sd/d/djarque/cmb_lensing_lya/data/colore_files/nz/nz_desi_bgs.txt \
  /pscratch/sd/d/djarque/cmb_lensing_lya/data/colore_files/nz/nz_desi_lrg.txt \
  /pscratch/sd/d/djarque/cmb_lensing_lya/data/colore_files/nz/nz_desi_elg.txt \
  /pscratch/sd/d/djarque/cmb_lensing_lya/data/colore_files/nz/nz_desi_qso.txt \
---bz_filenames /pscratch/sd/d/djarque/cmb_lensing_lya/data/colore_files/bz-tunning/bz-tunning_lsst_gal.txt \
+--bz_filenames \
+ /pscratch/sd/d/djarque/cmb_lensing_lya/data/colore_files/bz-tunning/bz-tunning_lsst_gal.txt \
  /pscratch/sd/d/djarque/cmb_lensing_lya/data/colore_files/bz-tunning/bz-tunning_desi_bgs.txt \
  /pscratch/sd/d/djarque/cmb_lensing_lya/data/colore_files/bz-tunning/bz-tunning_desi_lrg.txt \
  /pscratch/sd/d/djarque/cmb_lensing_lya/data/colore_files/bz-tunning/bz-tunning_desi_elg.txt \
  /pscratch/sd/d/djarque/cmb_lensing_lya/data/colore_files/bz-tunning/bz-tunning_desi_qso.txt \
---Tz_filenames /pscratch/sd/d/djarque/cmb_lensing_lya/data/colore_files/Tz/Tz_lsst_gal.txt \
+--Tz_filenames \
+ /pscratch/sd/d/djarque/cmb_lensing_lya/data/colore_files/Tz/Tz_lsst_gal.txt \
  /pscratch/sd/d/djarque/cmb_lensing_lya/data/colore_files/Tz/Tz_desi_bgs.txt \
  /pscratch/sd/d/djarque/cmb_lensing_lya/data/colore_files/Tz/Tz_desi_lrg.txt \
  /pscratch/sd/d/djarque/cmb_lensing_lya/data/colore_files/Tz/Tz_desi_elg.txt \
- /pscratch/sd/d/djarque/cmb_lensing_lya/data/colore_files/Tz/Tz_desi_qso.txt \
+ /pscratch/sd/d/djarque/cmb_lensing_lya/data/colore_files/Tz/Tz_desi_qso.txt

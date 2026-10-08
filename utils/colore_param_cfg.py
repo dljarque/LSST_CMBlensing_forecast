@@ -79,8 +79,6 @@ def save_linear_pk(
     output_pk_file = output+"pk_linear.dat"
     np.savetxt(output_pk_file, data)
 
-    print(f"Saved P(k) to {output_pk_file}")
-
     return output_pk_file
 
 
@@ -209,9 +207,6 @@ cosmo_par =
         f.write(content.strip())
 
 
-    print(f"Saved config to {output_file}")
-
-
 def write_cosmology(
     output_file,
     omega_M,
@@ -245,5 +240,3 @@ def write_cosmology(
 
     with open(output_file, "w") as f:
         json.dump(cosmo_par, f, indent=4)
-
-    print(f"Saved cosmo params to {output_file}")
