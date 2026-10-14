@@ -15,7 +15,6 @@ def hybrid_bin_cls(
     ell,
     cls,
     err=None,
-    nbins_low=4,
     nbins=None,
     ell_switch=20,
     ell_min=None,
@@ -25,6 +24,12 @@ def hybrid_bin_cls(
     Rebin the Cls using linear bins at low ell and logarithmic bins at high ell,
     weighting by 2l+1 to preserve power.
     '''
+
+    if nbins <= 0:
+        raise ValueError("nbins must be positive")
+
+    if not ell_min < ell_max:
+        raise ValueError("ell_min must be smaller than ell_max")
 
     # set default values for ell_min and ell_max if not provided
     if ell_min is None:
@@ -49,7 +54,7 @@ def hybrid_bin_cls(
             "Skipping linear binning and using logarithmic bins only."
         )
 
-        bins = np.logspace(
+        bins_edges = np.logspace(
             np.log10(ell_min),
             np.log10(ell_max),
             nbins + 1
@@ -63,7 +68,7 @@ def hybrid_bin_cls(
             "Skipping logarithmic binning and using linear bins only."
         )
 
-        bins = np.linspace(
+        bins_edges = np.linspace(
             ell_min,
             ell_max,
             nbins + 1
@@ -73,26 +78,27 @@ def hybrid_bin_cls(
     else:
 
         # make nbins consistent with nbins before ell_switch (nbins_low) and after ell_switch (nbins_high)
+        nbins_low = 4
         nbins_high = nbins - nbins_low
 
         # linear bins at low ell
-        bins_low = np.linspace(
+        bins_edges_low = np.linspace(
             ell_min,
             ell_switch,
             nbins_low + 1
         )
 
         # logarithmic bins at high ell
-        bins_high = np.logspace(
+        bins_edges_high = np.logspace(
             np.log10(ell_switch),
             np.log10(ell_max),
             nbins_high + 1
         )
 
         # merge low and high ell bins, avoiding duplicate ell_switch edge
-        bins = np.concatenate([
-            bins_low[:-1],
-            bins_high
+        bins_edges = np.concatenate([
+            bins_edges_low[:-1],
+            bins_edges_high
         ])
 
     # arrays to hold the binned values
@@ -108,9 +114,9 @@ def hybrid_bin_cls(
         # define the mask for the ells in the current bin, 
         # including the upper edge for the last bin to ensure we include all ells up to ell_max
         if i == nbins - 1:
-            mask = (ell >= bins[i]) & (ell <= bins[i+1])
+            mask = (ell >= bins_edges[i]) & (ell <= bins_edges[i+1])
         else:
-            mask = (ell >= bins[i]) & (ell < bins[i+1])
+            mask = (ell >= bins_edges[i]) & (ell < bins_edges[i+1])
 
         # if there are any ells in the bin, compute the weighted average and error
         if np.any(mask):
@@ -131,7 +137,6 @@ def hybrid_bin_cls(
 def make_hybrid_bin_matrix(
     ell,
     nbins,
-    nbins_low=4,
     ell_switch=20,
     ell_min=None,
     ell_max=None,
@@ -144,6 +149,12 @@ def make_hybrid_bin_matrix(
     reproduces the weighted binning of hybrid_bin_cls.
     """
 
+    if nbins <= 0:
+        raise ValueError("nbins must be positive")
+
+    if not ell_min < ell_max:
+        raise ValueError("ell_min must be smaller than ell_max")
+
     if ell_min is None:
         ell_min = 2
 
@@ -151,37 +162,39 @@ def make_hybrid_bin_matrix(
         ell_max = ell.max()
 
     if ell_min >= ell_switch:
-        bins = np.logspace(
+        bins_edges = np.logspace(
             np.log10(ell_min),
             np.log10(ell_max),
             nbins + 1
         )
 
     elif ell_max <= ell_switch:
-        bins = np.linspace(
+        bins_edges = np.linspace(
             ell_min,
             ell_max,
             nbins + 1
         )
 
     else:
+        nbins_low = 4
         nbins_high = nbins - nbins_low
 
-        bins_low = np.linspace(
+
+        bins_edges_low = np.linspace(
             ell_min,
             ell_switch,
             nbins_low + 1
         )
 
-        bins_high = np.logspace(
+        bins_edges_high = np.logspace(
             np.log10(ell_switch),
             np.log10(ell_max),
             nbins_high + 1
         )
 
-        bins = np.concatenate([
-            bins_low[:-1],
-            bins_high
+        bins_edges = np.concatenate([
+            bins_edges_low[:-1],
+            bins_edges_high
         ])
 
     B = np.zeros((nbins, len(ell)))
@@ -191,9 +204,9 @@ def make_hybrid_bin_matrix(
     for i in range(nbins):
 
         if i == nbins - 1:
-            mask = (ell >= bins[i]) & (ell <= bins[i + 1])
+            mask = (ell >= bins_edges[i]) & (ell <= bins_edges[i + 1])
         else:
-            mask = (ell >= bins[i]) & (ell < bins[i + 1])
+            mask = (ell >= bins_edges[i]) & (ell < bins_edges[i + 1])
 
         if np.any(mask):
             B[i, mask] = weights[mask] / np.sum(weights[mask])

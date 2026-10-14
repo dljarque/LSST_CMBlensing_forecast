@@ -184,7 +184,7 @@ def compute_cls_kk(kappa_map, noise_spectrum_file=None, return_raw_cls=False):
     var_kk = (2 / ((2*ell + 1)*fsky)) * (cl_kk_signal + nl_kk_match)**2   # variance on the Cls, assuming Gaussianity and no CMB lensing noise
 
     if return_raw_cls:
-        return ell, cl_kk_signal, np.sqrt(var_kk), cl_kk, nside
+        return ell, cl_kk_signal, np.sqrt(var_kk), nside, cl_kk
     else:
         return ell, cl_kk_signal, np.sqrt(var_kk), nside
 
