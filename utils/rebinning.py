@@ -28,9 +28,6 @@ def hybrid_bin_cls(
     if nbins <= 0:
         raise ValueError("nbins must be positive")
 
-    if not ell_min < ell_max:
-        raise ValueError("ell_min must be smaller than ell_max")
-
     # set default values for ell_min and ell_max if not provided
     if ell_min is None:
         ell_min = 2   # mask out the monopole and dipole
@@ -38,12 +35,16 @@ def hybrid_bin_cls(
     if ell_max is None:
         ell_max = ell.max()
 
+    if ell_min >= ell_max:
+        raise ValueError("ell_min must be smaller than ell_max")
+
     # check that nbins is provided
     if nbins is None:
             raise ValueError("nbins must be specified")
 
     # set default errors to zero if not provided
-    err = np.zeros_like(cls) if err is None else err
+    if err is None:
+        err = np.zeros_like(cls)
 
 
     # if ell_min is above ell_switch, skip the linear part entirely
@@ -130,6 +131,14 @@ def hybrid_bin_cls(
             var_binned = np.sum((w**2) * err[mask]**2) / (np.sum(w)**2)  # rebinned variance of the Cls
             err_binned[i] = np.sqrt(var_binned)  # rebinned error of the Cls
 
+        else:
+            raise ValueError(
+            f"Empty bin {i}: "
+            f"[{bins_edges[i]:.6g}, {bins_edges[i + 1]:.6g}"
+            f"{']' if i == nbins - 1 else ')'}."
+            " Reduce nbins or adjust the bin edges."
+        )
+
     # return the binned ells, Cls, and errors
     return ell_binned, cls_binned, err_binned
 
@@ -152,14 +161,14 @@ def make_hybrid_bin_matrix(
     if nbins <= 0:
         raise ValueError("nbins must be positive")
 
-    if not ell_min < ell_max:
-        raise ValueError("ell_min must be smaller than ell_max")
-
     if ell_min is None:
         ell_min = 2
 
     if ell_max is None:
         ell_max = ell.max()
+
+    if ell_min >= ell_max:
+        raise ValueError("ell_min must be smaller than ell_max")
 
     if ell_min >= ell_switch:
         bins_edges = np.logspace(
@@ -210,5 +219,13 @@ def make_hybrid_bin_matrix(
 
         if np.any(mask):
             B[i, mask] = weights[mask] / np.sum(weights[mask])
+
+        else:
+            raise ValueError(
+            f"Empty bin {i}: "
+            f"[{bins_edges[i]:.6g}, {bins_edges[i + 1]:.6g}"
+            f"{']' if i == nbins - 1 else ')'}."
+            " Reduce nbins or adjust the bin edges."
+        )
 
     return B

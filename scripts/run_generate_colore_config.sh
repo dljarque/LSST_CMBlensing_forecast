@@ -3,13 +3,13 @@
 /home/dljarque/miniforge3/envs/IFAE/bin/python \
 ./scripts/generate_colore_config.py \
 \
---output ./data/test_box_6/ \
+--output ./data/test_box_5/ \
 --filename param.cfg \
---prefix_out /pscratch/sd/d/djarque/cmb_lensing_lya/data/test_box_6/results/out \
+--prefix_out /pscratch/sd/d/djarque/cmb_lensing_lya/data/test_box_5/results/out \
 \
---seed 66 \
---lensing_nside 1024 \
---z_min 0 \
+--seed 9 \
+--lensing_nside 512 \
+--z_min 0.0 \
 --z_max 3.8 \
 \
 --omega_M 0.3147 \
@@ -34,7 +34,7 @@
  /pscratch/sd/d/djarque/cmb_lensing_lya/data/colore_files/bz-tunning/bz-tunning_desi_qso.txt \
 --Tz_filenames \
  /pscratch/sd/d/djarque/cmb_lensing_lya/data/colore_files/Tz/Tz_lsst_gal.txt \
- /pscratch/sd/d/djarque/cmb_lensing_lya/data/colore_files/Tz/Tz_desi_bgs.txt \
+ /pscratch/sd/d/djarque/cmb_lensing_lya/data/colore_files/Tz/Tz_desi_bgs_new.txt \
  /pscratch/sd/d/djarque/cmb_lensing_lya/data/colore_files/Tz/Tz_desi_lrg.txt \
  /pscratch/sd/d/djarque/cmb_lensing_lya/data/colore_files/Tz/Tz_desi_elg.txt \
  /pscratch/sd/d/djarque/cmb_lensing_lya/data/colore_files/Tz/Tz_desi_qso.txt

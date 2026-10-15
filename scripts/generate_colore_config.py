@@ -29,7 +29,7 @@ def main():
     parser.add_argument("--pk_filename", required=False)
     parser.add_argument("--seed", type=int, required=False)
     parser.add_argument("--lensing_nside", type=int, default=1024, required=False)
-    parser.add_argument("--z_min", type=float, default=1.6)
+    parser.add_argument("--z_min", type=float, default=0.0)
     parser.add_argument("--z_max", type=float, default=3.8)
 
 
@@ -41,8 +41,8 @@ def main():
     parser.add_argument("--omega_B", type=float, required=True)
     parser.add_argument("--h", type=float, required=True)
     parser.add_argument("--ns", type=float, required=True)
-    parser.add_argument("--As", type=float, default=2e-9)
-    parser.add_argument("--w", type=float, default=-1.0)
+    parser.add_argument("--As", type=float, required=True)
+    parser.add_argument("--w", type=float, required=True)
 
     # ------------------------------------------------------------------
     # Sources
@@ -70,8 +70,8 @@ def main():
 
     # Create the output directory if it doesn't exist
     output_dir = Path(args.output)
+    prefix_dir = Path(args.prefix_out)
     output_dir.mkdir(parents=True, exist_ok=True)
-
 
     # ------------------------------------------------------------------
     # Validate arguments
@@ -123,7 +123,7 @@ def main():
         output=args.output
     )
     if args.pk_filename is None:
-        args.pk_filename = str(Path(args.output) / pk_path)
+        args.pk_filename = str(prefix_dir.parents[3] / pk_path)
 
 
     # ------------------------------------------------------------------
@@ -158,14 +158,14 @@ def main():
     print(f"  Gaussian      : {'yes' if args.gaussian_skewers else 'no'}")
 
     print("\nFiles")
-    print(f"  PK            : {args.pk_filename}")
+    print(f"  PK            : {str(Path(pk_path))}")
     print(f"  Config        : {output_dir / args.filename}")
     print(f"  Cosmology JSON: {output_dir / 'cosmo_params.json'}")
 
 
     # Write the CoLoRe param.cfg file
     write_colore_param_cfg(
-        output_file=str(Path(args.output) / args.filename),
+        output_file=str(output_dir / args.filename),
         prefix_out=args.prefix_out,
         pk_filename=args.pk_filename,
         nz_filenames=args.nz_filenames,

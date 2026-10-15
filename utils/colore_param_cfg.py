@@ -1,6 +1,7 @@
 import numpy as np
 import camb
 import json
+from pathlib import Path
 
 
 def build_camb_cosmology(
@@ -9,7 +10,7 @@ def build_camb_cosmology(
     h,
     As,
     ns,
-    w=-1.0,
+    w,
 ):
     """
     Create CAMB cosmology and compute z_star.
@@ -39,8 +40,8 @@ def build_camb_cosmology(
     results = camb.get_results(pars)
 
     # recombination redshift z_star and sigma_8
-    z_star = round(results.get_derived_params()["zstar"], 4)
-    sigma_8 = round(results.get_sigma8_0(), 4)
+    z_star = results.get_derived_params()["zstar"]
+    sigma_8 = results.get_sigma8_0()
 
     return pars, z_star, sigma_8
 
@@ -48,8 +49,8 @@ def build_camb_cosmology(
 def save_linear_pk(
     pars,
     output,
-    kmax=100.0,
-    nk=500,
+    kmax=10.0,
+    nk=1000,
 ):
     """
     Compute and save linear P(k, z=0).
@@ -76,7 +77,7 @@ def save_linear_pk(
     data = np.column_stack([k, pk0])
 
     # Save to file
-    output_pk_file = output+"pk_linear.dat"
+    output_pk_file = Path(output) / "pk_linear.dat"
     np.savetxt(output_pk_file, data)
 
     return output_pk_file
@@ -129,9 +130,13 @@ def write_colore_param_cfg(
         List of galaxy threshold files (default: input/threshold.txt)
     """
 
-    if len(nz_filenames) != len(bz_filenames):
+    if not (
+        len(nz_filenames)
+        == len(bz_filenames)
+        == len(Tz_filenames)
+    ):
         raise ValueError(
-            "The number of nz_filenames and bz_filenames must be the same."
+            "The number of nz, bz, and Tz files must be the same."
         )
 
     srcs_blocks = ""
@@ -156,14 +161,14 @@ global =
 {{
     prefix_out = "{prefix_out}";
     output_format = "FITS";
-    output_density = True;
+    output_density = {output_density};
     pk_filename = "{pk_filename}";
     z_min = {z_min};
     z_max = {z_max};
-    write_pred = False;
-    just_write_pred = False;
     seed = {seed};
+    write_pred = False;
     pred_dz = 0.1;
+    just_write_pred = False;
 }};
 
 kappa =
@@ -185,8 +190,9 @@ field_par =
     smooth_potential = True;
     n_grid = 4096;
     dens_type = 0;
-    lpt_buffer_fraction = 0.6;
-    lpt_interp_type = 1;
+    lpt_buffer_fraction = 0.0;
+    lpt_interp_type = 0;
+    lpt_vels = 0;
     output_lpt = 0;
 }};
 
