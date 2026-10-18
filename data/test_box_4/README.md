@@ -2,7 +2,7 @@
 
 ## Description
 
-Fourth CoLoRe box, with CMB lensing, DESI galaxies and LSST galaxies output, run by Dani.
+Fourth CoLoRe box, with CMB lensing, DESI galaxies and LSST galaxies output, run by Dani. First time using the Linear bias model of CoLoRe.
 
 ## Products
 

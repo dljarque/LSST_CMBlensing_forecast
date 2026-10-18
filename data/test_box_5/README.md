@@ -2,7 +2,7 @@
 
 ## Description
 
-Fifth CoLoRe box, with CMB lensing, DESI galaxies and LSST galaxies output, run by Dani. This box differs from the fourth one on the bias model used. I switched from the NORMALIZED model to the LINEAR model, hoping to solve discrepancies between theory and simulations with DESI BGS and LRG (they were not).
+Fifth CoLoRe box, with CMB lensing, DESI galaxies and LSST galaxies output, run by Dani. This box differs from the fourth one on the threshold used for the DESI BGS galaxies. This was done to try to solve discrepancies between theory and simulations for DESI BGS and LRG (they were not). Moreover, this box was run with a lensing nside of 512 instead of 1024.
 
 ## Products
 
