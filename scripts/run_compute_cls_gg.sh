@@ -4,7 +4,7 @@ PYTHON=/home/dljarque/miniforge3/envs/IFAE/bin/python
 SCRIPT=./scripts/compute_colore_cls.py
 
 # Set the test box, sources prefix, and output filename
-test_box='test_box_6'
+test_box='test_box_4'
 
 # Galaxy auto-spectrum
 $PYTHON $SCRIPT 'sources_auto' \
