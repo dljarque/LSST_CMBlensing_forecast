@@ -53,13 +53,21 @@ def save_linear_pk(
     nk=1000,
 ):
     """
-    Compute and save linear P(k, z=0).
+    Compute and save the linear matter power spectrum P(k, z=0).
+
+    Output columns:
+        k      [h/Mpc]
+        P_lin  [(Mpc/h)^3]
     """
 
+    # Explicitly use the linear matter power spectrum
+    pars.NonLinear = camb.model.NonLinear_none
+
     # Set the matter power spectrum parameters
+    h = pars.H0 / 100.0
     pars.set_matter_power(
         redshifts=[0.0],
-        kmax=kmax
+           kmax=kmax * h
     )
 
     results = camb.get_results(pars)
@@ -78,7 +86,10 @@ def save_linear_pk(
 
     # Save to file
     output_pk_file = Path(output) / "pk_linear.dat"
-    np.savetxt(output_pk_file, data)
+    np.savetxt(
+        output_pk_file,
+        data,
+    )
 
     return output_pk_file
 

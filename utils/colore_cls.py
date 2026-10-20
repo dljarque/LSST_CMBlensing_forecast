@@ -221,6 +221,7 @@ def save_rebinned_cls_kk(kappa_map, lmin, lmax, nbins, out_dir):
 
     # Save the rebinned Cls and their errors to .npy files
     print_step('Saving results ...')
+    os.makedirs(out_dir, exist_ok=True)
     np.savez(f'{out_dir}/cl_kk', ells=ell, cls=cl_kk, err=err_kk, nside=nside)
     np.savez(f'{out_dir}/cl_kk_log', ells=ell_log, cls=cl_kk_log, err=err_kk_log, nside=nside)
     print_done()
