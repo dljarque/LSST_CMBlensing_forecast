@@ -6,7 +6,7 @@ import numpy as np
 import healpy as hp
 from astropy.io import fits
 
-from utils.rebinning import hybrid_bin_cls
+from utils.binning import hybrid_bin_cls
 
 # =============================================================================
 # PRINTING / TERMINAL OUTPUT
@@ -104,8 +104,8 @@ def merge_sources_catalogs(sources_prefix, out_dir, filename, zmean, dz, sigma_z
     # Check if all tomographic parameters are provided
     run_tomography = (zmean is not None) and (sigma_z is not None) and (dz is not None)
 
+    # Create the tomographic redshift bin by adding Gaussian noise to true redshifts and filtering out sources outside the bin
     if run_tomography:
-        # Create the tomographic redshift bin by adding Gaussian noise to true redshifts and filtering out sources outside the bin
         print_step_step(f'Running tomographic binning with z_mean={zmean}, sigma_z={sigma_z}, dz={dz}.')
 
         # Define the redshift bin edges for the photometric mask
