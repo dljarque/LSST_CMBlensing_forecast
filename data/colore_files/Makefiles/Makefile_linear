@@ -1,10 +1,10 @@
 ########## User-definable stuff ##########
-#
+
 ###Compiler and compilation options
 COMP_SER = cc
 COMP_MPI = cc
-OPTIONS = -Wall -O3 -std=c99 -fpermissive
-#
+OPTIONS = -Wall -Wno-format-overflow -O3 -std=c99
+
 ### Behavioural flags
 #Use double precision integer (enable in general)
 DEFINEFLAGS += -D_LONGIDS
@@ -36,40 +36,39 @@ USE_OMP = yes
 #Use MPI parallelization? Set to "yes" or "no"
 USE_MPI = yes
 
-#
 ###Path to libraries and headers
 ###If two or more of the dependencies reside in the same paths, only
 ###one instance is necessary.
+
+CONDA_DIR = /global/common/software/desc-wl/djarque/conda/envs/colore_env
+
 #GSL
-#GSL_INC = -I/add/path
-#GSL_LIB = -L/add/path
-GSL_INC = -I$/usr/include
-GSL_LIB = -L/usr/lib64 -lgsl -lgslcblas
+GSL_INC = -I$(CONDA_DIR)/include
+GSL_LIB = -L$(CONDA_DIR)/lib
 
 #FFTW
-FFTW_INC = -I${FFTW_DIR}/include
-FFTW_LIB = -L${FFTW_DIR}/lib
+FFTW_INC = -I$(CONDA_DIR)/include
+FFTW_LIB = -L$(CONDA_DIR)/lib
 
 #cfitsio
-FITS_INC = -I${CFITSIO_DIR}/include
-FITS_LIB = -L${CFITSIO_DIR}/lib -lcfitsio
+FITS_INC = -I$(CONDA_DIR)/include
+FITS_LIB = -L$(CONDA_DIR)/lib
 
-#cfitsio
+#hdf5
 HDF5_INC =
 HDF5_LIB =
 
 #libconfig
-CONF_INC = -I${LIBCONFIG_DIR}/include
-CONF_LIB = -L${LIBCONFIG_DIR}/lib
+CONF_INC = -I$(CONDA_DIR)/include
+CONF_LIB = -L$(CONDA_DIR)/lib
 
 #healpix
-HPIX_INC = -I${HEALPIX_DIR}/include
-HPIX_LIB = -L${HEALPIX_DIR}/lib
+HPIX_INC = -I$(CONDA_DIR)/include
+HPIX_LIB = -L$(CONDA_DIR)/lib
 
 #libsharp
-SHT_INC = -I${LIBSHARP_DIR}/include
-SHT_LIB = -L${LIBSHARP_DIR}/lib
-#
+SHT_INC = -I$(CONDA_DIR)/include
+SHT_LIB = -L$(CONDA_DIR)/lib
 
 ########## End of user-definable ##########
 
@@ -168,3 +167,4 @@ clean :
 
 cleaner :
 	rm -f *~ src/*.o src/*~  $(EXEC)
+

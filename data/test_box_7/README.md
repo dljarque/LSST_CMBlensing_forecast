@@ -2,7 +2,7 @@
 
 ## Description
 
-Sixth CoLoRe box, with CMB lensing, DESI galaxies and LSST galaxies output, run by Dani. This box mimics the fourth box, same seed, same NSIDE, same [pk_linear.dat](pk_linear.dat) file etc. This box was run to cross-check that parameters that shouldn't matter in the param.cfg file for lognormal sims actually don't change the results.
+Seventh CoLoRe box, with CMB lensing, DESI galaxies and LSST galaxies output, run by Dani. This box mimics the fourth box, same seed, same NSIDE, [pk_linear.dat](pk_linear.dat) extended from 500 points to 1000, but still same pk etc. This box was run to cross-check that parameters that shouldn't matter in the param.cfg file for lognormal sims actually don't change the results.
 
 ## Products
 

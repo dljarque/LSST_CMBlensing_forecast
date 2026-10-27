@@ -49,7 +49,7 @@ def build_camb_cosmology(
 def save_linear_pk(
     pars,
     output,
-    kmax=10.0,
+    kmax=100.0,
     nk=1000,
 ):
     """

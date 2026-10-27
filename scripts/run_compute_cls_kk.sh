@@ -4,7 +4,7 @@ PYTHON=/home/dljarque/miniforge3/envs/IFAE/bin/python
 SCRIPT=./scripts/compute_colore_cls.py
 
 # Set the test box, sources prefix, and output filename
-test_box='ensemble_1'
+test_box='test_box_9'
 
 # CMB lensing auto-spectrum
 $PYTHON $SCRIPT 'cmb_lensing_auto' \
