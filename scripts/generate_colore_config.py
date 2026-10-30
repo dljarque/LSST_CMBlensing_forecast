@@ -48,7 +48,7 @@ def main():
     # Sources
     # ------------------------------------------------------------------
     parser.add_argument("--nz_filenames", nargs='+',  type=str, required=False, default=[], help="List of redshift distribution files.")
-    parser.add_argument("--bz_filenames", nargs='+', type=str, required=False, default=[], help="List of bias files.")
+    parser.add_argument("--bz_input_filenames", nargs='+', type=str, required=False, default=[], help="List of bias files.")
     parser.add_argument("--Tz_filenames", nargs='+', type=str, required=False, default=[], help="List of threshold files.")
 
     # ------------------------------------------------------------------
@@ -90,9 +90,9 @@ def main():
     print("Density field will be stored") if args.output_density else print("Density field will NOT be stored")
 
     # Check that the number of nz, bz, and Tz files are the same
-    if not (len(args.nz_filenames) == len(args.bz_filenames) == len(args.Tz_filenames)):
+    if not (len(args.nz_filenames) == len(args.bz_input_filenames) == len(args.Tz_filenames)):
         parser.error(
-            "nz_filenames, bz_filenames and Tz_filenames must contain "
+            "nz_filenames, bz_input_filenames and Tz_filenames must contain "
             "the same number of files."
         )
 
@@ -169,7 +169,7 @@ def main():
         prefix_out=args.prefix_out,
         pk_filename=args.pk_filename,
         nz_filenames=args.nz_filenames,
-        bz_filenames=args.bz_filenames,
+        bz_filenames=args.bz_input_filenames,
         Tz_filenames=args.Tz_filenames,
         seed=args.seed,
         nside=args.lensing_nside,
