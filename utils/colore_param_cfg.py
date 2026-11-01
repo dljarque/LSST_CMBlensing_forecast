@@ -11,6 +11,8 @@ def build_camb_cosmology(
     As,
     ns,
     w,
+    mnu=0.0,
+    omk=0,
 ):
     """
     Create CAMB cosmology and compute z_star.
@@ -18,7 +20,7 @@ def build_camb_cosmology(
 
     H0 = 100 * h
     ombh2 = omega_B * h**2
-    omch2 = (omega_M - omega_B) * h**2
+    omch2 = (omega_M - omega_B) * h**2 - mnu / 93.14  # subtract neutrino contribution to omega_cdm
 
     pars = camb.CAMBparams()
 
@@ -26,14 +28,16 @@ def build_camb_cosmology(
         H0=H0,
         ombh2=ombh2,
         omch2=omch2,
+        mnu=mnu,
+        omk=omk,
     )
+
+    pars.set_dark_energy(w=w)
 
     pars.InitPower.set_params(
         As=As,
         ns=ns,
     )
-
-    pars.set_dark_energy(w=w)
 
     # results object
     pars.WantTransfer = True
@@ -234,6 +238,8 @@ def write_cosmology(
     ns,
     w,
     sigma_8,
+    mnu,
+    omk,
     z_out,
     z_max=3.8,
 ):
@@ -251,6 +257,8 @@ def write_cosmology(
         "ns": ns,
         "w": w,
         "sigma_8": sigma_8,
+        "mnu": mnu,
+        "omk": omk,
         "z_max": z_max,
         "z_out": z_out,
     }

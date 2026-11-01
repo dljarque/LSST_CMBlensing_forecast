@@ -111,7 +111,8 @@ def merge_sources_catalogs(sources_prefix, out_dir, filename, zmean, dz, sigma_z
         # Define the redshift bin edges for the photometric mask
         Z_min_bin = zmean - dz / 2
         Z_max_bin = zmean + dz / 2
-        Z_photo = np.random.normal(loc=Z_true, scale=sigma_z, size=len(Z_true))  # add Gaussian noise to the redshifts
+        rng = np.random.default_rng(seed=0)  # Use a random number generator with a fixed seed for reproducibility
+        Z_photo = rng.normal(loc=Z_true, scale=sigma_z, size=len(Z_true))  # add Gaussian noise to the redshifts
         mask = (Z_photo > Z_min_bin) & (Z_photo < Z_max_bin)  # filter out sources for the bin
 
         RA = np.concatenate(ra_list)[mask]
@@ -390,7 +391,7 @@ def compute_cls_ks(kappa_map, sources_prefix, lmax, zmean, dz, sigma_z, out_dir,
 
     # subtract shot noise from the auto-spectrum to get an estimate of the signal
     ell = np.arange(len(cl_ks))  # corresponding multipole moments
-    var_ks = (2 / ((2*ell + 1)*fsky)) * ((cl_ks)**2 + (cl_kk + nl_kk)*(cl_ss))
+    var_ks = (1 / ((2*ell + 1)*fsky)) * ((cl_ks)**2 + (cl_kk + nl_kk)*(cl_ss))
 
     return ell, cl_ks, np.sqrt(var_ks), nside, shot_noise, nz_saved
 

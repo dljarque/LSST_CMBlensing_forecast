@@ -202,6 +202,8 @@ def main():
         ns=args.ns,
         w=args.w,
         sigma_8=sigma_8,
+        mnu=sum(pars.nu_mass_fractions),
+        omk=pars.omk,
         z_out=z_star,
     )
 
