@@ -4,7 +4,7 @@ PYTHON=/home/dljarque/miniforge3/envs/IFAE/bin/python
 SCRIPT=./scripts/compute_colore_cls.py
 
 # Set the test box, sources prefix, and output filename
-test_box='test_box_11'
+test_box='ensemble_5'
 sources='out_srcs_s5'
 filename='desi_qso_bin0'
 

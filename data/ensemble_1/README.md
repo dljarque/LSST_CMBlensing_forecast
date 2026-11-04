@@ -1,8 +1,10 @@
-# CoLoRe simulation boxes
+# CoLoRe ensemble boxes
 
 ## Description
 
-Sixth CoLoRe box, with CMB lensing, DESI galaxies and LSST galaxies output, run by Dani. This box mimics the fourth box, same seed, same NSIDE, same [pk_linear.dat](pk_linear.dat) file etc. This box was run to cross-check that parameters that shouldn't matter in the param.cfg file for lognormal sims actually don't change the results.
+First box part of the ensemble runs of CoLoRe.
+
+All boxes of the ensemble are run with the same configuration, just different seeds. Seed numbers are chosen so as to avoid the CoLoRe seeds crisis, spaced out by 1E+5.
 
 ## Products
 
@@ -28,11 +30,11 @@ CMB lensing convergence $\kappa$ values, Galaxy auto-spectrum, and CMB x Galaxy 
 
 The file [param.cfg](param.cfg) contains the input parameters to reproduce the colore box. The config file refers to five different files:
 
-- File [pk_linear.dat](pk_linear.dat) contains the linear matter power spectrum $P(k)$ at $z=0$.
-- Files [nz_survey_galaxy.txt](../colore_files/nz/nz_desi_qso.txt) contain the redshift distributions per square degree $dn(z)/d\Omega$ of the different galaxy samples used for this box.
-- Files [bz_survey_galaxy.txt](../colore_files/bz/bz_desi_qso.txt) contain the bias parameter $b(z)$ evolution with redshift of the different galaxy samples used for this box.
-- Files [bz-tunning_survey_galaxy.txt](../colore_files/bz-tunning/bz-tunning_desi_qso.txt) contains the tunning bias parameter $b_{\rm tunning}(z)$ evolution with redshift of the different galaxy samples used for this box.
-- Files [Tz_survey_galaxy.txt](../colore_files/Tz/Tz_desi_qso.txt) contain the threshold parameter $T_{\delta}(z)$ evolution with redshift of the different galaxy samples used for this box.
+- File [pk_linear.dat](pk_linear.dat) contains the linear matter power spectrum $P_{\rm mm, lin}(k)$ at $z=0$.
+- Files [nz_survey_galaxy.txt](../colore_files/nz/nz_desi_qso.txt) contain the redshift distributions per square degree $n(z)=dN(z)/d\Omega dz$ of the different galaxy samples used for this box.
+- Files [bz_survey_galaxy.txt](../colore_files/bz/bz_desi_qso.txt) contain the real galaxy bias parameter $b_g(z)$ evolution with redshift of the different galaxy samples used for this box.
+- Files [bz-input_survey_galaxy.txt](../colore_files/bz-tunning/bz-tunning_desi_qso.txt) contains the input bias parameter $b_{\rm input}(z)$ evolution with redshift of the different galaxy samples used for this box.
+- Files [tz_survey_galaxy.txt](../colore_files/Tz/Tz_desi_qso.txt) contain the threshold parameter $T_{\delta}(z)$ evolution with redshift of the different galaxy samples used for this box.
 
 ## Cosmological parameters
 

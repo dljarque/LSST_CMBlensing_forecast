@@ -2,7 +2,7 @@
 
 ## Description
 
-Seventh CoLoRe box, with CMB lensing, DESI galaxies and LSST galaxies output, run by Dani. This box mimics the previous boxes, except for the neutrino mass, set to zero this time. CoLoRe doesn't actually account for neutrinos, but the input PK had neutrinos, and the OmegaM didn't correspond to this PK itself, it lacks neutrinos. Let's inspect this effect on the analysis.
+Eleventh CoLoRe box, with CMB lensing, DESI galaxies and LSST galaxies output, run by Dani. This box mimics the previous boxes, except for the neutrino mass, set to zero this time. CoLoRe doesn't actually account for neutrinos, but the input PK had neutrinos, and the OmegaM didn't correspond to this PK itself, it lacks neutrinos. Let's inspect this effect on the analysis.
 
 ## Products
 

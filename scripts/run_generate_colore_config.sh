@@ -1,8 +1,7 @@
 #!/bin/bash
 
 # Define the test box to be run
-test_box=test_box_11
-
+test_box=ensemble_1
 /home/dljarque/miniforge3/envs/IFAE/bin/python \
 ./scripts/generate_colore_config.py \
 \
@@ -10,7 +9,7 @@ test_box=test_box_11
 --filename param.cfg \
 --prefix_out /pscratch/sd/d/djarque/cmb_lensing_lya/data/$test_box/results/out \
 \
---seed 9 \
+--seed 100000 \
 --lensing_nside 1024 \
 --z_min 0.0 \
 --z_max 3.8 \
