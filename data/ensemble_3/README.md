@@ -2,7 +2,7 @@
 
 ## Description
 
-Second box part of the ensemble runs of CoLoRe.
+Third box part of the ensemble runs of CoLoRe.
 
 All boxes of the ensemble are run with the same configuration, just different seeds. Seed numbers are chosen so as to avoid the CoLoRe seeds crisis, spaced out by 1E+5.
 

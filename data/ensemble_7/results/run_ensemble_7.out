@@ -1,0 +1,667 @@
+Welcome
+Wed Nov  4 03:16:09 AM PST 2026
+nid004215
+MPI task 32, OMP thread count starts at 1024
+MPI task 8, OMP thread count starts at 256
+MPI task 16, OMP thread count starts at 512
+MPI task 24, OMP thread count starts at 768
+MPI task 40, OMP thread count starts at 1280
+MPI task 48, OMP thread count starts at 1536
+MPI task 0 has 32 OMP threads
+MPI task 1 has 32 OMP threads
+MPI task 2 has 32 OMP threads
+MPI task 3 has 32 OMP threads
+MPI task 4 has 32 OMP threads
+MPI task 5 has 32 OMP threads
+MPI task 6 has 32 OMP threads
+MPI task 7 has 32 OMP threads
+MPI task 8 has 32 OMP threads
+MPI task 9 has 32 OMP threads
+MPI task 10 has 32 OMP threads
+MPI task 11 has 32 OMP threads
+MPI task 12 has 32 OMP threads
+MPI task 13 has 32 OMP threads
+MPI task 14 has 32 OMP threads
+MPI task 15 has 32 OMP threads
+MPI task 16 has 32 OMP threads
+MPI task 17 has 32 OMP threads
+MPI task 18 has 32 OMP threads
+MPI task 19 has 32 OMP threads
+MPI task 20 has 32 OMP threads
+MPI task 21 has 32 OMP threads
+MPI task 22 has 32 OMP threads
+MPI task 23 has 32 OMP threads
+MPI task 24 has 32 OMP threads
+MPI task 25 has 32 OMP threads
+MPI task 26 has 32 OMP threads
+MPI task 27 has 32 OMP threads
+MPI task 28 has 32 OMP threads
+MPI task 29 has 32 OMP threads
+MPI task 30 has 32 OMP threads
+MPI task 31 has 32 OMP threads
+MPI task 32 has 32 OMP threads
+MPI task 59, OMP thread count starts at 1888
+MPI task 35, OMP thread count starts at 1120
+MPI task 14, OMP thread count starts at 448
+MPI task 17, OMP thread count starts at 544
+MPI task 25, OMP thread count starts at 800
+MPI task 43, OMP thread count starts at 1376
+MPI task 49, OMP thread count starts at 1568
+MPI task 33 has 32 OMP threads
+MPI task 34 has 32 OMP threads
+MPI task 35 has 32 OMP threads
+MPI task 36 has 32 OMP threads
+MPI task 37 has 32 OMP threads
+MPI task 38 has 32 OMP threads
+MPI task 39 has 32 OMP threads
+MPI task 40 has 32 OMP threads
+MPI task 41 has 32 OMP threads
+MPI task 42 has 32 OMP threads
+MPI task 43 has 32 OMP threads
+MPI task 44 has 32 OMP threads
+MPI task 45 has 32 OMP threads
+MPI task 46 has 32 OMP threads
+MPI task 47 has 32 OMP threads
+MPI task 48 has 32 OMP threads
+MPI task 49 has 32 OMP threads
+MPI task 50 has 32 OMP threads
+MPI task 51 has 32 OMP threads
+MPI task 52 has 32 OMP threads
+MPI task 53 has 32 OMP threads
+MPI task 54 has 32 OMP threads
+MPI task 55 has 32 OMP threads
+MPI task 56 has 32 OMP threads
+MPI task 57 has 32 OMP threads
+MPI task 58 has 32 OMP threads
+MPI task 59 has 32 OMP threads
+MPI task 60 has 32 OMP threads
+MPI task 61 has 32 OMP threads
+MPI task 62 has 32 OMP threads
+MPI task 63 has 32 OMP threads
+MPI task 0, OMP thread count starts at 0
+ MPIThreadsOK = 1
+
+MPI task 56, OMP thread count starts at 1792
+MPI task 36, OMP thread count starts at 1152
+MPI task 9, OMP thread count starts at 288
+MPI task 19, OMP thread count starts at 608
+MPI task 26, OMP thread count starts at 832
+MPI task 41, OMP thread count starts at 1312
+MPI task 50, OMP thread count starts at 1600
+|-------------------------------------------------|
+|                      CoLoRe                     |
+|-------------------------------------------------|
+
+MPI task 57, OMP thread count starts at 1824
+MPI task 33, OMP thread count starts at 1056
+MPI task 10, OMP thread count starts at 320
+MPI task 21, OMP thread count starts at 672
+MPI task 27, OMP thread count starts at 864
+MPI task 42, OMP thread count starts at 1344
+MPI task 51, OMP thread count starts at 1632
+MPI task 4, OMP thread count starts at 128
+MPI task 58, OMP thread count starts at 1856
+MPI task 34, OMP thread count starts at 1088
+MPI task 11, OMP thread count starts at 352
+MPI task 22, OMP thread count starts at 704
+MPI task 28, OMP thread count starts at 896
+MPI task 45, OMP thread count starts at 1440
+MPI task 52, OMP thread count starts at 1664
+MPI task 5, OMP thread count starts at 160
+MPI task 60, OMP thread count starts at 1920
+MPI task 37, OMP thread count starts at 1184
+MPI task 12, OMP thread count starts at 384
+MPI task 23, OMP thread count starts at 736
+MPI task 29, OMP thread count starts at 928
+MPI task 46, OMP thread count starts at 1472
+MPI task 53, OMP thread count starts at 1696
+MPI task 6, OMP thread count starts at 192
+MPI task 61, OMP thread count starts at 1952
+MPI task 38, OMP thread count starts at 1216
+MPI task 13, OMP thread count starts at 416
+MPI task 20, OMP thread count starts at 640
+MPI task 30, OMP thread count starts at 960
+MPI task 47, OMP thread count starts at 1504
+MPI task 55, OMP thread count starts at 1760
+MPI task 1, OMP thread count starts at 32
+MPI task 62, OMP thread count starts at 1984
+MPI task 39, OMP thread count starts at 1248
+MPI task 15, OMP thread count starts at 480
+MPI task 18, OMP thread count starts at 576
+MPI task 31, OMP thread count starts at 992
+MPI task 44, OMP thread count starts at 1408
+MPI task 54, OMP thread count starts at 1728
+MPI task 2, OMP thread count starts at 64
+MPI task 63, OMP thread count starts at 2016
+MPI task 3, OMP thread count starts at 96
+MPI task 7, OMP thread count starts at 224
+The cosmological model is:
+ O_M=0.315 O_L=0.685 O_K=0.000
+ O_B=0.049 w=-1.000 h=0.673
+ Flat universe, standard cosmological constant
+
+ Time of equality: a_eq=0.77171
+ Particle horizon: chi_H(0)=9.718E+03 Mpc/h
+ Present growth factor: D_0=0.788
+
+Reading P_k from file: /pscratch/sd/d/djarque/cmb_lensing_lya/data/ensemble_7/pk_linear.dat
+  Original sigma8=0.825473
+  Sigma_Gauss should be 1.144536
+Lensing source plane 1 outside redshift range. Will only fill up to z=3.800
+Node 0 will allocate 19.110 GB [12.193 GB (Gaussian), 6.915 GB (srcs), 1.500 MB (kappa)]
+Node 1 will allocate 19.110 GB [12.193 GB (Gaussian), 6.915 GB (srcs), 1.500 MB (kappa)]
+Node 2 will allocate 19.110 GB [12.193 GB (Gaussian), 6.915 GB (srcs), 1.500 MB (kappa)]
+Node 3 will allocate 19.110 GB [12.193 GB (Gaussian), 6.915 GB (srcs), 1.500 MB (kappa)]
+Node 4 will allocate 19.110 GB [12.193 GB (Gaussian), 6.915 GB (srcs), 1.500 MB (kappa)]
+Node 5 will allocate 19.110 GB [12.193 GB (Gaussian), 6.915 GB (srcs), 1.500 MB (kappa)]
+Node 8 will allocate 19.110 GB [12.193 GB (Gaussian), 6.915 GB (srcs), 1.500 MB (kappa)]
+Node 6 will allocate 19.110 GB [12.193 GB (Gaussian), 6.915 GB (srcs), 1.500 MB (kappa)]
+Node 7 will allocate 19.110 GB [12.193 GB (Gaussian), 6.915 GB (srcs), 1.500 MB (kappa)]
+Node 9 will allocate 19.110 GB [12.193 GB (Gaussian), 6.915 GB (srcs), 1.500 MB (kappa)]
+Node 10 will allocate 19.110 GB [12.193 GB (Gaussian), 6.915 GB (srcs), 1.500 MB (kappa)]
+Node 11 will allocate 19.110 GB [12.193 GB (Gaussian), 6.915 GB (srcs), 1.500 MB (kappa)]
+Node 12 will allocate 19.110 GB [12.193 GB (Gaussian), 6.915 GB (srcs), 1.500 MB (kappa)]
+Node 13 will allocate 19.110 GB [12.193 GB (Gaussian), 6.915 GB (srcs), 1.500 MB (kappa)]
+Node 14 will allocate 19.110 GB [12.193 GB (Gaussian), 6.915 GB (srcs), 1.500 MB (kappa)]
+Node 15 will allocate 19.110 GB [12.193 GB (Gaussian), 6.915 GB (srcs), 1.500 MB (kappa)]
+Node 16 will allocate 19.110 GB [12.193 GB (Gaussian), 6.915 GB (srcs), 1.500 MB (kappa)]
+Node 17 will allocate 19.110 GB [12.193 GB (Gaussian), 6.915 GB (srcs), 1.500 MB (kappa)]
+Node 18 will allocate 19.110 GB [12.193 GB (Gaussian), 6.915 GB (srcs), 1.500 MB (kappa)]
+Node 19 will allocate 19.110 GB [12.193 GB (Gaussian), 6.915 GB (srcs), 1.500 MB (kappa)]
+Node 20 will allocate 19.110 GB [12.193 GB (Gaussian), 6.915 GB (srcs), 1.500 MB (kappa)]
+Node 21 will allocate 19.110 GB [12.193 GB (Gaussian), 6.915 GB (srcs), 1.500 MB (kappa)]
+Node 24 will allocate 19.110 GB [12.193 GB (Gaussian), 6.915 GB (srcs), 1.500 MB (kappa)]
+Node 22 will allocate 19.110 GB [12.193 GB (Gaussian), 6.915 GB (srcs), 1.500 MB (kappa)]
+Node 23 will allocate 19.110 GB [12.193 GB (Gaussian), 6.915 GB (srcs), 1.500 MB (kappa)]
+Node 25 will allocate 19.110 GB [12.193 GB (Gaussian), 6.915 GB (srcs), 1.500 MB (kappa)]
+Node 26 will allocate 19.110 GB [12.193 GB (Gaussian), 6.915 GB (srcs), 1.500 MB (kappa)]
+Node 27 will allocate 19.110 GB [12.193 GB (Gaussian), 6.915 GB (srcs), 1.500 MB (kappa)]
+Node 28 will allocate 19.110 GB [12.193 GB (Gaussian), 6.915 GB (srcs), 1.500 MB (kappa)]
+Node 29 will allocate 19.110 GB [12.193 GB (Gaussian), 6.915 GB (srcs), 1.500 MB (kappa)]
+Node 30 will allocate 19.110 GB [12.193 GB (Gaussian), 6.915 GB (srcs), 1.500 MB (kappa)]
+Node 32 will allocate 19.110 GB [12.193 GB (Gaussian), 6.915 GB (srcs), 1.500 MB (kappa)]
+Node 31 will allocate 19.110 GB [12.193 GB (Gaussian), 6.915 GB (srcs), 1.500 MB (kappa)]
+Node 33 will allocate 19.110 GB [12.193 GB (Gaussian), 6.915 GB (srcs), 1.500 MB (kappa)]
+Node 34 will allocate 19.110 GB [12.193 GB (Gaussian), 6.915 GB (srcs), 1.500 MB (kappa)]
+Node 35 will allocate 19.110 GB [12.193 GB (Gaussian), 6.915 GB (srcs), 1.500 MB (kappa)]
+Node 36 will allocate 19.110 GB [12.193 GB (Gaussian), 6.915 GB (srcs), 1.500 MB (kappa)]
+Node 37 will allocate 19.110 GB [12.193 GB (Gaussian), 6.915 GB (srcs), 1.500 MB (kappa)]
+Node 38 will allocate 19.110 GB [12.193 GB (Gaussian), 6.915 GB (srcs), 1.500 MB (kappa)]
+Node 40 will allocate 19.110 GB [12.193 GB (Gaussian), 6.915 GB (srcs), 1.500 MB (kappa)]
+Node 41 will allocate 19.110 GB [12.193 GB (Gaussian), 6.915 GB (srcs), 1.500 MB (kappa)]
+Node 39 will allocate 19.110 GB [12.193 GB (Gaussian), 6.915 GB (srcs), 1.500 MB (kappa)]
+Node 42 will allocate 19.110 GB [12.193 GB (Gaussian), 6.915 GB (srcs), 1.500 MB (kappa)]
+Node 43 will allocate 19.110 GB [12.193 GB (Gaussian), 6.915 GB (srcs), 1.500 MB (kappa)]
+Node 44 will allocate 19.110 GB [12.193 GB (Gaussian), 6.915 GB (srcs), 1.500 MB (kappa)]
+Node 45 will allocate 19.110 GB [12.193 GB (Gaussian), 6.915 GB (srcs), 1.500 MB (kappa)]
+Node 46 will allocate 19.110 GB [12.193 GB (Gaussian), 6.915 GB (srcs), 1.500 MB (kappa)]
+Node 47 will allocate 19.110 GB [12.193 GB (Gaussian), 6.915 GB (srcs), 1.500 MB (kappa)]
+Node 48 will allocate 19.110 GB [12.193 GB (Gaussian), 6.915 GB (srcs), 1.500 MB (kappa)]
+Node 49 will allocate 19.110 GB [12.193 GB (Gaussian), 6.915 GB (srcs), 1.500 MB (kappa)]
+Node 50 will allocate 19.110 GB [12.193 GB (Gaussian), 6.915 GB (srcs), 1.500 MB (kappa)]
+Node 51 will allocate 19.110 GB [12.193 GB (Gaussian), 6.915 GB (srcs), 1.500 MB (kappa)]
+Node 52 will allocate 19.110 GB [12.193 GB (Gaussian), 6.915 GB (srcs), 1.500 MB (kappa)]
+Node 53 will allocate 19.110 GB [12.193 GB (Gaussian), 6.915 GB (srcs), 1.500 MB (kappa)]
+Node 54 will allocate 19.110 GB [12.193 GB (Gaussian), 6.915 GB (srcs), 1.500 MB (kappa)]
+Node 55 will allocate 19.110 GB [12.193 GB (Gaussian), 6.915 GB (srcs), 1.500 MB (kappa)]
+Node 56 will allocate 19.110 GB [12.193 GB (Gaussian), 6.915 GB (srcs), 1.500 MB (kappa)]
+Node 57 will allocate 19.110 GB [12.193 GB (Gaussian), 6.915 GB (srcs), 1.500 MB (kappa)]
+Node 58 will allocate 19.110 GB [12.193 GB (Gaussian), 6.915 GB (srcs), 1.500 MB (kappa)]
+Node 59 will allocate 19.110 GB [12.193 GB (Gaussian), 6.915 GB (srcs), 1.500 MB (kappa)]
+Node 60 will allocate 19.110 GB [12.193 GB (Gaussian), 6.915 GB (srcs), 1.500 MB (kappa)]
+Node 61 will allocate 19.110 GB [12.193 GB (Gaussian), 6.915 GB (srcs), 1.500 MB (kappa)]
+Node 62 will allocate 19.110 GB [12.193 GB (Gaussian), 6.915 GB (srcs), 1.500 MB (kappa)]
+Node 63 will allocate 19.110 GB [12.193 GB (Gaussian), 6.915 GB (srcs), 1.500 MB (kappa)]
+
+Run parameters: 
+  0.000 < z < 3.800
+  0.000 < r/(Mpc/h) < 4845.949
+  L_box = 9696.631 Mpc/h, N_grid = 4096 
+  Scales resolved: 6.480E-04 < k < 1.327E+00 h/Mpc
+  Fourier-space resolution: dk = 6.480E-04 h/Mpc
+  Real-space resolution: dx = 2.367E+00 Mpc/h
+  Density field pre-smoothed on scales: x_s = 2.000E+00 Mpc/h
+  5 galaxy populations
+  1 lensing source planes
+
+Seed : 700000
+*** Writing predictions
+Writing predictions of redshift 0:
+       Population 0, bias 0.00335512. 
+       Population 1, bias 1.34. 
+       Population 2, bias 1.53. 
+       Population 3, bias 0.84. 
+       Population 4, bias 0.00333333. 
+Writing predictions of redshift 0.1:
+       Population 0, bias 0.00536481. 
+       Population 1, bias 1.41135. 
+       Population 2, bias 1.61146. 
+       Population 3, bias 0.884725. 
+       Population 4, bias 0.00536874. 
+Writing predictions of redshift 0.2:
+       Population 0, bias 0.00829413. 
+       Population 1, bias 1.48686. 
+       Population 2, bias 1.69769. 
+       Population 3, bias 0.932062. 
+       Population 4, bias 0.00829441. 
+Writing predictions of redshift 0.3:
+       Population 0, bias 0.0123766. 
+       Population 1, bias 1.56607. 
+       Population 2, bias 1.78813. 
+       Population 3, bias 0.981718. 
+       Population 4, bias 0.0123764. 
+Writing predictions of redshift 0.4:
+       Population 0, bias 0.0179276. 
+       Population 1, bias 1.64854. 
+       Population 2, bias 1.88228. 
+       Population 3, bias 1.03341. 
+       Population 4, bias 0.0179275. 
+Writing predictions of redshift 0.5:
+       Population 0, bias 0.0253126. 
+       Population 1, bias 1.73383. 
+       Population 2, bias 1.97967. 
+       Population 3, bias 1.08688. 
+       Population 4, bias 0.0253125. 
+Writing predictions of redshift 0.6:
+       Population 0, bias 0.0349527. 
+       Population 1, bias 1.82156. 
+       Population 2, bias 2.07984. 
+       Population 3, bias 1.14188. 
+       Population 4, bias 0.0349525. 
+Writing predictions of redshift 0.7:
+       Population 0, bias 0.0473288. 
+       Population 1, bias 1.91141. 
+       Population 2, bias 2.18243. 
+       Population 3, bias 1.1982. 
+       Population 4, bias 0.0473286. 
+Writing predictions of redshift 0.8:
+       Population 0, bias 0.0629858. 
+       Population 1, bias 2.00307. 
+       Population 2, bias 2.28709. 
+       Population 3, bias 1.25566. 
+       Population 4, bias 0.0629857. 
+Writing predictions of redshift 0.9:
+       Population 0, bias 0.0825368. 
+       Population 1, bias 2.09629. 
+       Population 2, bias 2.39352. 
+       Population 3, bias 1.31409. 
+       Population 4, bias 0.0825366. 
+Writing predictions of redshift 1:
+       Population 0, bias 0.106667. 
+       Population 1, bias 2.19084. 
+       Population 2, bias 2.50148. 
+       Population 3, bias 1.37336. 
+       Population 4, bias 0.106667. 
+Writing predictions of redshift 1.1:
+       Population 0, bias 0.136137. 
+       Population 1, bias 2.28655. 
+       Population 2, bias 2.61076. 
+       Population 3, bias 1.43336. 
+       Population 4, bias 0.136137. 
+Writing predictions of redshift 1.2:
+       Population 0, bias 0.171788. 
+       Population 1, bias 2.38324. 
+       Population 2, bias 2.72116. 
+       Population 3, bias 1.49397. 
+       Population 4, bias 0.171788. 
+Writing predictions of redshift 1.3:
+       Population 0, bias 0.214545. 
+       Population 1, bias 2.48079. 
+       Population 2, bias 2.83255. 
+       Population 3, bias 1.55512. 
+       Population 4, bias 0.214545. 
+Writing predictions of redshift 1.4:
+       Population 0, bias 0.265421. 
+       Population 1, bias 2.57908. 
+       Population 2, bias 2.94478. 
+       Population 3, bias 1.61674. 
+       Population 4, bias 0.265421. 
+Writing predictions of redshift 1.5:
+       Population 0, bias 0.325521. 
+       Population 1, bias 2.67802. 
+       Population 2, bias 3.05774. 
+       Population 3, bias 1.67876. 
+       Population 4, bias 0.325521. 
+Writing predictions of redshift 1.6:
+       Population 0, bias 0.396046. 
+       Population 1, bias 2.77751. 
+       Population 2, bias 3.17134. 
+       Population 3, bias 1.74113. 
+       Population 4, bias 0.396046. 
+Writing predictions of redshift 1.7:
+       Population 0, bias 0.478298. 
+       Population 1, bias 2.87749. 
+       Population 2, bias 3.2855. 
+       Population 3, bias 1.8038. 
+       Population 4, bias 0.478298. 
+Writing predictions of redshift 1.8:
+       Population 0, bias 0.573679. 
+       Population 1, bias 2.9779. 
+       Population 2, bias 3.40014. 
+       Population 3, bias 1.86675. 
+       Population 4, bias 0.573679. 
+Writing predictions of redshift 1.9:
+       Population 0, bias 0.683706. 
+       Population 1, bias 3.07869. 
+       Population 2, bias 3.51522. 
+       Population 3, bias 1.92993. 
+       Population 4, bias 0.683706. 
+Writing predictions of redshift 2:
+       Population 0, bias 0.810001. 
+       Population 1, bias 3.17981. 
+       Population 2, bias 3.63068. 
+       Population 3, bias 1.99331. 
+       Population 4, bias 0.810001. 
+Writing predictions of redshift 2.1:
+       Population 0, bias 0.954307. 
+       Population 1, bias 3.28122. 
+       Population 2, bias 3.74647. 
+       Population 3, bias 2.05688. 
+       Population 4, bias 0.954306. 
+Writing predictions of redshift 2.2:
+       Population 0, bias 1.11848. 
+       Population 1, bias 3.38289. 
+       Population 2, bias 3.86255. 
+       Population 3, bias 2.12062. 
+       Population 4, bias 1.11848. 
+Writing predictions of redshift 2.3:
+       Population 0, bias 1.30452. 
+       Population 1, bias 3.48479. 
+       Population 2, bias 3.9789. 
+       Population 3, bias 2.1845. 
+       Population 4, bias 1.30452. 
+Writing predictions of redshift 2.4:
+       Population 0, bias 1.51452. 
+       Population 1, bias 3.5869. 
+       Population 2, bias 4.09549. 
+       Population 3, bias 2.2485. 
+       Population 4, bias 1.51451. 
+Writing predictions of redshift 2.5:
+       Population 0, bias 1.75073. 
+       Population 1, bias 3.68919. 
+       Population 2, bias 4.21228. 
+       Population 3, bias 2.31263. 
+       Population 4, bias 1.75073. 
+Writing predictions of redshift 2.6:
+       Population 0, bias 2.01554. 
+       Population 1, bias 3.79165. 
+       Population 2, bias 4.32927. 
+       Population 3, bias 2.37685. 
+       Population 4, bias 2.01554. 
+Writing predictions of redshift 2.7:
+       Population 0, bias 2.31147. 
+       Population 1, bias 3.89425. 
+       Population 2, bias 4.44642. 
+       Population 3, bias 2.44117. 
+       Population 4, bias 2.31147. 
+Writing predictions of redshift 2.8:
+       Population 0, bias 2.64118. 
+       Population 1, bias 3.99699. 
+       Population 2, bias 4.56373. 
+       Population 3, bias 2.50558. 
+       Population 4, bias 2.64118. 
+Writing predictions of redshift 2.9:
+       Population 0, bias 3.00748. 
+       Population 1, bias 4.09985. 
+       Population 2, bias 4.68118. 
+       Population 3, bias 2.57006. 
+       Population 4, bias 3.00748. 
+Writing predictions of redshift 3:
+       Population 0, bias 3.41304. 
+       Population 1, bias 4.20282. 
+       Population 2, bias 4.79875. 
+       Population 3, bias 2.63461. 
+       Population 4, bias 3.41334. 
+Writing predictions of redshift 3.1:
+       Population 0, bias 3.85538. 
+       Population 1, bias 4.30589. 
+       Population 2, bias 4.91643. 
+       Population 3, bias 2.69922. 
+       Population 4, bias 3.86188. 
+Writing predictions of redshift 3.2:
+       Population 0, bias 4.3284. 
+       Population 1, bias 4.40905. 
+       Population 2, bias 5.03422. 
+       Population 3, bias 2.76388. 
+       Population 4, bias 4.35638. 
+Writing predictions of redshift 3.3:
+       Population 0, bias 4.82599. 
+       Population 1, bias 4.5123. 
+       Population 2, bias 5.1521. 
+       Population 3, bias 2.8286. 
+       Population 4, bias 4.90029. 
+Writing predictions of redshift 3.4:
+       Population 0, bias 5.34204. 
+       Population 1, bias 4.61561. 
+       Population 2, bias 5.27007. 
+       Population 3, bias 2.89337. 
+       Population 4, bias 5.49721. 
+Writing predictions of redshift 3.5:
+       Population 0, bias 5.87043. 
+       Population 1, bias 4.719. 
+       Population 2, bias 5.38811. 
+       Population 3, bias 2.95818. 
+       Population 4, bias 6.15094. 
+Writing predictions of redshift 3.6:
+       Population 0, bias 6.40505. 
+       Population 1, bias 4.82245. 
+       Population 2, bias 5.50623. 
+       Population 3, bias 3.02303. 
+       Population 4, bias 6.86543. 
+Writing predictions of redshift 3.7:
+       Population 0, bias 6.93977. 
+       Population 1, bias 4.92596. 
+       Population 2, bias 5.62441. 
+       Population 3, bias 3.08791. 
+       Population 4, bias 7.64484. 
+*** Creating Gaussian density field 
+Creating Fourier-space density and Newtonian potential 
+>    Relative time ellapsed 2213.6 ms
+Transforming density and Newtonian potential
+>    Relative time ellapsed 12361.3 ms
+Normalizing density and Newtonian potential 
+>    Relative time ellapsed 444.9 ms
+ <d>=-7.047E-13, <d^2>=1.231E+00
+
+*** Creating physical matter density
+Lognormalizin'
+>    Relative time ellapsed 939.0 ms
+
+*** Computing normalization of density field
+z=0.000E+00, <d^2_0>=2.364E+00, <d^2_1>=1.069E+00, <d^2_2>=1.167E+00, <d^2_3>=9.983E-01, <d^2_4>=1.133E+00, 00000000000
+z=3.745E-02, <d^2_0>=2.364E+00, <d^2_1>=1.069E+00, <d^2_2>=1.167E+00, <d^2_3>=9.983E-01, <d^2_4>=1.134E+00, 00001029205
+z=8.026E-02, <d^2_0>=2.320E+00, <d^2_1>=1.070E+00, <d^2_2>=1.174E+00, <d^2_3>=9.986E-01, <d^2_4>=1.188E+00, 00006907210
+z=1.282E-01, <d^2_0>=2.317E+00, <d^2_1>=1.100E+00, <d^2_2>=1.217E+00, <d^2_3>=1.016E+00, <d^2_4>=1.254E+00, 00017857184
+z=1.774E-01, <d^2_0>=2.276E+00, <d^2_1>=1.083E+00, <d^2_2>=1.199E+00, <d^2_3>=1.006E+00, <d^2_4>=1.311E+00, 00033027656
+z=2.269E-01, <d^2_0>=2.280E+00, <d^2_1>=1.103E+00, <d^2_2>=1.228E+00, <d^2_3>=1.017E+00, <d^2_4>=1.375E+00, 00051632248
+z=2.766E-01, <d^2_0>=2.266E+00, <d^2_1>=1.109E+00, <d^2_2>=1.240E+00, <d^2_3>=1.019E+00, <d^2_4>=1.434E+00, 00072938326
+z=3.265E-01, <d^2_0>=2.244E+00, <d^2_1>=1.107E+00, <d^2_2>=1.242E+00, <d^2_3>=1.016E+00, <d^2_4>=1.485E+00, 00096293114
+z=3.763E-01, <d^2_0>=2.224E+00, <d^2_1>=1.115E+00, <d^2_2>=1.259E+00, <d^2_3>=1.017E+00, <d^2_4>=1.535E+00, 00121109532
+z=4.263E-01, <d^2_0>=2.219E+00, <d^2_1>=1.123E+00, <d^2_2>=1.272E+00, <d^2_3>=1.018E+00, <d^2_4>=1.590E+00, 00146875528
+z=4.762E-01, <d^2_0>=2.194E+00, <d^2_1>=1.124E+00, <d^2_2>=1.280E+00, <d^2_3>=1.014E+00, <d^2_4>=1.632E+00, 00173171666
+z=5.262E-01, <d^2_0>=2.185E+00, <d^2_1>=1.128E+00, <d^2_2>=1.290E+00, <d^2_3>=1.012E+00, <d^2_4>=1.680E+00, 00199601406
+z=5.762E-01, <d^2_0>=2.186E+00, <d^2_1>=1.144E+00, <d^2_2>=1.314E+00, <d^2_3>=1.016E+00, <d^2_4>=1.735E+00, 00225866320
+z=6.262E-01, <d^2_0>=2.169E+00, <d^2_1>=1.148E+00, <d^2_2>=1.325E+00, <d^2_3>=1.012E+00, <d^2_4>=1.775E+00, 00251702804
+z=6.762E-01, <d^2_0>=2.170E+00, <d^2_1>=1.164E+00, <d^2_2>=1.352E+00, <d^2_3>=1.016E+00, <d^2_4>=1.826E+00, 00276961426
+z=7.262E-01, <d^2_0>=2.161E+00, <d^2_1>=1.171E+00, <d^2_2>=1.366E+00, <d^2_3>=1.014E+00, <d^2_4>=1.870E+00, 00301395684
+z=7.763E-01, <d^2_0>=2.149E+00, <d^2_1>=1.173E+00, <d^2_2>=1.375E+00, <d^2_3>=1.010E+00, <d^2_4>=1.910E+00, 00324940714
+z=8.263E-01, <d^2_0>=2.153E+00, <d^2_1>=1.192E+00, <d^2_2>=1.404E+00, <d^2_3>=1.013E+00, <d^2_4>=1.961E+00, 00347512558
+z=8.763E-01, <d^2_0>=2.141E+00, <d^2_1>=1.195E+00, <d^2_2>=1.414E+00, <d^2_3>=1.009E+00, <d^2_4>=1.998E+00, 00369020552
+z=9.264E-01, <d^2_0>=2.141E+00, <d^2_1>=1.209E+00, <d^2_2>=1.438E+00, <d^2_3>=1.010E+00, <d^2_4>=2.044E+00, 00389434626
+z=9.764E-01, <d^2_0>=2.137E+00, <d^2_1>=1.220E+00, <d^2_2>=1.457E+00, <d^2_3>=1.009E+00, <d^2_4>=2.086E+00, 00408745260
+z=1.026E+00, <d^2_0>=2.131E+00, <d^2_1>=1.227E+00, <d^2_2>=1.472E+00, <d^2_3>=1.006E+00, <d^2_4>=2.124E+00, 00426922246
+z=1.076E+00, <d^2_0>=2.130E+00, <d^2_1>=1.241E+00, <d^2_2>=1.496E+00, <d^2_3>=1.007E+00, <d^2_4>=2.166E+00, 00444030716
+z=1.127E+00, <d^2_0>=2.125E+00, <d^2_1>=1.250E+00, <d^2_2>=1.513E+00, <d^2_3>=1.004E+00, <d^2_4>=2.203E+00, 00460023634
+z=1.177E+00, <d^2_0>=2.129E+00, <d^2_1>=1.267E+00, <d^2_2>=1.540E+00, <d^2_3>=1.007E+00, <d^2_4>=2.248E+00, 00474964488
+z=1.227E+00, <d^2_0>=2.126E+00, <d^2_1>=1.280E+00, <d^2_2>=1.563E+00, <d^2_3>=1.007E+00, <d^2_4>=2.284E+00, 00488870226
+z=1.277E+00, <d^2_0>=2.125E+00, <d^2_1>=1.294E+00, <d^2_2>=1.587E+00, <d^2_3>=1.007E+00, <d^2_4>=2.322E+00, 00501786012
+z=1.327E+00, <d^2_0>=2.122E+00, <d^2_1>=1.306E+00, <d^2_2>=1.609E+00, <d^2_3>=1.007E+00, <d^2_4>=2.356E+00, 00513723898
+z=1.377E+00, <d^2_0>=2.119E+00, <d^2_1>=1.318E+00, <d^2_2>=1.630E+00, <d^2_3>=1.007E+00, <d^2_4>=2.388E+00, 00524767966
+z=1.427E+00, <d^2_0>=2.115E+00, <d^2_1>=1.328E+00, <d^2_2>=1.648E+00, <d^2_3>=1.006E+00, <d^2_4>=2.417E+00, 00534922512
+z=1.477E+00, <d^2_0>=2.107E+00, <d^2_1>=1.337E+00, <d^2_2>=1.665E+00, <d^2_3>=1.004E+00, <d^2_4>=2.439E+00, 00544247534
+z=1.527E+00, <d^2_0>=2.106E+00, <d^2_1>=1.350E+00, <d^2_2>=1.687E+00, <d^2_3>=1.005E+00, <d^2_4>=2.469E+00, 00552779868
+z=1.577E+00, <d^2_0>=2.107E+00, <d^2_1>=1.368E+00, <d^2_2>=1.717E+00, <d^2_3>=1.008E+00, <d^2_4>=2.499E+00, 00560566960
+z=1.627E+00, <d^2_0>=2.095E+00, <d^2_1>=1.373E+00, <d^2_2>=1.726E+00, <d^2_3>=1.006E+00, <d^2_4>=2.512E+00, 00567613898
+z=1.677E+00, <d^2_0>=2.088E+00, <d^2_1>=1.382E+00, <d^2_2>=1.742E+00, <d^2_3>=1.005E+00, <d^2_4>=2.527E+00, 00574030750
+z=1.727E+00, <d^2_0>=2.086E+00, <d^2_1>=1.397E+00, <d^2_2>=1.767E+00, <d^2_3>=1.008E+00, <d^2_4>=2.549E+00, 00579790730
+z=1.777E+00, <d^2_0>=2.077E+00, <d^2_1>=1.407E+00, <d^2_2>=1.785E+00, <d^2_3>=1.008E+00, <d^2_4>=2.560E+00, 00584968492
+z=1.827E+00, <d^2_0>=2.069E+00, <d^2_1>=1.417E+00, <d^2_2>=1.802E+00, <d^2_3>=1.009E+00, <d^2_4>=2.571E+00, 00589576796
+z=1.877E+00, <d^2_0>=2.066E+00, <d^2_1>=1.432E+00, <d^2_2>=1.825E+00, <d^2_3>=1.012E+00, <d^2_4>=2.586E+00, 00593664474
+z=1.927E+00, <d^2_0>=2.056E+00, <d^2_1>=1.440E+00, <d^2_2>=1.841E+00, <d^2_3>=1.013E+00, <d^2_4>=2.590E+00, 00597263698
+z=1.977E+00, <d^2_0>=2.044E+00, <d^2_1>=1.447E+00, <d^2_2>=1.853E+00, <d^2_3>=1.013E+00, <d^2_4>=2.590E+00, 00600354346
+z=2.028E+00, <d^2_0>=2.034E+00, <d^2_1>=1.456E+00, <d^2_2>=1.868E+00, <d^2_3>=1.015E+00, <d^2_4>=2.590E+00, 00603079458
+z=2.078E+00, <d^2_0>=2.023E+00, <d^2_1>=1.464E+00, <d^2_2>=1.883E+00, <d^2_3>=1.017E+00, <d^2_4>=2.588E+00, 00605335664
+z=2.128E+00, <d^2_0>=2.011E+00, <d^2_1>=1.471E+00, <d^2_2>=1.895E+00, <d^2_3>=1.018E+00, <d^2_4>=2.584E+00, 00607230760
+z=2.178E+00, <d^2_0>=1.996E+00, <d^2_1>=1.475E+00, <d^2_2>=1.901E+00, <d^2_3>=1.019E+00, <d^2_4>=2.573E+00, 00608789222
+z=2.228E+00, <d^2_0>=1.979E+00, <d^2_1>=1.477E+00, <d^2_2>=1.905E+00, <d^2_3>=1.019E+00, <d^2_4>=2.557E+00, 00609967498
+z=2.278E+00, <d^2_0>=1.968E+00, <d^2_1>=1.485E+00, <d^2_2>=1.920E+00, <d^2_3>=1.022E+00, <d^2_4>=2.550E+00, 00610876974
+z=2.328E+00, <d^2_0>=1.956E+00, <d^2_1>=1.492E+00, <d^2_2>=1.931E+00, <d^2_3>=1.024E+00, <d^2_4>=2.540E+00, 00611470976
+z=2.378E+00, <d^2_0>=1.938E+00, <d^2_1>=1.491E+00, <d^2_2>=1.931E+00, <d^2_3>=1.025E+00, <d^2_4>=2.518E+00, 00611781022
+z=2.428E+00, <d^2_0>=1.928E+00, <d^2_1>=1.499E+00, <d^2_2>=1.944E+00, <d^2_3>=1.028E+00, <d^2_4>=2.509E+00, 00611868300
+z=2.478E+00, <d^2_0>=1.909E+00, <d^2_1>=1.497E+00, <d^2_2>=1.940E+00, <d^2_3>=1.028E+00, <d^2_4>=2.483E+00, 00611701406
+z=2.528E+00, <d^2_0>=1.898E+00, <d^2_1>=1.502E+00, <d^2_2>=1.951E+00, <d^2_3>=1.031E+00, <d^2_4>=2.469E+00, 00611336640
+z=2.578E+00, <d^2_0>=1.886E+00, <d^2_1>=1.506E+00, <d^2_2>=1.957E+00, <d^2_3>=1.034E+00, <d^2_4>=2.452E+00, 00610701166
+z=2.628E+00, <d^2_0>=1.868E+00, <d^2_1>=1.503E+00, <d^2_2>=1.951E+00, <d^2_3>=1.035E+00, <d^2_4>=2.424E+00, 00609959188
+z=2.678E+00, <d^2_0>=1.855E+00, <d^2_1>=1.504E+00, <d^2_2>=1.955E+00, <d^2_3>=1.037E+00, <d^2_4>=2.404E+00, 00608986942
+z=2.728E+00, <d^2_0>=1.841E+00, <d^2_1>=1.503E+00, <d^2_2>=1.953E+00, <d^2_3>=1.038E+00, <d^2_4>=2.379E+00, 00607835428
+z=2.778E+00, <d^2_0>=1.831E+00, <d^2_1>=1.505E+00, <d^2_2>=1.956E+00, <d^2_3>=1.040E+00, <d^2_4>=2.358E+00, 00606582870
+z=2.828E+00, <d^2_0>=1.819E+00, <d^2_1>=1.504E+00, <d^2_2>=1.956E+00, <d^2_3>=1.042E+00, <d^2_4>=2.334E+00, 00605128922
+z=2.879E+00, <d^2_0>=1.811E+00, <d^2_1>=1.506E+00, <d^2_2>=1.959E+00, <d^2_3>=1.045E+00, <d^2_4>=2.314E+00, 00603571068
+z=2.929E+00, <d^2_0>=1.805E+00, <d^2_1>=1.507E+00, <d^2_2>=1.961E+00, <d^2_3>=1.047E+00, <d^2_4>=2.293E+00, 00601915124
+z=2.979E+00, <d^2_0>=1.800E+00, <d^2_1>=1.509E+00, <d^2_2>=1.964E+00, <d^2_3>=1.050E+00, <d^2_4>=2.273E+00, 00600103716
+z=3.029E+00, <d^2_0>=1.791E+00, <d^2_1>=1.506E+00, <d^2_2>=1.961E+00, <d^2_3>=1.051E+00, <d^2_4>=2.246E+00, 00598202356
+z=3.079E+00, <d^2_0>=1.782E+00, <d^2_1>=1.502E+00, <d^2_2>=1.954E+00, <d^2_3>=1.051E+00, <d^2_4>=2.215E+00, 00596207724
+z=3.129E+00, <d^2_0>=1.777E+00, <d^2_1>=1.499E+00, <d^2_2>=1.949E+00, <d^2_3>=1.051E+00, <d^2_4>=2.186E+00, 00594132026
+z=3.179E+00, <d^2_0>=1.783E+00, <d^2_1>=1.503E+00, <d^2_2>=1.956E+00, <d^2_3>=1.054E+00, <d^2_4>=2.170E+00, 00591952346
+z=3.229E+00, <d^2_0>=1.795E+00, <d^2_1>=1.509E+00, <d^2_2>=1.965E+00, <d^2_3>=1.058E+00, <d^2_4>=2.156E+00, 00589723954
+z=3.279E+00, <d^2_0>=1.800E+00, <d^2_1>=1.508E+00, <d^2_2>=1.965E+00, <d^2_3>=1.057E+00, <d^2_4>=2.130E+00, 00587357892
+z=3.329E+00, <d^2_0>=1.813E+00, <d^2_1>=1.510E+00, <d^2_2>=1.968E+00, <d^2_3>=1.059E+00, <d^2_4>=2.109E+00, 00585007210
+z=3.379E+00, <d^2_0>=1.828E+00, <d^2_1>=1.511E+00, <d^2_2>=1.972E+00, <d^2_3>=1.059E+00, <d^2_4>=2.087E+00, 00582538772
+z=3.429E+00, <d^2_0>=1.854E+00, <d^2_1>=1.518E+00, <d^2_2>=1.983E+00, <d^2_3>=1.061E+00, <d^2_4>=2.072E+00, 00580066688
+z=3.479E+00, <d^2_0>=1.884E+00, <d^2_1>=1.526E+00, <d^2_2>=1.996E+00, <d^2_3>=1.062E+00, <d^2_4>=2.057E+00, 00577536336
+z=3.529E+00, <d^2_0>=1.910E+00, <d^2_1>=1.528E+00, <d^2_2>=2.001E+00, <d^2_3>=1.061E+00, <d^2_4>=2.032E+00, 00574942862
+z=3.579E+00, <d^2_0>=1.943E+00, <d^2_1>=1.533E+00, <d^2_2>=2.009E+00, <d^2_3>=1.060E+00, <d^2_4>=2.010E+00, 00572322704
+z=3.629E+00, <d^2_0>=1.990E+00, <d^2_1>=1.544E+00, <d^2_2>=2.029E+00, <d^2_3>=1.061E+00, <d^2_4>=1.998E+00, 00569681794
+z=3.680E+00, <d^2_0>=2.040E+00, <d^2_1>=1.555E+00, <d^2_2>=2.047E+00, <d^2_3>=1.060E+00, <d^2_4>=1.982E+00, 00566932382
+z=3.730E+00, <d^2_0>=2.100E+00, <d^2_1>=1.571E+00, <d^2_2>=2.073E+00, <d^2_3>=1.061E+00, <d^2_4>=1.969E+00, 00564229170
+z=3.780E+00, <d^2_0>=2.168E+00, <d^2_1>=1.810E+00, <d^2_2>=2.395E+00, <d^2_3>=1.210E+00, <d^2_4>=1.552E+00, 00561455495
+z=3.805E+00, <d^2_0>=2.169E+00, <d^2_1>=1.811E+00, <d^2_2>=2.397E+00, <d^2_3>=1.211E+00, <d^2_4>=1.549E+00, 00554435408
+>    Relative time ellapsed 3144.9 ms
+
+*** Getting point sources
+ 0-th galaxy population
+   Poisson-sampling
+   There will be 7184903962 objects in total 
+   Assigning coordinates
+>    Relative time ellapsed 5703.9 ms
+ 1-th galaxy population
+   Poisson-sampling
+   There will be 294653935 objects in total 
+   Assigning coordinates
+>    Relative time ellapsed 7841.0 ms
+ 2-th galaxy population
+   Poisson-sampling
+   There will be 99380275 objects in total 
+   Assigning coordinates
+>    Relative time ellapsed 5084.6 ms
+ 3-th galaxy population
+   Poisson-sampling
+   There will be 895494815 objects in total 
+   Assigning coordinates
+>    Relative time ellapsed 4875.3 ms
+ 4-th galaxy population
+   Poisson-sampling
+   There will be 12325533 objects in total 
+   Assigning coordinates
+>    Relative time ellapsed 5945.3 ms
+
+*** Re-distributing sources across nodes
+>    Relative time ellapsed 4627.0 ms
+
+*** Getting LOS information
+Communication 0, MPI task 0 is now MPI task 63
+Communication 1, MPI task 0 is now MPI task 62
+Communication 2, MPI task 0 is now MPI task 61
+Communication 3, MPI task 0 is now MPI task 60
+Communication 4, MPI task 0 is now MPI task 59
+Communication 5, MPI task 0 is now MPI task 58
+Communication 6, MPI task 0 is now MPI task 57
+Communication 7, MPI task 0 is now MPI task 56
+Communication 8, MPI task 0 is now MPI task 55
+Communication 9, MPI task 0 is now MPI task 54
+Communication 10, MPI task 0 is now MPI task 53
+Communication 11, MPI task 0 is now MPI task 52
+Communication 12, MPI task 0 is now MPI task 51
+Communication 13, MPI task 0 is now MPI task 50
+Communication 14, MPI task 0 is now MPI task 49
+Communication 15, MPI task 0 is now MPI task 48
+Communication 16, MPI task 0 is now MPI task 47
+Communication 17, MPI task 0 is now MPI task 46
+Communication 18, MPI task 0 is now MPI task 45
+Communication 19, MPI task 0 is now MPI task 44
+Communication 20, MPI task 0 is now MPI task 43
+Communication 21, MPI task 0 is now MPI task 42
+Communication 22, MPI task 0 is now MPI task 41
+Communication 23, MPI task 0 is now MPI task 40
+Communication 24, MPI task 0 is now MPI task 39
+Communication 25, MPI task 0 is now MPI task 38
+Communication 26, MPI task 0 is now MPI task 37
+Communication 27, MPI task 0 is now MPI task 36
+Communication 28, MPI task 0 is now MPI task 35
+Communication 29, MPI task 0 is now MPI task 34
+Communication 30, MPI task 0 is now MPI task 33
+Communication 31, MPI task 0 is now MPI task 32
+Communication 32, MPI task 0 is now MPI task 31
+Communication 33, MPI task 0 is now MPI task 30
+Communication 34, MPI task 0 is now MPI task 29
+Communication 35, MPI task 0 is now MPI task 28
+Communication 36, MPI task 0 is now MPI task 27
+Communication 37, MPI task 0 is now MPI task 26
+Communication 38, MPI task 0 is now MPI task 25
+Communication 39, MPI task 0 is now MPI task 24
+Communication 40, MPI task 0 is now MPI task 23
+Communication 41, MPI task 0 is now MPI task 22
+Communication 42, MPI task 0 is now MPI task 21
+Communication 43, MPI task 0 is now MPI task 20
+Communication 44, MPI task 0 is now MPI task 19
+Communication 45, MPI task 0 is now MPI task 18
+Communication 46, MPI task 0 is now MPI task 17
+Communication 47, MPI task 0 is now MPI task 16
+Communication 48, MPI task 0 is now MPI task 15
+Communication 49, MPI task 0 is now MPI task 14
+Communication 50, MPI task 0 is now MPI task 13
+Communication 51, MPI task 0 is now MPI task 12
+Communication 52, MPI task 0 is now MPI task 11
+Communication 53, MPI task 0 is now MPI task 10
+Communication 54, MPI task 0 is now MPI task 9
+Communication 55, MPI task 0 is now MPI task 8
+Communication 56, MPI task 0 is now MPI task 7
+Communication 57, MPI task 0 is now MPI task 6
+Communication 58, MPI task 0 is now MPI task 5
+Communication 59, MPI task 0 is now MPI task 4
+Communication 60, MPI task 0 is now MPI task 3
+Communication 61, MPI task 0 is now MPI task 2
+Communication 62, MPI task 0 is now MPI task 1
+Communication 63, MPI task 0 is now MPI task 0
+>    Relative time ellapsed 254610.3 ms
+
+*** Writing kappa source maps
+>    Relative time ellapsed 4760.1 ms
+
+*** Writing source catalogs
+ 0-th population (FITS)
+>    Relative time ellapsed 9041.2 ms
+ 1-th population (FITS)
+>    Relative time ellapsed 375.1 ms
+ 2-th population (FITS)
+>    Relative time ellapsed 128.0 ms
+ 3-th population (FITS)
+>    Relative time ellapsed 1139.9 ms
+ 4-th population (FITS)
+>    Relative time ellapsed 16.5 ms
+
+
+|-------------------------------------------------|
+
+>    Total time ellapsed 329166.1 ms
+Wed Nov  4 03:21:43 AM PST 2026
