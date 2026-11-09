@@ -48,3 +48,5 @@ The rebinned deltas can be found at NERSC under:
 
 Take a look at this notebook to play with them and make Cells plots (also x CMB lensing): `notebooks/plot_lya_2d.ipynb`
 
+
+This repository started from the history of `cmb_lensing_lya` (original repo by Andreu).
