@@ -1,25 +1,34 @@
-# CoLoRe simulation boxes
+# CoLoRe box `test_box_2`
 
 ## Description
 
 Second CoLoRe box with CMB lensing output, run by Laura. The source plane redshift `z_out` is different to the box maximum redshift `z_max`, solving the issue with the first box.
 
-## Products
+**Bias model:** this box was run with the **NORMALIZED** bias model of CoLoRe.
 
-CMB lensing convergence $\kappa$ values of the test box from the [CoLoRe simulation](https://github.com/damonge/CoLoRe). 
+## Contents
 
-- File [out_kappa.fits](cmb_lensing/out_kappa.fits) contains the convergence $\kappa$ values.
-- File [cl_kk.npz](cmb_lensing/cl_kk.npz) contains the CMB lensing autospectrum $C_{\ell}^{\kappa \kappa}$
-- File [cl_kk_log.npz](cmb_lensing/cl_kk_log.npz) contains the log-rebinned CMB lensing autospectrum using the [rebin_cls.py](../../scripts/rebin_cls.py) script.
+| Path | Content |
+| --- | --- |
+| [`param.cfg`](param.cfg) | CoLoRe configuration used for this run |
+| [`cosmo_params.json`](cosmo_params.json) | cosmology of the box, `z_max` and the source-plane redshift `z_out` |
+| `results/` | raw CoLoRe output: κ map [`out_kappa_z000.fits`](results/out_kappa_z000.fits) (HEALPix, N_side = 512) |
+| `cls/` | measured spectra and n(z), see below |
+| `plots/` | figures made from this box |
 
-## CoLoRe config file
+### Spectra (`cls/`)
 
-The file [param.cfg](param.cfg) contains the input parameters to reproduce the colore box. The config file refers to three different files:
-- File [pk_linear.dat](pk_linear.dat) contains the linear matter power spectrum P(k) at z=0.
-- File [nz_desi_qso.txt](../colore_files/nz/nz_desi_qso.txt) contains the quasars redshift distribution n(z).
-- File [bz_desi_qso.txt](../colore_files/bz/bz_desi_qso.txt) contains the quasar bias parameter b_Q(z) evolution with redshift.
+The spectra are produced by [`scripts/compute_colore_cls.py`](../../scripts/compute_colore_cls.py) (see `scripts/run_compute_cls*.sh`). Each `*.npz` holds the per-multipole spectrum; the `*_log.npz` versions are log-rebinned with `utils/binning.py`. The files in this box were made with earlier versions of that script, so some names differ from the current convention.
+
+| File | Content |
+| --- | --- |
+| [`cl_kk.npz`](cls/cl_kk.npz) | CMB lensing auto-spectrum $C_\ell^{\kappa\kappa}$ per multipole (`ells, cls, err, nside`) |
+| [`cl_kk_log.npz`](cls/cl_kk_log.npz) | same, log-rebinned |
+
+## CoLoRe input files
+
+The [param.cfg](param.cfg) is the one used by Laura Casas at NERSC. It points to her own input files: the QSO n(z) `Nz_qso_130618_2_colore1_hZs.txt` and the QSO bias `Bz_qso_G18.txt` (not stored in this repository), and to the LyaCoLoRe linear P(k) `PlanckDR12_kmax_matterpower_z0.dat`.
 
 ## Cosmological parameters
 
-The file [cosmo_params.json](cosmo_params.json) contains the relevant cosmological parameters matching the box along with the box max redshift `z_max` and source plane redshift `z_out`.
-
+[`cosmo_params.json`](cosmo_params.json) gives the cosmology used to generate the box (Ω_M, Ω_Λ, Ω_B, h, A_s, n_s, w, σ8, Σm_ν), the box maximum redshift `z_max` and the source-plane redshift `z_out`. The analysis reads it to build the theory.

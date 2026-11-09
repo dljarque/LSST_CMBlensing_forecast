@@ -7,7 +7,7 @@ test_box=ensemble_1
 \
 --output ./data/$test_box/ \
 --filename param.cfg \
---prefix_out /pscratch/sd/d/djarque/cmb_lensing_lya/data/$test_box/results/out \
+--prefix_out /pscratch/sd/d/djarque/LSST_CMBlensing_forecast/data/$test_box/results/out \
 \
 --seed 100000 \
 --lensing_nside 1024 \
@@ -23,20 +23,20 @@ test_box=ensemble_1
 --w -1.0 \
 \
 --nz_filenames \
- /pscratch/sd/d/djarque/cmb_lensing_lya/data/colore_setup/inputs/nz/nz_lsst_gal.txt \
- /pscratch/sd/d/djarque/cmb_lensing_lya/data/colore_setup/inputs/nz/nz_desi_bgs.txt \
- /pscratch/sd/d/djarque/cmb_lensing_lya/data/colore_setup/inputs/nz/nz_desi_lrg.txt \
- /pscratch/sd/d/djarque/cmb_lensing_lya/data/colore_setup/inputs/nz/nz_desi_elg.txt \
- /pscratch/sd/d/djarque/cmb_lensing_lya/data/colore_setup/inputs/nz/nz_desi_qso.txt \
+ /pscratch/sd/d/djarque/LSST_CMBlensing_forecast/data/colore_setup/inputs/nz/nz_lsst_gal.txt \
+ /pscratch/sd/d/djarque/LSST_CMBlensing_forecast/data/colore_setup/inputs/nz/nz_desi_bgs.txt \
+ /pscratch/sd/d/djarque/LSST_CMBlensing_forecast/data/colore_setup/inputs/nz/nz_desi_lrg.txt \
+ /pscratch/sd/d/djarque/LSST_CMBlensing_forecast/data/colore_setup/inputs/nz/nz_desi_elg.txt \
+ /pscratch/sd/d/djarque/LSST_CMBlensing_forecast/data/colore_setup/inputs/nz/nz_desi_qso.txt \
 --bz_input_filenames \
- /pscratch/sd/d/djarque/cmb_lensing_lya/data/colore_setup/inputs/bias-input/bz-input_lsst_gal.txt \
- /pscratch/sd/d/djarque/cmb_lensing_lya/data/colore_setup/inputs/bias-input/bz-input_desi_bgs.txt \
- /pscratch/sd/d/djarque/cmb_lensing_lya/data/colore_setup/inputs/bias-input/bz-input_desi_lrg.txt \
- /pscratch/sd/d/djarque/cmb_lensing_lya/data/colore_setup/inputs/bias-input/bz-input_desi_elg.txt \
- /pscratch/sd/d/djarque/cmb_lensing_lya/data/colore_setup/inputs/bias-input/bz-input_desi_qso.txt \
+ /pscratch/sd/d/djarque/LSST_CMBlensing_forecast/data/colore_setup/inputs/bias-input/bz-input_lsst_gal.txt \
+ /pscratch/sd/d/djarque/LSST_CMBlensing_forecast/data/colore_setup/inputs/bias-input/bz-input_desi_bgs.txt \
+ /pscratch/sd/d/djarque/LSST_CMBlensing_forecast/data/colore_setup/inputs/bias-input/bz-input_desi_lrg.txt \
+ /pscratch/sd/d/djarque/LSST_CMBlensing_forecast/data/colore_setup/inputs/bias-input/bz-input_desi_elg.txt \
+ /pscratch/sd/d/djarque/LSST_CMBlensing_forecast/data/colore_setup/inputs/bias-input/bz-input_desi_qso.txt \
 --Tz_filenames \
- /pscratch/sd/d/djarque/cmb_lensing_lya/data/colore_setup/inputs/thresholds/tz_lsst_gal.txt \
- /pscratch/sd/d/djarque/cmb_lensing_lya/data/colore_setup/inputs/thresholds/tz_desi_bgs.txt \
- /pscratch/sd/d/djarque/cmb_lensing_lya/data/colore_setup/inputs/thresholds/tz_desi_lrg.txt \
- /pscratch/sd/d/djarque/cmb_lensing_lya/data/colore_setup/inputs/thresholds/tz_desi_elg.txt \
- /pscratch/sd/d/djarque/cmb_lensing_lya/data/colore_setup/inputs/thresholds/tz_desi_qso.txt
+ /pscratch/sd/d/djarque/LSST_CMBlensing_forecast/data/colore_setup/inputs/thresholds/tz_lsst_gal.txt \
+ /pscratch/sd/d/djarque/LSST_CMBlensing_forecast/data/colore_setup/inputs/thresholds/tz_desi_bgs.txt \
+ /pscratch/sd/d/djarque/LSST_CMBlensing_forecast/data/colore_setup/inputs/thresholds/tz_desi_lrg.txt \
+ /pscratch/sd/d/djarque/LSST_CMBlensing_forecast/data/colore_setup/inputs/thresholds/tz_desi_elg.txt \
+ /pscratch/sd/d/djarque/LSST_CMBlensing_forecast/data/colore_setup/inputs/thresholds/tz_desi_qso.txt

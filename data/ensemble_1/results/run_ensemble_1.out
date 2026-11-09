@@ -1,7 +1,8 @@
 Welcome
-Tue Nov  3 09:21:50 AM PST 2026
-nid004293
-MPI task 16, OMP thread count starts at 512
+Mon Nov  9 08:28:02 AM PST 2026
+nid004194
+MPI task 32, OMP thread count starts at 1024
+MPI task 40, OMP thread count starts at 1280
 MPI task 0 has 32 OMP threads
 MPI task 1 has 32 OMP threads
 MPI task 2 has 32 OMP threads
@@ -35,11 +36,13 @@ MPI task 29 has 32 OMP threads
 MPI task 30 has 32 OMP threads
 MPI task 31 has 32 OMP threads
 MPI task 32 has 32 OMP threads
-MPI task 17, OMP thread count starts at 544
-MPI task 48, OMP thread count starts at 1536
-MPI task 40, OMP thread count starts at 1280
-MPI task 32, OMP thread count starts at 1024
+MPI task 8, OMP thread count starts at 256
+MPI task 16, OMP thread count starts at 512
+MPI task 56, OMP thread count starts at 1792
 MPI task 24, OMP thread count starts at 768
+MPI task 48, OMP thread count starts at 1536
+MPI task 35, OMP thread count starts at 1120
+MPI task 41, OMP thread count starts at 1312
 MPI task 33 has 32 OMP threads
 MPI task 34 has 32 OMP threads
 MPI task 35 has 32 OMP threads
@@ -74,67 +77,64 @@ MPI task 63 has 32 OMP threads
 MPI task 0, OMP thread count starts at 0
  MPIThreadsOK = 1
 
-MPI task 56, OMP thread count starts at 1792
-MPI task 18, OMP thread count starts at 576
-MPI task 50, OMP thread count starts at 1600
-MPI task 41, OMP thread count starts at 1312
-MPI task 8, OMP thread count starts at 256
-MPI task 34, OMP thread count starts at 1088
+MPI task 13, OMP thread count starts at 416
+MPI task 20, OMP thread count starts at 640
+MPI task 57, OMP thread count starts at 1824
 MPI task 25, OMP thread count starts at 800
+MPI task 53, OMP thread count starts at 1696
+MPI task 36, OMP thread count starts at 1152
+MPI task 42, OMP thread count starts at 1344
 |-------------------------------------------------|
 |                      CoLoRe                     |
 |-------------------------------------------------|
 
-MPI task 58, OMP thread count starts at 1856
-MPI task 19, OMP thread count starts at 608
-MPI task 55, OMP thread count starts at 1760
-MPI task 47, OMP thread count starts at 1504
-MPI task 14, OMP thread count starts at 448
-MPI task 37, OMP thread count starts at 1184
-MPI task 26, OMP thread count starts at 832
-MPI task 3, OMP thread count starts at 96
-MPI task 62, OMP thread count starts at 1984
-MPI task 20, OMP thread count starts at 640
-MPI task 49, OMP thread count starts at 1568
-MPI task 43, OMP thread count starts at 1376
-MPI task 15, OMP thread count starts at 480
-MPI task 33, OMP thread count starts at 1056
-MPI task 27, OMP thread count starts at 864
-MPI task 7, OMP thread count starts at 224
-MPI task 57, OMP thread count starts at 1824
-MPI task 21, OMP thread count starts at 672
-MPI task 51, OMP thread count starts at 1632
-MPI task 44, OMP thread count starts at 1408
 MPI task 9, OMP thread count starts at 288
-MPI task 35, OMP thread count starts at 1120
-MPI task 30, OMP thread count starts at 960
-MPI task 1, OMP thread count starts at 32
-MPI task 59, OMP thread count starts at 1888
-MPI task 22, OMP thread count starts at 704
-MPI task 52, OMP thread count starts at 1664
-MPI task 45, OMP thread count starts at 1440
-MPI task 10, OMP thread count starts at 320
-MPI task 36, OMP thread count starts at 1152
-MPI task 28, OMP thread count starts at 896
-MPI task 2, OMP thread count starts at 64
-MPI task 60, OMP thread count starts at 1920
-MPI task 23, OMP thread count starts at 736
-MPI task 53, OMP thread count starts at 1696
-MPI task 46, OMP thread count starts at 1472
-MPI task 11, OMP thread count starts at 352
+MPI task 21, OMP thread count starts at 672
+MPI task 58, OMP thread count starts at 1856
+MPI task 26, OMP thread count starts at 832
+MPI task 50, OMP thread count starts at 1600
 MPI task 38, OMP thread count starts at 1216
-MPI task 29, OMP thread count starts at 928
-MPI task 4, OMP thread count starts at 128
-MPI task 61, OMP thread count starts at 1952
-MPI task 54, OMP thread count starts at 1728
-MPI task 42, OMP thread count starts at 1344
-MPI task 12, OMP thread count starts at 384
+MPI task 43, OMP thread count starts at 1376
+MPI task 1, OMP thread count starts at 32
+MPI task 10, OMP thread count starts at 320
+MPI task 17, OMP thread count starts at 544
+MPI task 59, OMP thread count starts at 1888
+MPI task 27, OMP thread count starts at 864
+MPI task 52, OMP thread count starts at 1664
 MPI task 39, OMP thread count starts at 1248
+MPI task 44, OMP thread count starts at 1408
+MPI task 2, OMP thread count starts at 64
+MPI task 11, OMP thread count starts at 352
+MPI task 18, OMP thread count starts at 576
+MPI task 60, OMP thread count starts at 1920
+MPI task 28, OMP thread count starts at 896
+MPI task 55, OMP thread count starts at 1760
+MPI task 33, OMP thread count starts at 1056
+MPI task 45, OMP thread count starts at 1440
+MPI task 3, OMP thread count starts at 96
+MPI task 14, OMP thread count starts at 448
+MPI task 19, OMP thread count starts at 608
+MPI task 61, OMP thread count starts at 1952
+MPI task 29, OMP thread count starts at 928
+MPI task 49, OMP thread count starts at 1568
+MPI task 34, OMP thread count starts at 1088
+MPI task 46, OMP thread count starts at 1472
+MPI task 4, OMP thread count starts at 128
+MPI task 15, OMP thread count starts at 480
+MPI task 22, OMP thread count starts at 704
+MPI task 62, OMP thread count starts at 1984
 MPI task 31, OMP thread count starts at 992
+MPI task 51, OMP thread count starts at 1632
+MPI task 37, OMP thread count starts at 1184
+MPI task 47, OMP thread count starts at 1504
 MPI task 5, OMP thread count starts at 160
+MPI task 12, OMP thread count starts at 384
+MPI task 23, OMP thread count starts at 736
 MPI task 63, OMP thread count starts at 2016
-MPI task 13, OMP thread count starts at 416
+MPI task 30, OMP thread count starts at 960
+MPI task 54, OMP thread count starts at 1728
 MPI task 6, OMP thread count starts at 192
+MPI task 7, OMP thread count starts at 224
 The cosmological model is:
  O_M=0.315 O_L=0.685 O_K=0.000
  O_B=0.049 w=-1.000 h=0.673
@@ -144,7 +144,7 @@ The cosmological model is:
  Particle horizon: chi_H(0)=9.718E+03 Mpc/h
  Present growth factor: D_0=0.788
 
-Reading P_k from file: /pscratch/sd/d/djarque/cmb_lensing_lya/data/ensemble_1/pk_linear.dat
+Reading P_k from file: /pscratch/sd/d/djarque/LSST_CMBlensing_forecast/data/ensemble_1/pk_linear.dat
   Original sigma8=0.825473
   Sigma_Gauss should be 1.144536
 Lensing source plane 1 outside redshift range. Will only fill up to z=3.800
@@ -171,8 +171,8 @@ Node 19 will allocate 19.110 GB [12.193 GB (Gaussian), 6.915 GB (srcs), 1.500 MB
 Node 20 will allocate 19.110 GB [12.193 GB (Gaussian), 6.915 GB (srcs), 1.500 MB (kappa)]
 Node 21 will allocate 19.110 GB [12.193 GB (Gaussian), 6.915 GB (srcs), 1.500 MB (kappa)]
 Node 22 will allocate 19.110 GB [12.193 GB (Gaussian), 6.915 GB (srcs), 1.500 MB (kappa)]
-Node 24 will allocate 19.110 GB [12.193 GB (Gaussian), 6.915 GB (srcs), 1.500 MB (kappa)]
 Node 23 will allocate 19.110 GB [12.193 GB (Gaussian), 6.915 GB (srcs), 1.500 MB (kappa)]
+Node 24 will allocate 19.110 GB [12.193 GB (Gaussian), 6.915 GB (srcs), 1.500 MB (kappa)]
 Node 25 will allocate 19.110 GB [12.193 GB (Gaussian), 6.915 GB (srcs), 1.500 MB (kappa)]
 Node 26 will allocate 19.110 GB [12.193 GB (Gaussian), 6.915 GB (srcs), 1.500 MB (kappa)]
 Node 27 will allocate 19.110 GB [12.193 GB (Gaussian), 6.915 GB (srcs), 1.500 MB (kappa)]
@@ -456,127 +456,127 @@ Writing predictions of redshift 3.7:
        Population 4, bias 7.64484. 
 *** Creating Gaussian density field 
 Creating Fourier-space density and Newtonian potential 
->    Relative time ellapsed 2147.1 ms
+>    Relative time ellapsed 2176.3 ms
 Transforming density and Newtonian potential
->    Relative time ellapsed 12455.3 ms
+>    Relative time ellapsed 12598.2 ms
 Normalizing density and Newtonian potential 
->    Relative time ellapsed 445.1 ms
+>    Relative time ellapsed 444.8 ms
  <d>=-1.877E-13, <d^2>=1.231E+00
 
 *** Creating physical matter density
 Lognormalizin'
->    Relative time ellapsed 942.4 ms
+>    Relative time ellapsed 949.1 ms
 
 *** Computing normalization of density field
-z=0.000E+00, <d^2_0>=2.264E+00, <d^2_1>=9.942E-01, <d^2_2>=1.077E+00, <d^2_3>=9.532E-01, <d^2_4>=1.123E+00, 00000000000
-z=3.745E-02, <d^2_0>=2.264E+00, <d^2_1>=9.944E-01, <d^2_2>=1.077E+00, <d^2_3>=9.534E-01, <d^2_4>=1.124E+00, 00001029205
-z=8.026E-02, <d^2_0>=2.302E+00, <d^2_1>=1.061E+00, <d^2_2>=1.164E+00, <d^2_3>=9.929E-01, <d^2_4>=1.186E+00, 00006907210
-z=1.282E-01, <d^2_0>=2.337E+00, <d^2_1>=1.101E+00, <d^2_2>=1.216E+00, <d^2_3>=1.019E+00, <d^2_4>=1.260E+00, 00017857184
-z=1.774E-01, <d^2_0>=2.275E+00, <d^2_1>=1.078E+00, <d^2_2>=1.192E+00, <d^2_3>=1.004E+00, <d^2_4>=1.311E+00, 00033027656
-z=2.269E-01, <d^2_0>=2.277E+00, <d^2_1>=1.097E+00, <d^2_2>=1.220E+00, <d^2_3>=1.014E+00, <d^2_4>=1.376E+00, 00051632248
-z=2.766E-01, <d^2_0>=2.256E+00, <d^2_1>=1.103E+00, <d^2_2>=1.233E+00, <d^2_3>=1.015E+00, <d^2_4>=1.429E+00, 00072938326
-z=3.265E-01, <d^2_0>=2.249E+00, <d^2_1>=1.118E+00, <d^2_2>=1.257E+00, <d^2_3>=1.022E+00, <d^2_4>=1.488E+00, 00096293114
-z=3.763E-01, <d^2_0>=2.219E+00, <d^2_1>=1.106E+00, <d^2_2>=1.245E+00, <d^2_3>=1.011E+00, <d^2_4>=1.533E+00, 00121109532
-z=4.263E-01, <d^2_0>=2.207E+00, <d^2_1>=1.116E+00, <d^2_2>=1.264E+00, <d^2_3>=1.014E+00, <d^2_4>=1.584E+00, 00146875528
-z=4.762E-01, <d^2_0>=2.211E+00, <d^2_1>=1.135E+00, <d^2_2>=1.293E+00, <d^2_3>=1.021E+00, <d^2_4>=1.641E+00, 00173171666
-z=5.262E-01, <d^2_0>=2.188E+00, <d^2_1>=1.130E+00, <d^2_2>=1.292E+00, <d^2_3>=1.013E+00, <d^2_4>=1.682E+00, 00199601406
-z=5.762E-01, <d^2_0>=2.185E+00, <d^2_1>=1.146E+00, <d^2_2>=1.317E+00, <d^2_3>=1.017E+00, <d^2_4>=1.734E+00, 00225866320
-z=6.262E-01, <d^2_0>=2.174E+00, <d^2_1>=1.151E+00, <d^2_2>=1.329E+00, <d^2_3>=1.015E+00, <d^2_4>=1.779E+00, 00251702804
-z=6.762E-01, <d^2_0>=2.165E+00, <d^2_1>=1.160E+00, <d^2_2>=1.347E+00, <d^2_3>=1.014E+00, <d^2_4>=1.823E+00, 00276961426
-z=7.262E-01, <d^2_0>=2.159E+00, <d^2_1>=1.168E+00, <d^2_2>=1.363E+00, <d^2_3>=1.013E+00, <d^2_4>=1.869E+00, 00301395684
-z=7.763E-01, <d^2_0>=2.150E+00, <d^2_1>=1.174E+00, <d^2_2>=1.375E+00, <d^2_3>=1.010E+00, <d^2_4>=1.910E+00, 00324940714
-z=8.263E-01, <d^2_0>=2.149E+00, <d^2_1>=1.187E+00, <d^2_2>=1.397E+00, <d^2_3>=1.011E+00, <d^2_4>=1.958E+00, 00347512558
-z=8.763E-01, <d^2_0>=2.140E+00, <d^2_1>=1.192E+00, <d^2_2>=1.409E+00, <d^2_3>=1.007E+00, <d^2_4>=1.997E+00, 00369020552
-z=9.264E-01, <d^2_0>=2.139E+00, <d^2_1>=1.207E+00, <d^2_2>=1.434E+00, <d^2_3>=1.009E+00, <d^2_4>=2.043E+00, 00389434626
-z=9.764E-01, <d^2_0>=2.142E+00, <d^2_1>=1.225E+00, <d^2_2>=1.464E+00, <d^2_3>=1.011E+00, <d^2_4>=2.090E+00, 00408745260
-z=1.026E+00, <d^2_0>=2.138E+00, <d^2_1>=1.235E+00, <d^2_2>=1.483E+00, <d^2_3>=1.010E+00, <d^2_4>=2.131E+00, 00426922246
-z=1.076E+00, <d^2_0>=2.128E+00, <d^2_1>=1.239E+00, <d^2_2>=1.493E+00, <d^2_3>=1.005E+00, <d^2_4>=2.164E+00, 00444030716
-z=1.127E+00, <d^2_0>=2.125E+00, <d^2_1>=1.252E+00, <d^2_2>=1.515E+00, <d^2_3>=1.005E+00, <d^2_4>=2.204E+00, 00460023634
-z=1.177E+00, <d^2_0>=2.126E+00, <d^2_1>=1.266E+00, <d^2_2>=1.539E+00, <d^2_3>=1.006E+00, <d^2_4>=2.245E+00, 00474964488
-z=1.227E+00, <d^2_0>=2.127E+00, <d^2_1>=1.281E+00, <d^2_2>=1.565E+00, <d^2_3>=1.007E+00, <d^2_4>=2.286E+00, 00488870226
-z=1.277E+00, <d^2_0>=2.123E+00, <d^2_1>=1.291E+00, <d^2_2>=1.583E+00, <d^2_3>=1.006E+00, <d^2_4>=2.320E+00, 00501786012
-z=1.327E+00, <d^2_0>=2.117E+00, <d^2_1>=1.301E+00, <d^2_2>=1.601E+00, <d^2_3>=1.004E+00, <d^2_4>=2.350E+00, 00513723898
-z=1.377E+00, <d^2_0>=2.116E+00, <d^2_1>=1.315E+00, <d^2_2>=1.626E+00, <d^2_3>=1.005E+00, <d^2_4>=2.384E+00, 00524767966
-z=1.427E+00, <d^2_0>=2.114E+00, <d^2_1>=1.328E+00, <d^2_2>=1.648E+00, <d^2_3>=1.005E+00, <d^2_4>=2.415E+00, 00534922512
-z=1.477E+00, <d^2_0>=2.110E+00, <d^2_1>=1.339E+00, <d^2_2>=1.668E+00, <d^2_3>=1.005E+00, <d^2_4>=2.443E+00, 00544247534
-z=1.527E+00, <d^2_0>=2.111E+00, <d^2_1>=1.357E+00, <d^2_2>=1.697E+00, <d^2_3>=1.008E+00, <d^2_4>=2.475E+00, 00552779868
-z=1.577E+00, <d^2_0>=2.103E+00, <d^2_1>=1.364E+00, <d^2_2>=1.711E+00, <d^2_3>=1.007E+00, <d^2_4>=2.494E+00, 00560566960
-z=1.627E+00, <d^2_0>=2.100E+00, <d^2_1>=1.377E+00, <d^2_2>=1.732E+00, <d^2_3>=1.008E+00, <d^2_4>=2.518E+00, 00567613898
-z=1.677E+00, <d^2_0>=2.091E+00, <d^2_1>=1.386E+00, <d^2_2>=1.748E+00, <d^2_3>=1.007E+00, <d^2_4>=2.531E+00, 00574030750
-z=1.727E+00, <d^2_0>=2.082E+00, <d^2_1>=1.394E+00, <d^2_2>=1.763E+00, <d^2_3>=1.007E+00, <d^2_4>=2.544E+00, 00579790730
-z=1.777E+00, <d^2_0>=2.080E+00, <d^2_1>=1.411E+00, <d^2_2>=1.791E+00, <d^2_3>=1.010E+00, <d^2_4>=2.565E+00, 00584968492
-z=1.827E+00, <d^2_0>=2.070E+00, <d^2_1>=1.418E+00, <d^2_2>=1.803E+00, <d^2_3>=1.009E+00, <d^2_4>=2.572E+00, 00589576796
-z=1.877E+00, <d^2_0>=2.063E+00, <d^2_1>=1.430E+00, <d^2_2>=1.823E+00, <d^2_3>=1.011E+00, <d^2_4>=2.582E+00, 00593664474
-z=1.927E+00, <d^2_0>=2.048E+00, <d^2_1>=1.433E+00, <d^2_2>=1.830E+00, <d^2_3>=1.010E+00, <d^2_4>=2.579E+00, 00597263698
-z=1.977E+00, <d^2_0>=2.041E+00, <d^2_1>=1.444E+00, <d^2_2>=1.849E+00, <d^2_3>=1.012E+00, <d^2_4>=2.585E+00, 00600354346
-z=2.028E+00, <d^2_0>=2.035E+00, <d^2_1>=1.458E+00, <d^2_2>=1.871E+00, <d^2_3>=1.016E+00, <d^2_4>=2.593E+00, 00603079458
-z=2.078E+00, <d^2_0>=2.022E+00, <d^2_1>=1.463E+00, <d^2_2>=1.880E+00, <d^2_3>=1.016E+00, <d^2_4>=2.587E+00, 00605335664
-z=2.128E+00, <d^2_0>=2.006E+00, <d^2_1>=1.467E+00, <d^2_2>=1.889E+00, <d^2_3>=1.017E+00, <d^2_4>=2.577E+00, 00607230760
-z=2.178E+00, <d^2_0>=1.996E+00, <d^2_1>=1.475E+00, <d^2_2>=1.902E+00, <d^2_3>=1.019E+00, <d^2_4>=2.572E+00, 00608789222
-z=2.228E+00, <d^2_0>=1.984E+00, <d^2_1>=1.481E+00, <d^2_2>=1.912E+00, <d^2_3>=1.021E+00, <d^2_4>=2.564E+00, 00609967498
-z=2.278E+00, <d^2_0>=1.973E+00, <d^2_1>=1.491E+00, <d^2_2>=1.928E+00, <d^2_3>=1.024E+00, <d^2_4>=2.559E+00, 00610876974
-z=2.328E+00, <d^2_0>=1.957E+00, <d^2_1>=1.492E+00, <d^2_2>=1.930E+00, <d^2_3>=1.025E+00, <d^2_4>=2.540E+00, 00611470976
-z=2.378E+00, <d^2_0>=1.948E+00, <d^2_1>=1.501E+00, <d^2_2>=1.945E+00, <d^2_3>=1.028E+00, <d^2_4>=2.533E+00, 00611781022
-z=2.428E+00, <d^2_0>=1.922E+00, <d^2_1>=1.493E+00, <d^2_2>=1.934E+00, <d^2_3>=1.026E+00, <d^2_4>=2.499E+00, 00611868300
-z=2.478E+00, <d^2_0>=1.909E+00, <d^2_1>=1.497E+00, <d^2_2>=1.941E+00, <d^2_3>=1.028E+00, <d^2_4>=2.483E+00, 00611701406
-z=2.528E+00, <d^2_0>=1.896E+00, <d^2_1>=1.501E+00, <d^2_2>=1.948E+00, <d^2_3>=1.030E+00, <d^2_4>=2.467E+00, 00611336640
-z=2.578E+00, <d^2_0>=1.882E+00, <d^2_1>=1.502E+00, <d^2_2>=1.951E+00, <d^2_3>=1.032E+00, <d^2_4>=2.447E+00, 00610701166
-z=2.628E+00, <d^2_0>=1.873E+00, <d^2_1>=1.507E+00, <d^2_2>=1.958E+00, <d^2_3>=1.036E+00, <d^2_4>=2.431E+00, 00609959188
-z=2.678E+00, <d^2_0>=1.855E+00, <d^2_1>=1.504E+00, <d^2_2>=1.954E+00, <d^2_3>=1.036E+00, <d^2_4>=2.402E+00, 00608986942
-z=2.728E+00, <d^2_0>=1.836E+00, <d^2_1>=1.499E+00, <d^2_2>=1.947E+00, <d^2_3>=1.036E+00, <d^2_4>=2.371E+00, 00607835428
-z=2.778E+00, <d^2_0>=1.831E+00, <d^2_1>=1.505E+00, <d^2_2>=1.957E+00, <d^2_3>=1.041E+00, <d^2_4>=2.358E+00, 00606582870
-z=2.828E+00, <d^2_0>=1.824E+00, <d^2_1>=1.508E+00, <d^2_2>=1.962E+00, <d^2_3>=1.044E+00, <d^2_4>=2.341E+00, 00605128922
-z=2.879E+00, <d^2_0>=1.811E+00, <d^2_1>=1.506E+00, <d^2_2>=1.958E+00, <d^2_3>=1.045E+00, <d^2_4>=2.313E+00, 00603571068
-z=2.929E+00, <d^2_0>=1.803E+00, <d^2_1>=1.506E+00, <d^2_2>=1.959E+00, <d^2_3>=1.047E+00, <d^2_4>=2.290E+00, 00601915124
-z=2.979E+00, <d^2_0>=1.794E+00, <d^2_1>=1.504E+00, <d^2_2>=1.957E+00, <d^2_3>=1.048E+00, <d^2_4>=2.265E+00, 00600103716
-z=3.029E+00, <d^2_0>=1.786E+00, <d^2_1>=1.502E+00, <d^2_2>=1.954E+00, <d^2_3>=1.049E+00, <d^2_4>=2.238E+00, 00598202356
-z=3.079E+00, <d^2_0>=1.781E+00, <d^2_1>=1.501E+00, <d^2_2>=1.952E+00, <d^2_3>=1.051E+00, <d^2_4>=2.213E+00, 00596207724
-z=3.129E+00, <d^2_0>=1.781E+00, <d^2_1>=1.502E+00, <d^2_2>=1.955E+00, <d^2_3>=1.053E+00, <d^2_4>=2.192E+00, 00594132026
-z=3.179E+00, <d^2_0>=1.782E+00, <d^2_1>=1.502E+00, <d^2_2>=1.955E+00, <d^2_3>=1.053E+00, <d^2_4>=2.168E+00, 00591952346
-z=3.229E+00, <d^2_0>=1.785E+00, <d^2_1>=1.501E+00, <d^2_2>=1.954E+00, <d^2_3>=1.054E+00, <d^2_4>=2.143E+00, 00589723954
-z=3.279E+00, <d^2_0>=1.798E+00, <d^2_1>=1.506E+00, <d^2_2>=1.962E+00, <d^2_3>=1.057E+00, <d^2_4>=2.127E+00, 00587357892
-z=3.329E+00, <d^2_0>=1.813E+00, <d^2_1>=1.510E+00, <d^2_2>=1.968E+00, <d^2_3>=1.059E+00, <d^2_4>=2.109E+00, 00585007210
-z=3.379E+00, <d^2_0>=1.826E+00, <d^2_1>=1.509E+00, <d^2_2>=1.970E+00, <d^2_3>=1.058E+00, <d^2_4>=2.084E+00, 00582538772
-z=3.429E+00, <d^2_0>=1.855E+00, <d^2_1>=1.519E+00, <d^2_2>=1.984E+00, <d^2_3>=1.061E+00, <d^2_4>=2.073E+00, 00580066688
-z=3.479E+00, <d^2_0>=1.891E+00, <d^2_1>=1.530E+00, <d^2_2>=2.003E+00, <d^2_3>=1.064E+00, <d^2_4>=2.064E+00, 00577536336
-z=3.529E+00, <d^2_0>=1.915E+00, <d^2_1>=1.531E+00, <d^2_2>=2.006E+00, <d^2_3>=1.062E+00, <d^2_4>=2.038E+00, 00574942862
-z=3.579E+00, <d^2_0>=1.947E+00, <d^2_1>=1.535E+00, <d^2_2>=2.013E+00, <d^2_3>=1.061E+00, <d^2_4>=2.015E+00, 00572322704
-z=3.629E+00, <d^2_0>=1.990E+00, <d^2_1>=1.544E+00, <d^2_2>=2.029E+00, <d^2_3>=1.061E+00, <d^2_4>=1.998E+00, 00569681794
-z=3.680E+00, <d^2_0>=2.039E+00, <d^2_1>=1.555E+00, <d^2_2>=2.047E+00, <d^2_3>=1.060E+00, <d^2_4>=1.982E+00, 00566932382
-z=3.730E+00, <d^2_0>=2.102E+00, <d^2_1>=1.571E+00, <d^2_2>=2.075E+00, <d^2_3>=1.061E+00, <d^2_4>=1.972E+00, 00564229170
-z=3.780E+00, <d^2_0>=2.171E+00, <d^2_1>=1.810E+00, <d^2_2>=2.396E+00, <d^2_3>=1.209E+00, <d^2_4>=1.554E+00, 00561455495
-z=3.805E+00, <d^2_0>=2.172E+00, <d^2_1>=1.812E+00, <d^2_2>=2.399E+00, <d^2_3>=1.210E+00, <d^2_4>=1.551E+00, 00554435408
->    Relative time ellapsed 3212.2 ms
+z=0.000E+00, <d^2_0>=2.264E+00, <d^2_1>=9.942E-01, <d^2_2>=1.077E+00, <d^2_3>=9.532E-01, <d^2_4>=3.738E+00, 00000000000
+z=3.745E-02, <d^2_0>=2.264E+00, <d^2_1>=9.944E-01, <d^2_2>=1.077E+00, <d^2_3>=9.534E-01, <d^2_4>=3.738E+00, 00001029205
+z=8.026E-02, <d^2_0>=2.302E+00, <d^2_1>=1.061E+00, <d^2_2>=1.164E+00, <d^2_3>=9.929E-01, <d^2_4>=3.842E+00, 00006907210
+z=1.282E-01, <d^2_0>=2.337E+00, <d^2_1>=1.101E+00, <d^2_2>=1.216E+00, <d^2_3>=1.019E+00, <d^2_4>=3.902E+00, 00017857184
+z=1.774E-01, <d^2_0>=2.275E+00, <d^2_1>=1.078E+00, <d^2_2>=1.192E+00, <d^2_3>=1.004E+00, <d^2_4>=3.760E+00, 00033027656
+z=2.269E-01, <d^2_0>=2.277E+00, <d^2_1>=1.097E+00, <d^2_2>=1.220E+00, <d^2_3>=1.014E+00, <d^2_4>=3.761E+00, 00051632248
+z=2.766E-01, <d^2_0>=2.256E+00, <d^2_1>=1.103E+00, <d^2_2>=1.233E+00, <d^2_3>=1.015E+00, <d^2_4>=3.713E+00, 00072938326
+z=3.265E-01, <d^2_0>=2.249E+00, <d^2_1>=1.118E+00, <d^2_2>=1.257E+00, <d^2_3>=1.022E+00, <d^2_4>=3.688E+00, 00096293114
+z=3.763E-01, <d^2_0>=2.219E+00, <d^2_1>=1.106E+00, <d^2_2>=1.245E+00, <d^2_3>=1.011E+00, <d^2_4>=3.609E+00, 00121109532
+z=4.263E-01, <d^2_0>=2.207E+00, <d^2_1>=1.116E+00, <d^2_2>=1.264E+00, <d^2_3>=1.014E+00, <d^2_4>=3.575E+00, 00146875528
+z=4.762E-01, <d^2_0>=2.211E+00, <d^2_1>=1.135E+00, <d^2_2>=1.293E+00, <d^2_3>=1.021E+00, <d^2_4>=3.573E+00, 00173171666
+z=5.262E-01, <d^2_0>=2.188E+00, <d^2_1>=1.130E+00, <d^2_2>=1.292E+00, <d^2_3>=1.013E+00, <d^2_4>=3.511E+00, 00199601406
+z=5.762E-01, <d^2_0>=2.185E+00, <d^2_1>=1.146E+00, <d^2_2>=1.317E+00, <d^2_3>=1.017E+00, <d^2_4>=3.495E+00, 00225866320
+z=6.262E-01, <d^2_0>=2.174E+00, <d^2_1>=1.151E+00, <d^2_2>=1.329E+00, <d^2_3>=1.015E+00, <d^2_4>=3.459E+00, 00251702804
+z=6.762E-01, <d^2_0>=2.165E+00, <d^2_1>=1.160E+00, <d^2_2>=1.347E+00, <d^2_3>=1.014E+00, <d^2_4>=3.426E+00, 00276961426
+z=7.262E-01, <d^2_0>=2.159E+00, <d^2_1>=1.168E+00, <d^2_2>=1.363E+00, <d^2_3>=1.013E+00, <d^2_4>=3.397E+00, 00301395684
+z=7.763E-01, <d^2_0>=2.150E+00, <d^2_1>=1.174E+00, <d^2_2>=1.375E+00, <d^2_3>=1.010E+00, <d^2_4>=3.362E+00, 00324940714
+z=8.263E-01, <d^2_0>=2.149E+00, <d^2_1>=1.187E+00, <d^2_2>=1.397E+00, <d^2_3>=1.011E+00, <d^2_4>=3.342E+00, 00347512558
+z=8.763E-01, <d^2_0>=2.140E+00, <d^2_1>=1.192E+00, <d^2_2>=1.409E+00, <d^2_3>=1.007E+00, <d^2_4>=3.306E+00, 00369020552
+z=9.264E-01, <d^2_0>=2.139E+00, <d^2_1>=1.207E+00, <d^2_2>=1.434E+00, <d^2_3>=1.009E+00, <d^2_4>=3.286E+00, 00389434626
+z=9.764E-01, <d^2_0>=2.142E+00, <d^2_1>=1.225E+00, <d^2_2>=1.464E+00, <d^2_3>=1.011E+00, <d^2_4>=3.273E+00, 00408745260
+z=1.026E+00, <d^2_0>=2.138E+00, <d^2_1>=1.235E+00, <d^2_2>=1.483E+00, <d^2_3>=1.010E+00, <d^2_4>=3.246E+00, 00426922246
+z=1.076E+00, <d^2_0>=2.128E+00, <d^2_1>=1.239E+00, <d^2_2>=1.493E+00, <d^2_3>=1.005E+00, <d^2_4>=3.204E+00, 00444030716
+z=1.127E+00, <d^2_0>=2.125E+00, <d^2_1>=1.252E+00, <d^2_2>=1.515E+00, <d^2_3>=1.005E+00, <d^2_4>=3.178E+00, 00460023634
+z=1.177E+00, <d^2_0>=2.126E+00, <d^2_1>=1.266E+00, <d^2_2>=1.539E+00, <d^2_3>=1.006E+00, <d^2_4>=3.158E+00, 00474964488
+z=1.227E+00, <d^2_0>=2.127E+00, <d^2_1>=1.281E+00, <d^2_2>=1.565E+00, <d^2_3>=1.007E+00, <d^2_4>=3.136E+00, 00488870226
+z=1.277E+00, <d^2_0>=2.123E+00, <d^2_1>=1.291E+00, <d^2_2>=1.583E+00, <d^2_3>=1.006E+00, <d^2_4>=3.106E+00, 00501786012
+z=1.327E+00, <d^2_0>=2.117E+00, <d^2_1>=1.301E+00, <d^2_2>=1.601E+00, <d^2_3>=1.004E+00, <d^2_4>=3.072E+00, 00513723898
+z=1.377E+00, <d^2_0>=2.116E+00, <d^2_1>=1.315E+00, <d^2_2>=1.626E+00, <d^2_3>=1.005E+00, <d^2_4>=3.046E+00, 00524767966
+z=1.427E+00, <d^2_0>=2.114E+00, <d^2_1>=1.328E+00, <d^2_2>=1.648E+00, <d^2_3>=1.005E+00, <d^2_4>=3.019E+00, 00534922512
+z=1.477E+00, <d^2_0>=2.110E+00, <d^2_1>=1.339E+00, <d^2_2>=1.668E+00, <d^2_3>=1.005E+00, <d^2_4>=2.988E+00, 00544247534
+z=1.527E+00, <d^2_0>=2.111E+00, <d^2_1>=1.357E+00, <d^2_2>=1.697E+00, <d^2_3>=1.008E+00, <d^2_4>=2.966E+00, 00552779868
+z=1.577E+00, <d^2_0>=2.103E+00, <d^2_1>=1.364E+00, <d^2_2>=1.711E+00, <d^2_3>=1.007E+00, <d^2_4>=2.927E+00, 00560566960
+z=1.627E+00, <d^2_0>=2.100E+00, <d^2_1>=1.377E+00, <d^2_2>=1.732E+00, <d^2_3>=1.008E+00, <d^2_4>=2.898E+00, 00567613898
+z=1.677E+00, <d^2_0>=2.091E+00, <d^2_1>=1.386E+00, <d^2_2>=1.748E+00, <d^2_3>=1.007E+00, <d^2_4>=2.858E+00, 00574030750
+z=1.727E+00, <d^2_0>=2.082E+00, <d^2_1>=1.394E+00, <d^2_2>=1.763E+00, <d^2_3>=1.007E+00, <d^2_4>=2.820E+00, 00579790730
+z=1.777E+00, <d^2_0>=2.080E+00, <d^2_1>=1.411E+00, <d^2_2>=1.791E+00, <d^2_3>=1.010E+00, <d^2_4>=2.795E+00, 00584968492
+z=1.827E+00, <d^2_0>=2.070E+00, <d^2_1>=1.418E+00, <d^2_2>=1.803E+00, <d^2_3>=1.009E+00, <d^2_4>=2.754E+00, 00589576796
+z=1.877E+00, <d^2_0>=2.063E+00, <d^2_1>=1.430E+00, <d^2_2>=1.823E+00, <d^2_3>=1.011E+00, <d^2_4>=2.720E+00, 00593664474
+z=1.927E+00, <d^2_0>=2.048E+00, <d^2_1>=1.433E+00, <d^2_2>=1.830E+00, <d^2_3>=1.010E+00, <d^2_4>=2.674E+00, 00597263698
+z=1.977E+00, <d^2_0>=2.041E+00, <d^2_1>=1.444E+00, <d^2_2>=1.849E+00, <d^2_3>=1.012E+00, <d^2_4>=2.641E+00, 00600354346
+z=2.028E+00, <d^2_0>=2.035E+00, <d^2_1>=1.458E+00, <d^2_2>=1.871E+00, <d^2_3>=1.016E+00, <d^2_4>=2.611E+00, 00603079458
+z=2.078E+00, <d^2_0>=2.022E+00, <d^2_1>=1.463E+00, <d^2_2>=1.880E+00, <d^2_3>=1.016E+00, <d^2_4>=2.568E+00, 00605335664
+z=2.128E+00, <d^2_0>=2.006E+00, <d^2_1>=1.467E+00, <d^2_2>=1.889E+00, <d^2_3>=1.017E+00, <d^2_4>=2.524E+00, 00607230760
+z=2.178E+00, <d^2_0>=1.996E+00, <d^2_1>=1.475E+00, <d^2_2>=1.902E+00, <d^2_3>=1.019E+00, <d^2_4>=2.487E+00, 00608789222
+z=2.228E+00, <d^2_0>=1.984E+00, <d^2_1>=1.481E+00, <d^2_2>=1.912E+00, <d^2_3>=1.021E+00, <d^2_4>=2.449E+00, 00609967498
+z=2.278E+00, <d^2_0>=1.973E+00, <d^2_1>=1.491E+00, <d^2_2>=1.928E+00, <d^2_3>=1.024E+00, <d^2_4>=2.415E+00, 00610876974
+z=2.328E+00, <d^2_0>=1.957E+00, <d^2_1>=1.492E+00, <d^2_2>=1.930E+00, <d^2_3>=1.025E+00, <d^2_4>=2.371E+00, 00611470976
+z=2.378E+00, <d^2_0>=1.948E+00, <d^2_1>=1.501E+00, <d^2_2>=1.945E+00, <d^2_3>=1.028E+00, <d^2_4>=2.338E+00, 00611781022
+z=2.428E+00, <d^2_0>=1.922E+00, <d^2_1>=1.493E+00, <d^2_2>=1.934E+00, <d^2_3>=1.026E+00, <d^2_4>=2.283E+00, 00611868300
+z=2.478E+00, <d^2_0>=1.909E+00, <d^2_1>=1.497E+00, <d^2_2>=1.941E+00, <d^2_3>=1.028E+00, <d^2_4>=2.245E+00, 00611701406
+z=2.528E+00, <d^2_0>=1.896E+00, <d^2_1>=1.501E+00, <d^2_2>=1.948E+00, <d^2_3>=1.030E+00, <d^2_4>=2.209E+00, 00611336640
+z=2.578E+00, <d^2_0>=1.882E+00, <d^2_1>=1.502E+00, <d^2_2>=1.951E+00, <d^2_3>=1.032E+00, <d^2_4>=2.170E+00, 00610701166
+z=2.628E+00, <d^2_0>=1.873E+00, <d^2_1>=1.507E+00, <d^2_2>=1.958E+00, <d^2_3>=1.036E+00, <d^2_4>=2.137E+00, 00609959188
+z=2.678E+00, <d^2_0>=1.855E+00, <d^2_1>=1.504E+00, <d^2_2>=1.954E+00, <d^2_3>=1.036E+00, <d^2_4>=2.094E+00, 00608986942
+z=2.728E+00, <d^2_0>=1.836E+00, <d^2_1>=1.499E+00, <d^2_2>=1.947E+00, <d^2_3>=1.036E+00, <d^2_4>=2.051E+00, 00607835428
+z=2.778E+00, <d^2_0>=1.831E+00, <d^2_1>=1.505E+00, <d^2_2>=1.957E+00, <d^2_3>=1.041E+00, <d^2_4>=2.023E+00, 00606582870
+z=2.828E+00, <d^2_0>=1.824E+00, <d^2_1>=1.508E+00, <d^2_2>=1.962E+00, <d^2_3>=1.044E+00, <d^2_4>=1.992E+00, 00605128922
+z=2.879E+00, <d^2_0>=1.811E+00, <d^2_1>=1.506E+00, <d^2_2>=1.958E+00, <d^2_3>=1.045E+00, <d^2_4>=1.955E+00, 00603571068
+z=2.929E+00, <d^2_0>=1.803E+00, <d^2_1>=1.506E+00, <d^2_2>=1.959E+00, <d^2_3>=1.047E+00, <d^2_4>=1.922E+00, 00601915124
+z=2.979E+00, <d^2_0>=1.794E+00, <d^2_1>=1.504E+00, <d^2_2>=1.957E+00, <d^2_3>=1.048E+00, <d^2_4>=1.889E+00, 00600103716
+z=3.029E+00, <d^2_0>=1.786E+00, <d^2_1>=1.502E+00, <d^2_2>=1.954E+00, <d^2_3>=1.049E+00, <d^2_4>=1.855E+00, 00598202356
+z=3.079E+00, <d^2_0>=1.781E+00, <d^2_1>=1.501E+00, <d^2_2>=1.952E+00, <d^2_3>=1.051E+00, <d^2_4>=1.823E+00, 00596207724
+z=3.129E+00, <d^2_0>=1.781E+00, <d^2_1>=1.502E+00, <d^2_2>=1.955E+00, <d^2_3>=1.053E+00, <d^2_4>=1.796E+00, 00594132026
+z=3.179E+00, <d^2_0>=1.782E+00, <d^2_1>=1.502E+00, <d^2_2>=1.955E+00, <d^2_3>=1.053E+00, <d^2_4>=1.767E+00, 00591952346
+z=3.229E+00, <d^2_0>=1.785E+00, <d^2_1>=1.501E+00, <d^2_2>=1.954E+00, <d^2_3>=1.054E+00, <d^2_4>=1.738E+00, 00589723954
+z=3.279E+00, <d^2_0>=1.798E+00, <d^2_1>=1.506E+00, <d^2_2>=1.962E+00, <d^2_3>=1.057E+00, <d^2_4>=1.716E+00, 00587357892
+z=3.329E+00, <d^2_0>=1.813E+00, <d^2_1>=1.510E+00, <d^2_2>=1.968E+00, <d^2_3>=1.059E+00, <d^2_4>=1.693E+00, 00585007210
+z=3.379E+00, <d^2_0>=1.826E+00, <d^2_1>=1.509E+00, <d^2_2>=1.970E+00, <d^2_3>=1.058E+00, <d^2_4>=1.667E+00, 00582538772
+z=3.429E+00, <d^2_0>=1.855E+00, <d^2_1>=1.519E+00, <d^2_2>=1.984E+00, <d^2_3>=1.061E+00, <d^2_4>=1.651E+00, 00580066688
+z=3.479E+00, <d^2_0>=1.891E+00, <d^2_1>=1.530E+00, <d^2_2>=2.003E+00, <d^2_3>=1.064E+00, <d^2_4>=1.637E+00, 00577536336
+z=3.529E+00, <d^2_0>=1.915E+00, <d^2_1>=1.531E+00, <d^2_2>=2.006E+00, <d^2_3>=1.062E+00, <d^2_4>=1.611E+00, 00574942862
+z=3.579E+00, <d^2_0>=1.947E+00, <d^2_1>=1.535E+00, <d^2_2>=2.013E+00, <d^2_3>=1.061E+00, <d^2_4>=1.588E+00, 00572322704
+z=3.629E+00, <d^2_0>=1.990E+00, <d^2_1>=1.544E+00, <d^2_2>=2.029E+00, <d^2_3>=1.061E+00, <d^2_4>=1.570E+00, 00569681794
+z=3.680E+00, <d^2_0>=2.039E+00, <d^2_1>=1.555E+00, <d^2_2>=2.047E+00, <d^2_3>=1.060E+00, <d^2_4>=1.553E+00, 00566932382
+z=3.730E+00, <d^2_0>=2.102E+00, <d^2_1>=1.571E+00, <d^2_2>=2.075E+00, <d^2_3>=1.061E+00, <d^2_4>=1.542E+00, 00564229170
+z=3.780E+00, <d^2_0>=2.171E+00, <d^2_1>=1.810E+00, <d^2_2>=2.396E+00, <d^2_3>=1.209E+00, <d^2_4>=1.531E+00, 00561455495
+z=3.805E+00, <d^2_0>=2.172E+00, <d^2_1>=1.812E+00, <d^2_2>=2.399E+00, <d^2_3>=1.210E+00, <d^2_4>=1.531E+00, 00554435408
+>    Relative time ellapsed 3021.8 ms
 
 *** Getting point sources
  0-th galaxy population
    Poisson-sampling
    There will be 7184703752 objects in total 
    Assigning coordinates
->    Relative time ellapsed 5505.2 ms
+>    Relative time ellapsed 5640.6 ms
  1-th galaxy population
    Poisson-sampling
    There will be 294572544 objects in total 
    Assigning coordinates
->    Relative time ellapsed 7943.7 ms
+>    Relative time ellapsed 8221.1 ms
  2-th galaxy population
    Poisson-sampling
    There will be 99397744 objects in total 
    Assigning coordinates
->    Relative time ellapsed 4986.2 ms
+>    Relative time ellapsed 5154.4 ms
  3-th galaxy population
    Poisson-sampling
    There will be 895498854 objects in total 
    Assigning coordinates
->    Relative time ellapsed 4799.0 ms
+>    Relative time ellapsed 4958.5 ms
  4-th galaxy population
    Poisson-sampling
-   There will be 12329380 objects in total 
+   There will be 12314904 objects in total 
    Assigning coordinates
->    Relative time ellapsed 5735.9 ms
+>    Relative time ellapsed 5888.4 ms
 
 *** Re-distributing sources across nodes
->    Relative time ellapsed 4600.4 ms
+>    Relative time ellapsed 4785.5 ms
 
 *** Getting LOS information
 Communication 0, MPI task 0 is now MPI task 63
@@ -643,25 +643,25 @@ Communication 60, MPI task 0 is now MPI task 3
 Communication 61, MPI task 0 is now MPI task 2
 Communication 62, MPI task 0 is now MPI task 1
 Communication 63, MPI task 0 is now MPI task 0
->    Relative time ellapsed 251665.6 ms
+>    Relative time ellapsed 250718.1 ms
 
 *** Writing kappa source maps
->    Relative time ellapsed 2552.5 ms
+>    Relative time ellapsed 4579.0 ms
 
 *** Writing source catalogs
  0-th population (FITS)
->    Relative time ellapsed 9246.6 ms
+>    Relative time ellapsed 9261.6 ms
  1-th population (FITS)
->    Relative time ellapsed 394.5 ms
+>    Relative time ellapsed 377.2 ms
  2-th population (FITS)
->    Relative time ellapsed 132.9 ms
+>    Relative time ellapsed 128.5 ms
  3-th population (FITS)
->    Relative time ellapsed 1186.3 ms
+>    Relative time ellapsed 1122.2 ms
  4-th population (FITS)
->    Relative time ellapsed 16.8 ms
+>    Relative time ellapsed 19.9 ms
 
 
 |-------------------------------------------------|
 
->    Total time ellapsed 323908.5 ms
-Tue Nov  3 09:27:18 AM PST 2026
+>    Total time ellapsed 326373.8 ms
+Mon Nov  9 08:33:33 AM PST 2026

@@ -1,4 +1,4 @@
-# CoLoRe ensemble boxes
+# CoLoRe ensemble box 6
 
 ## Description
 
@@ -6,36 +6,55 @@ Sixth box part of the ensemble runs of CoLoRe.
 
 All boxes of the ensemble are run with the same configuration, just different seeds. Seed numbers are chosen so as to avoid the CoLoRe seeds crisis, spaced out by 1E+5.
 
-## Products
+**Bias model:** this box was run with the **LINEAR** bias model of CoLoRe.
 
-CMB lensing convergence $\kappa$ values, Galaxy auto-spectrum, and CMB x Galaxy cross-spectrum of the test box from the [CoLoRe simulation](https://github.com/damonge/CoLoRe). 
+Source populations in `results/`: `srcs1` = LSST galaxies, `srcs2` = DESI BGS, `srcs3` = DESI LRG, `srcs4` = DESI ELG, `srcs5` = DESI QSO (so `out_srcs_s5_*` are the QSO catalogs).
 
-- File [out_kappa.fits](cls/out_kappa_z000.fits) contains the convergence $\kappa$ values.
+## Contents
 
-- File [cl_kk.npz](cls/cl_kk.npz) contains the CMB lensing autospectrum $C_{\ell}^{\kappa \kappa}$
+| Path | Content |
+| --- | --- |
+| [`param.cfg`](param.cfg) | CoLoRe configuration used for this run |
+| [`cosmo_params.json`](cosmo_params.json) | cosmology of the box, `z_max` and the source-plane redshift `z_out` |
+| [`pk_linear.dat`](pk_linear.dat) | input linear matter P(k) at z = 0 [h/Mpc, (Mpc/h)³] |
+| `results/` | raw CoLoRe output: κ map [`out_kappa_z000.fits`](results/out_kappa_z000.fits) (HEALPix, N_side = 1024), source catalogs `out_srcs_s<N>_<i>.fits` (RA, DEC, Z_COSMO, …) and, when kept, CoLoRe's P(k) predictions and run logs |
+| `cls/` | measured spectra and n(z), see below |
+| `plots/` | figures made from this box |
 
-- File [cl_kk_log.npz](cls/cl_kk_log.npz) contains the log-rebinned CMB lensing autospectrum using the [rebin_cls.py](../../scripts/rebin_cls.py) script.
+### Spectra (`cls/`)
 
-- Files [cl_gg_survey_galaxy.npz](cls/cl_gg_desi_qso.npz) contain the galaxy clustering autospectrum $C_{\ell}^{gg}$ of a particular survey galaxy sample.
+The spectra are produced by [`scripts/compute_colore_cls.py`](../../scripts/compute_colore_cls.py) (see `scripts/run_compute_cls*.sh`). Each `*.npz` holds the per-multipole spectrum; the `*_log.npz` versions are log-rebinned with `utils/binning.py`.
 
-- Files [cl_gg_survey_galaxy_log.npz](cls/cl_gg_desi_qso.npz) contain the log-rebinned galaxy clustering autospectrum using the [rebin_cls.py](../../scripts/rebin_cls.py) script.
+| File | Content |
+| --- | --- |
+| [`cl_kk.npz`](cls/cl_kk.npz) | CMB lensing auto-spectrum $C_\ell^{\kappa\kappa}$ per multipole (`ells, cls, err, nside`) |
+| [`cl_kk_log.npz`](cls/cl_kk_log.npz) | same, log-rebinned |
+| [`cl_gg_desi_bgs_bin0.npz`](cls/cl_gg_desi_bgs_bin0.npz) (+ `_log`) | DESI BGS auto-spectrum $C_\ell^{gg}$, tomographic bin 0 (shot noise subtracted, `shot_noise` stored) |
+| [`cl_kg_desi_bgs_bin0.npz`](cls/cl_kg_desi_bgs_bin0.npz) (+ `_log`) | κ × DESI BGS cross-spectrum $C_\ell^{\kappa g}$, tomographic bin 0 |
+| `nz_desi_bgs.npz`, `nz_desi_bgs_bin0.npz` | measured n(z) of the full sample and of bin 0 |
+| [`cl_gg_desi_lrg_bin0.npz`](cls/cl_gg_desi_lrg_bin0.npz) (+ `_log`) | DESI LRG auto-spectrum $C_\ell^{gg}$, tomographic bin 0 (shot noise subtracted, `shot_noise` stored) |
+| [`cl_kg_desi_lrg_bin0.npz`](cls/cl_kg_desi_lrg_bin0.npz) (+ `_log`) | κ × DESI LRG cross-spectrum $C_\ell^{\kappa g}$, tomographic bin 0 |
+| `nz_desi_lrg.npz`, `nz_desi_lrg_bin0.npz` | measured n(z) of the full sample and of bin 0 |
+| [`cl_gg_desi_elg_bin0.npz`](cls/cl_gg_desi_elg_bin0.npz) (+ `_log`) | DESI ELG auto-spectrum $C_\ell^{gg}$, tomographic bin 0 (shot noise subtracted, `shot_noise` stored) |
+| [`cl_kg_desi_elg_bin0.npz`](cls/cl_kg_desi_elg_bin0.npz) (+ `_log`) | κ × DESI ELG cross-spectrum $C_\ell^{\kappa g}$, tomographic bin 0 |
+| `nz_desi_elg.npz`, `nz_desi_elg_bin0.npz` | measured n(z) of the full sample and of bin 0 |
+| [`cl_gg_desi_qso_bin0.npz`](cls/cl_gg_desi_qso_bin0.npz) (+ `_log`) | DESI QSO auto-spectrum $C_\ell^{gg}$, tomographic bin 0 (shot noise subtracted, `shot_noise` stored) |
+| [`cl_kg_desi_qso_bin0.npz`](cls/cl_kg_desi_qso_bin0.npz) (+ `_log`) | κ × DESI QSO cross-spectrum $C_\ell^{\kappa g}$, tomographic bin 0 |
+| `nz_desi_qso.npz`, `nz_desi_qso_bin0.npz` | measured n(z) of the full sample and of bin 0 |
+| [`cl_gg_lsst_gal_bin0.npz`](cls/cl_gg_lsst_gal_bin0.npz) (+ `_log`) | LSST galaxies auto-spectrum $C_\ell^{gg}$, tomographic bin 0 (shot noise subtracted, `shot_noise` stored) |
+| [`cl_kg_lsst_gal_bin0.npz`](cls/cl_kg_lsst_gal_bin0.npz) (+ `_log`) | κ × LSST galaxies cross-spectrum $C_\ell^{\kappa g}$, tomographic bin 0 |
+| `nz_lsst_gal.npz`, `nz_lsst_gal_bin0.npz` | measured n(z) of the full sample and of bin 0 |
 
-- Files [cl_kg_survey_galaxy.npz](cls/cl_kg_desi_qso.npz) contain the CMB lensing x Galaxy cross-spectrum $C_{\ell}^{kq}$ of a particular survey galaxy sample.
+## CoLoRe input files
 
-- Files [cl_kg_survey_galaxy_log.npz](cls/cl_kg_desi_qso_log.npz) contain the log-rebinned CMB lensing x galaxy cross-spectrum using the [rebin_cls.py](../../scripts/rebin_cls.py) script.
+The [param.cfg](param.cfg) refers to the current input files in [`../colore_setup/inputs/`](../colore_setup/inputs/) (paths relative to the repository, under `/pscratch/sd/d/djarque/LSST_CMBlensing_forecast/` on NERSC):
 
-## CoLoRe config file
+- [`nz/nz_<sample>.txt`](../colore_setup/inputs/nz/): redshift distribution $dN/d\Omega\,dz$ per deg².
+- [`bias-input/bz-input_<sample>.txt`](../colore_setup/inputs/bias-input/): CoLoRe input bias $b_{\rm in}(z)$.
+- [`thresholds/tz_<sample>.txt`](../colore_setup/inputs/thresholds/): density threshold $t(z)$.
 
-**This box was run using the LINEAR bias model of CoLoRe.**
-
-The file [param.cfg](param.cfg) contains the input parameters to reproduce the colore box. The config file refers to five different files:
-
-- File [pk_linear.dat](pk_linear.dat) contains the linear matter power spectrum $P_{\rm mm, lin}(k)$ at $z=0$.
-- Files [nz_survey_galaxy.txt](../colore_files/nz/nz_desi_qso.txt) contain the redshift distributions per square degree $n(z)=dN(z)/d\Omega dz$ of the different galaxy samples used for this box.
-- Files [bz_survey_galaxy.txt](../colore_files/bz/bz_desi_qso.txt) contain the real galaxy bias parameter $b_g(z)$ evolution with redshift of the different galaxy samples used for this box.
-- Files [bz-input_survey_galaxy.txt](../colore_files/bz-tunning/bz-tunning_desi_qso.txt) contains the input bias parameter $b_{\rm input}(z)$ evolution with redshift of the different galaxy samples used for this box.
-- Files [tz_survey_galaxy.txt](../colore_files/Tz/Tz_desi_qso.txt) contain the threshold parameter $T_{\delta}(z)$ evolution with redshift of the different galaxy samples used for this box.
+The real bias b(z) used in the theory is in [`bias/bz_<sample>.txt`](../colore_setup/inputs/bias/); it is not read by CoLoRe. See §3.3 of the [main README](../../README.md) for the origin of each file.
 
 ## Cosmological parameters
 
-The file [cosmo_params.json](cosmo_params.json) contains the relevant cosmological parameters matching the box along with the box max redshift `z_max` and source plane redshift `z_out`.
+[`cosmo_params.json`](cosmo_params.json) gives the cosmology used to generate the box (Ω_M, Ω_Λ, Ω_B, h, A_s, n_s, w, σ8, Σm_ν), the box maximum redshift `z_max` and the source-plane redshift `z_out`. The analysis reads it to build the theory.
