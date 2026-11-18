@@ -125,7 +125,7 @@ def merge_sources_catalogs(sources_prefix, out_dir, filename, zmean, dz, sigma_z
             Nz, z_edges = np.histogram(Z, bins='fd')  # Binning the redshift distribution with optimal nbins
             z_bin_width = z_edges[1] - z_edges[0]  # Bin width
             z_hist = 0.5 * (z_edges[1:] + z_edges[:-1])  # Bin centers
-            np.savez_compressed(f'{out_dir}/nz_{filename}.npz', z_nz=z_hist, nz=Nz/z_bin_width, z_max=Z.max(), z_min=Z.min(), z_mean=zmean, dz=dz, sigma_z=sigma_z)
+            np.savez_compressed(f'{out_dir}/nz_{filename}.npz', z_nz=z_hist, nz=Nz/z_bin_width, z_max=Z.max(), z_min=Z.min(), z_mean=Z.mean(), z_std=Z.std(), dz=dz, sigma_z=sigma_z)
             nz_saved.append(f'{out_dir}/nz_{filename}.npz')
         
     else:
